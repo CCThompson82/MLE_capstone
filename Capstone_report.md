@@ -168,31 +168,58 @@ and validates the project rationale.
 
 ## Algorithms and Techniques
 
-The first step in the successful implementation of this project will be a
-feature reduction.  A Random Forest model will be used to learn about the
-features of the gene count data set.  This model will not be used for
-prediction; rather it will be used to assess the relative ability of each gene
-to separate metastatic classes in the context of generation of decision trees.  
-The data set will be filtered to include only the most 'important' genes during
-the course of model training.  
+The basic outline for project completion is as follows:
 
-After filtering, the gene count dataset will be transformed via PCA in order to
-compress the gene expression into non-collinear features.  This transformed
-dataset will be used to train a logistic regression model.  
+1. Feature reduction (filter)
+2. Feature compression into a lower dimensional set (removes collinearity)
+3. Training of the probabilistic-classification algorithm
+4. Measure performance of the trained algorithm on an unseen 'test' set, and compare to the benchmark model performance.  
+
+The feature reduction exercise will utilize Random Forest Classifier, not as a
+classification algorithm, but as a method to measure the ability of each gene to
+separate the dataset by metastasis class.  Given noisy data, decision trees (and
+thus Random Forest) classifiers are prone to overfitting, so parameter limits on
+the tree depth and the minimum number of samples that can be split will be defined.  
+The top portion of genes will be subset into a new reduced data set and carried
+into the next project phase.  
+
+The reduced feature data set will be compressed further using Principle Component
+Analysis (PCA).  PCA is an unsupervised learning technique that transforms a
+dataset into its principle components - _i.e._ the orthogonal vectors within the
+data that explain the greatest amount of its variance.  By selecting the
+the most important components, several features may be combined into a lower
+number without significant loss of information.  How many principle components
+will be carried into the algorithm training will depend on the amount of variance
+each component can explain.  For example, if the first principle component that
+explains 95% of the dataset variance, it would not be necessary to bring any other
+principle components forward for further analysis.  
+
+The probabilistic-classification algorithm chosen for this task is the logistic
+regression ('logit') model.  This algorithm was chosen for its inherent ability
+to assess the probability of a binary outcome (_i.e._ metastasis or local
+malignancy) based on continuous input variables.  
+
+Important parameters for the Logistic Regression are:
+
+* regularization equation ('penalty')  
+* solver
+* regularization term ('C')
+
+
 
 ## Benchmark
 
 As personalized medicine (_e.g._ use of a patient's specific genetic or gene
-activation information for therapeutic decisions) is still in early phases, a
-benchmark for use of RNA-seq data for prognosis of metastasis was not available.
-Using Log Loss as a metric, the most conservative model that predicted 50%
-chance of metastasis for each observations would yield a score of ~0.69314.  The
-most aggressive model that  predicted each observation as a 100% (rounded within
-the log loss function) would achieve a log loss score of greater than 28.  To
-establish a fair comparison for a model derived from gene activation data, I
-implemented a logistic regression  model that incorporated the clinical feature
-data that would normally be known  at the time of diagnosis.  These features
-were 'age', 'PSA score', and 'Gleason score'.
+activation information for therapeutic decisions) has not been established in
+mainstream therapy, a benchmark for use of RNA-seq data for prognosis of
+metastasis was not available.  Hypothetically, the most conservative model which
+predicts every test sample as having 50% chance of metastasis would yield a log
+loss score of ~0.69314.   
+
+To establish a more fair benchmark for comparison, a logistic regression model
+that incorporated the clinical information that would normally be known at the
+time of diagnosis was generated.  These features were 'age', 'PSA score', and
+'Gleason score'.
 
 ![Figure 5](/Figures/benchmark.png)
 
@@ -204,16 +231,14 @@ interestingly PSA score (which is the current default test that doctors rely on
 for prostate cancer risk)  provided very little use in classification.  Figure 5
 (left) shows the relationship between Gleason score and the benchmark model's
 prediction of metastasis.  Figure 5 (right) shows the distribution of metastasis
-probabilities, stacked by actual metastasis state.
+probabilities, grouped by actual metastasis state.
 
-The log loss score from this benchmark analysis was 0.55887.  
+The log loss score from this benchmark analysis generally ranged from 0.55 - 0.65, and
+thus was marginally more useful than a '50% model'.    
 
 # Methodology
 
 ##Data Preprocessing
-
-Processing Steps
-1. Label 
 
 During the course of the exploratory visualization, it was apparent that no
 specimens with a Gleason score of 6 were also metastatic (Figure 2).  Notably,
@@ -233,5 +258,5 @@ per million reads, or TPM, format).  Patient samples in this data set were
 limited to those with a metastasis label ('X' - 446 samples by 20501 gene
 features).  This DataFrame was then used to train a Random Forest Classifier.  
 The point of this exercise was not classification, but to assess the importance
-for each gene in class separation utility.  The top 100 genes from this analysis
-were retained, leaving a 446 x 100 dimension DataFrame.  
+for each gene in class separation utility.  The top 20 genes from this analysis
+were retained.  
