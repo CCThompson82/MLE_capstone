@@ -366,18 +366,33 @@ loss](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.
 as the  scoring function.
 
 The next step in model optimization was to feed back the Gleason score, shown to
-be the most important explanatory variable in the benchmark analysis.  It was unclear
-whether adding another feature would contribute to variance or improve generalization.
-Ultimately, the importance of the 2nd and 3rd principle component was tested, to
-determine whether further feature reduction could improve model performance.  
+be the most important explanatory variable in the benchmark analysis.  It was
+unclear whether adding another feature would contribute to variance or improve
+generalization. As the coefficients for the 2nd and 3rd principle component were
+significantly less than the coefficients for the first principle component and Gleason
+score, they were removed from the final model to achieve an incremental increase
+in model performance.  An alternative to this approach would have been to change
+the regularization function to 'l1', which would have the effect to silence the
+contribution of the less-important features on calculation of the dependent variable.  
 
 # Results
 
 ## Model Evaluation and Validation
 
+### Final Model
 
+The final logistic regression model receives 2 feature variables:
 
+1. Gleason score
+2. the first principle component from a PCA transformed subset of 20 gene activation values
 
+The coefficients for these features were 0.58 and 0.52, respectively, indicating
+they contribute roughly evenly to class prediction.  The regularization parameter
+was set to 1e4.  
+
+### Performance
+
+From this final model, a log loss score 
 
 
 
