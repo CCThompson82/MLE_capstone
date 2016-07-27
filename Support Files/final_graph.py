@@ -21,3 +21,5 @@ A.plot(range(0,metric_stat.shape[0],1),
           color = 'black', label = 'LogLoss score',
           marker= 'o')
 A.legend(loc=2)
+A.set_ylabel('Metric Score', fontsize=16)
+fig.suptitle('Summary of project test set performance', fontsize = 20)
