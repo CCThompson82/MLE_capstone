@@ -1,7 +1,7 @@
 fig = plt.figure(figsize=(8,8))
 A = fig.add_subplot(1,1,1)
 ya = 0.2
-yb = 0.8
+yb = 0.9
 A.set_ylim(ya,yb)
 A.set_xlim(-0.5,4.5)
 A.xaxis.set_major_formatter(plt.NullFormatter())
