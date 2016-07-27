@@ -240,23 +240,78 @@ thus was marginally more useful than a '50% model'.
 
 ##Data Preprocessing
 
-During the course of the exploratory visualization, it was apparent that no
-specimens with a Gleason score of 6 were also metastatic (Figure 2).  Notably,
-the metastasis state for many cases in this Gleason category were missing.  In
-order to make more efficient use the TCGA cohort data set, these cases with
-missing metastasis state were assumed to be 'n0'.  The justification for this
-decision lies in the fact that a doctor would likely not require a metastasis
-test for mild cases, and thus a non-metastatic cancer should be assumed in these
-cases.  Given a much bigger data set, then this assumption would not be
-necessary, and  all cases with missing label could be excluded.  Indeed, for
-cases scored Gleason  7-10 with missing metastasis labels were excluded from
-analysis.  
+Samples with a Gleason score of 6 were homogenous in metastasis state (all
+'n0'). Therefore, any sample of Gleason score equal to 6 where the metastasis
+label was missing, was treated as an 'n0' sample.  This assumption is grounded
+in the  procedures followed by urologist upon Gleason screening - those with low
+grade  malignancy are usually not screened from metastasis and this is probably
+the  source of missing data labels in the TCGA cohort.  This step allowed more
+efficient use of a rather small dataset.  Given a much bigger data set, then
+this assumption would not be necessary, and  all cases with missing label could
+be excluded.  Indeed, for cases scored 7-10 on the Gleason scale where no labels
+were included in the clinical data were excluded from further analysis.  
 
-The primary gene count data set was normalized in such that each patient's gene
-count profile summated to 1 million reads (_i.e._ each value is in transcript
-per million reads, or TPM, format).  Patient samples in this data set were
-limited to those with a metastasis label ('X' - 446 samples by 20501 gene
-features).  This DataFrame was then used to train a Random Forest Classifier.  
-The point of this exercise was not classification, but to assess the importance
-for each gene in class separation utility.  The top 20 genes from this analysis
-were retained.  
+The gene count data retrieved from the TCGA portal was in an intermediary
+format.  While the raw RNA-sequence reads had been processed into gene
+activation estimations, each specimens profile required normalization for
+cross-comparison.   Therefore, the initial gene count dataset was transformed to
+transcripts per million (TPM) format.  This dataframe ('X') was the base upon
+which further feature reduction and test train splitting would be performed.  
+
+## Implementation
+
+Feature reduction was completed in two steps.  The first was to utilize the
+generation of a Random Forest classifier to supply information regarding the
+importance of each gene in the separation of metastasis states.  As the Random
+Forest model was not intended for actual classification purposes (due to the
+small sample size of the dataset), only key default parameters were altered.  
+Specifically, the maximum tree depth was limited to 3 nodes, and the minimum
+number of samples that could be split was limited to 30.  These parameter choices
+were instrumental in preventing any form of extraordinary variance.  The 'Gini
+Importance' of each feature was retrieved from the model and the genes ranked
+in the order of importance.  Originally, the top 200 genes were retained for the
+input dataset, however this was later reduced to 20 genes (explanation below).
+
+This 20 gene set was scaled to standard mean and unit variance.  
+
+The second phase of Feature reduction was Principle component analysis
+compression. A further compression was performed in which PCA was utilized to
+transform the 20-feature dataset into its principle components.  The contribution
+from the 20 genes in each of the first three principle components is visualized
+in Figure 6.  
+
+![Figure 6](/Figures/PCA_explained_variance.png)
+
+**Figure 6** - Explained variance and Gene feature contribution to the first three principle components of the PCA transformation.  
+
+The initial plan was to provide the full  complement of principle components
+(originally, 200) to the logistic regression classifier as training data, and
+subsequently use each component's coefficient to  assess which were most able to
+explain the independent variable.  However, graphical analysis of the PCA
+transformed dataset revealed that the first principle component clearly
+separated the two metastasis states into separate Gaussian distributions,
+despite the fact that PCA is an unsupervised learning algorithm.  This
+separation was not evident in any other principle component that was graphically
+observed, however the same result for the first Principle component was observed
+irrespective of whether 10, 20, 50, 100, 200, or 400 genes were retained from
+the Gini Importance filter step.  Upon reflection, it is not surprising that the
+eigenvector where the most variance in the dataset was contained (_i.e._ the
+first principle component) would separate the class labels, given that only
+genes where a significant difference in gene expression between the class labels
+were supplied to the learner.  By creating a pipeline from the  Gini Importance
+filter directly into the PCA transformation, that I had created something akin
+to a Linear Discriminant Analysis (LDA).  Indeed a Logisitic regression model
+trained on the LDA transformation of the reduced, scaled feature set did perform
+as well as the first principle component in this pipeline.
+
+![Figure 7](/Figures/PC_components_scatter_matrix.png)
+
+**Figure 7** - The first component in a Gini Importance Filter into PCA pipeline correlates to metastasis state.  The second and third principle components are also shown for reference.  
+
+As the majority of variance was contained within the first component of this
+analysis, and seemed to, at least graphically, separate the metastasis states,
+the first three principle components were retained for input into a Logistic
+regression learner.   The transformed and reduced dataset was appropriated into
+train and test sets  using the original train and test set indices generated
+earlier within the benchmark analysis (aiding comparison of models due to
+consistent sample splits).  
