@@ -328,16 +328,14 @@ retained and samples split into train and test sets using the original train,
 test indices from the benchmark model generation, in which the
 [train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
 function was employed to generate a 75% train versus 25% test set.  By
-appropriating the samples into train and test sets consistently, comparison of
-the benchmark to current models is aided.  
+appropriating the samples into train and test sets consistently, comparison among
+the models is aided.
 
-A [Logistic
-Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV)
-classifier was done with 4 fold cross-validation across a 10-log range of
-regularization (C) parameters using [log
-loss](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss)
-as the  scoring function.  The class-weight parameter was set to 'balanced' to
-aid training in the context of an unbalanced label set.  The solver for the
+A [Logistic Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model was allowed to learn with the 'Training' set described.  For this learning, the class-weight parameter was set to 'balanced' in order to guard against confounding effects of the unbalanced label set in model performance.  The
+regularization ('C') parameter was left at the default value of 1.  The C term is
+inversely proportional to the penalties awarded for misclassified samples.  As this
+dataset appears to be noisy from graphical analysis, I hypothesized a higher regularization
+term may increase performance of the model for future optimizations.  The solver for the
 algorithm was kept at the default 'liblinear' function which is most useful
 against smaller datasets, such as the one in this project.  
 
@@ -359,8 +357,26 @@ folder in the GitHub repository.
 
 ## Refinement
 
-Cross-validation and regularization parameter validation was completed within the first
-instance of algorithm generation.   
+In order to optimize the C parameter, or to determine whether the default was
+indeed optimal,  a [Logistic
+Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV)
+classifier generated using 4 fold cross-validation across a 10-log range for C.
+Performance was measured using [log
+loss](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss)
+as the  scoring function.
+
+The next step in model optimization was to feed back the Gleason score, shown to
+be the most important explanatory variable in the benchmark analysis.  It was unclear
+whether adding another feature would contribute to variance or improve generalization.
+Ultimately, the importance of the 2nd and 3rd principle component was tested, to
+determine whether further feature reduction could improve model performance.  
+
+# Results
+
+## Model Evaluation and Validation
+
+
+
 
 
 
