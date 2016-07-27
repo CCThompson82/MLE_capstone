@@ -403,6 +403,10 @@ model over the benchmark analysis.  In most runs, the F2 score (which weights
 recall twice as important as precision for the 'n1' class prediction) for the
 final model reached greater than 0.75.   
 
+![Figure 8](/Figures/final_figure.png)
+
+**Figure 8 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better in all three metrics measured than the benchmark model.  
+
 ## Justification
 
 
