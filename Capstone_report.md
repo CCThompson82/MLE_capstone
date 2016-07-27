@@ -86,7 +86,7 @@ relation to the difference between the actual class {0,1} and predicted
 probability (0:1).  Predictions that are both incorrect and confident are
 punished harshly.  For instance, were a prediction to call an example as
 absolutely true (1) and the example was actually false (0), then infinity would
-be returned. Thus, the log loss function in sklearn caps predicted probabilities
+be returned. Thus, the log loss functions caps predicted probabilities
 away from 0 or 1 to  avoid this situation.  An ultra-conservative model that
 predicted 0.5 for every observation (effectively not taking either stance in
 classification) would have a benchmark log loss score of approximately 0.693147.
@@ -95,7 +95,7 @@ classification) would have a benchmark log loss score of approximately 0.693147.
 
 ## Data Exploration
 
-'The Cancer Genome Atlas'(TCGA) is a research consortium set up to curate
+['The Cancer Genome Atlas' (TCGA)](www.http://cancergenome.nih.gov/) is a research consortium set up to curate
 clinical data from thousands of patient participants, covering an array of
 cancer types.   Provided data includes basic clinical information as well as DNA
 and RNA sequencing of cancer biopsies. These data sets are updated frequently as
@@ -217,9 +217,9 @@ predicts every test sample as having 50% chance of metastasis would yield a log
 loss score of ~0.69314.   
 
 To establish a more fair benchmark for comparison, a logistic regression model
-that incorporated the clinical information that would normally be known at the
-time of diagnosis was generated.  These features were 'age', 'PSA score', and
-'Gleason score'.
+(see methodology below) that incorporated the clinical information that would
+normally be known at the time of diagnosis was generated.  These features were
+'age', 'PSA score', and 'Gleason score'.
 
 ![Figure 5](/Figures/benchmark.png)
 
@@ -238,11 +238,22 @@ thus was marginally more useful than a '50% model'.
 
 # Methodology
 
-##Data Preprocessing
+## Source Files
+
+The datasets were retrieved from the TCGA portal using an R package,
+[TCGA2STAT](https://cran.r-project.org/web/packages/TCGA2STAT/index.html), and
+written as a [feather](https://github.com/wesm/feather) files to be uploaded
+into the python environment.  The R script and feather files are available in
+this project's GitHub repository
+[MLE_capstone](https://github.com/CCThompson82/MLE_capstone).  All algorithms
+were imported from the [scikit-learn](http://scikit-learn.org/stable/) library,
+version 0.17.  
+
+## Data Preprocessing
 
 Samples with a Gleason score of 6 were homogenous in metastasis state (all
 'n0'). Therefore, any sample of Gleason score equal to 6 where the metastasis
-label was missing, was treated as an 'n0' sample.  This assumption is grounded
+label was missing, 'n0' was imputed for the missing label.  This assumption is grounded
 in the  procedures followed by urologist upon Gleason screening - those with low
 grade  malignancy are usually not screened from metastasis and this is probably
 the  source of missing data labels in the TCGA cohort.  This step allowed more
@@ -261,20 +272,21 @@ which further feature reduction and test train splitting would be performed.
 ## Implementation
 
 Feature reduction was completed in two steps.  The first was to utilize the
-generation of a Random Forest classifier to supply information regarding the
+generation of a [Random Forest Classifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier) to supply information regarding the
 importance of each gene in the separation of metastasis states.  As the Random
 Forest model was not intended for actual classification purposes (due to the
 small sample size of the dataset), only key default parameters were altered.  
 Specifically, the maximum tree depth was limited to 3 nodes, and the minimum
 number of samples that could be split was limited to 30.  These parameter choices
 were instrumental in preventing any form of extraordinary variance.  The 'Gini
-Importance' of each feature was retrieved from the model and the genes ranked
+Impurity' of each feature was retrieved from the model and the genes ranked
 in the order of importance.  Originally, the top 200 genes were retained for the
 input dataset, however this was later reduced to 20 genes (explanation below).
 
-This 20 gene set was scaled to standard mean and unit variance.  
+This 20 gene set was scaled to standard mean and unit variance using the sklearn
+[Standard Scaler](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler).  
 
-The second phase of Feature reduction was Principle component analysis
+The second phase of Feature reduction was [Principle Component Analysis](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA)
 compression. A further compression was performed in which PCA was utilized to
 transform the 20-feature dataset into its principle components.  The contribution
 from the 20 genes in each of the first three principle components is visualized
@@ -294,24 +306,76 @@ despite the fact that PCA is an unsupervised learning algorithm.  This
 separation was not evident in any other principle component that was graphically
 observed, however the same result for the first Principle component was observed
 irrespective of whether 10, 20, 50, 100, 200, or 400 genes were retained from
-the Gini Importance filter step.  Upon reflection, it is not surprising that the
+the Gini Impurity filter step.  Upon reflection, it is not surprising that the
 eigenvector where the most variance in the dataset was contained (_i.e._ the
 first principle component) would separate the class labels, given that only
 genes where a significant difference in gene expression between the class labels
 were supplied to the learner.  By creating a pipeline from the  Gini Importance
 filter directly into the PCA transformation, that I had created something akin
-to a Linear Discriminant Analysis (LDA).  Indeed a Logisitic regression model
+to a [Linear Discriminant Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html) (LDA).  Indeed a Logisitic regression model
 trained on the LDA transformation of the reduced, scaled feature set did perform
 as well as the first principle component in this pipeline.
 
 ![Figure 7](/Figures/PC_components_scatter_matrix.png)
 
-**Figure 7** - The first component in a Gini Importance Filter into PCA pipeline correlates to metastasis state.  The second and third principle components are also shown for reference.  
+**Figure 7** - The first component in a Gini Impurity filter into PCA pipeline correlates to metastasis state.  The second and third principle components are also shown for reference.  
 
 As the majority of variance was contained within the first component of this
 analysis, and seemed to, at least graphically, separate the metastasis states,
-the first three principle components were retained for input into a Logistic
-regression learner.   The transformed and reduced dataset was appropriated into
-train and test sets  using the original train and test set indices generated
-earlier within the benchmark analysis (aiding comparison of models due to
-consistent sample splits).  
+inclusion of  a large number of principle components into the training of the
+learner was not  necessary.  Thus, the first three principle components were
+retained and samples split into train and test sets using the original train,
+test indices from the benchmark model generation, in which the
+[train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
+function was employed to generate a 75% train versus 25% test set.  By
+appropriating the samples into train and test sets consistently, comparison of
+the benchmark to current models is aided.  
+
+A [Logistic
+Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV)
+classifier was done with 4 fold cross-validation across a 10-log range of
+regularization (C) parameters using [log
+loss](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss)
+as the  scoring function.  The class-weight parameter was set to 'balanced' to
+aid training in the context of an unbalanced label set.  The solver for the
+algorithm was kept at the default 'liblinear' function which is most useful
+against smaller datasets, such as the one in this project.  
+
+Results were visualized using graphs generated with the
+[matplotlib](http://matplotlib.org/index.html)   package.  Performance of the
+logistic regression model was tested against the held-out test set using the
+[log
+loss](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss)
+metric.  For reference, the [F2
+score](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.fbeta_score.html)
+and [Matthews Correlation
+Coefficient](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)
+scores are also listed, though they describe the performance of the algorithm to
+correctly classify metastasis state.  Both the graphical analysis and metric
+reports were generated for each testing cycle using the scripts supplied in the
+['Support
+Files'](https://github.com/CCThompson82/MLE_capstone/tree/master/Support%20Files)
+folder in the GitHub repository.  
+
+## Refinement
+
+Cross-validation and regularization parameter validation was completed within the first
+instance of algorithm generation.   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[End]
