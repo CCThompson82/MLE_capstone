@@ -392,9 +392,32 @@ was set to 1e4.
 
 ### Performance
 
-From this final model, a log loss score 
+Due to the small sample size of the original data set (just 446 samples), the
+test set validation scores exhibit some variation from run to run, apparently
+depending on the training versus test set appropriation.  The final model test
+set log loss score ranged from 0.4272 to 0.4949 in five consecutive runs.  In the
+same runs the benchmark log loss score ranged from  0.560-0.596, showing that
+the final model was significantly more improved than the benchmark.  Taken
+further, outright classification metrics also showed improvement in the final
+model over the benchmark analysis.  In most runs, the F2 score (which weights
+recall twice as important as precision for the 'n1' class prediction) for the
+final model reached greater than 0.75.   
+
+## Justification
 
 
+
+# Conclusion
+
+## Visualization
+
+
+
+## Reflection
+
+
+
+## Improvement
 
 
 
