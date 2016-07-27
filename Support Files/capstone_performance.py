@@ -5,3 +5,11 @@ print('\nMCC: ',matthews_corrcoef(y_test, clf_LR.predict(X_test)),"\n")
 print(classification_report(y_test, clf_LR.predict(X_test), labels = ['n0','n1']))
 print('\nLogLoss: ', log_loss(y_test.replace({'n0':0, 'n1':1}),
          clf_LR.predict_proba(X_test)[:,1]))
+
+metric_stat = metric_stat.append(pd.DataFrame({'F2': fbeta_score(y_test, clf_LR.predict(X_test), pos_label='n1',beta=2),
+                                 'MCC': matthews_corrcoef(y_test, clf_LR.predict(X_test)),
+                                 'LogLoss':log_loss(y_test.replace({'n0':0, 'n1':1}),
+                                           clf_LR.predict_proba(X_test)[:,1])}, index = [run_name]),
+                                           ignore_index=False)
+
+print("\n\n",metric_stat)
