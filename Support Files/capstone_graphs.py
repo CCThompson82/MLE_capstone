@@ -47,6 +47,7 @@ C.set_ylabel('Model probability of metastasis')
 D.set_xlabel('Gleason score')
 D.set_ylim(0,1.05)
 D.set_xlim(5,11)
+fig.legend(labels = ['n0', 'n1'], handles= [blue,red], loc = 5)
 #B.legend()
 #bench_fig.title("Prediction of Metastasis")
 #plt.show
