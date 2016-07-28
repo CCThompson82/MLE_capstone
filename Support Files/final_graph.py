@@ -27,7 +27,7 @@ A.plot(range(0,training_stat.shape[0],1),
           linestyle ='--')
 A.plot(range(0,metric_stat.shape[0],1),
           metric_stat['MCC'],
-          color = 'green', label = 'MCC score',
+          color = 'green', label = 'MCC test score',
           marker= 'o')
 A.plot(range(0,training_stat.shape[0],1),
           training_stat['MCC'],
@@ -36,7 +36,7 @@ A.plot(range(0,training_stat.shape[0],1),
           linestyle ='--')
 B.plot(range(0,metric_stat.shape[0],1),
           metric_stat['LogLoss'],
-          color = 'black', label = 'LogLoss score',
+          color = 'black', label = 'LogLoss test score',
           marker= 'o')
 B.plot(range(0,training_stat.shape[0],1),
           training_stat['LogLoss'],

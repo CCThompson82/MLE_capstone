@@ -387,10 +387,22 @@ The final logistic regression model receives 2 feature variables:
 2. the first principle component from a PCA transformed subset of 20 gene activation values
 
 The coefficients for these features were 0.58 and 0.52, respectively, indicating
-they contribute roughly evenly to class prediction.  The regularization parameter
-was set to 1e4.  
+they contribute roughly evenly to dependent variable prediction.  The optimal
+regularization parameter was regularly determined to exceed 1000, indicating
+stringent penalties for misclassification were detrimental to model performance
+in the log loss metric; this observation is consistent with working in a noisy
+data environment.  
 
 ### Performance
+
+This project's strategy was to leave out 20% of the original dataset to use as
+a true validation of the models' generalization capability.  Due to the small
+sample size of the dataset, ecsacerbated by missing data labels, this resulted
+in marginal amount of run to run variation, dependent on which samples were
+partitioned into the training versus test set.  The code was run across several
+different random state seeds and the model performance on the log loss metric
+ranged from 0.43-0.55 to   
+
 
 Due to the small sample size of the original data set (just 446 samples), the
 test set validation scores exhibit some variation from run to run, apparently
@@ -406,6 +418,12 @@ final model reached greater than 0.75.
 ![Figure 8](/Figures/final_figure.png)
 
 **Figure 8 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better in all three metrics measured than the benchmark model.  
+
+### Sensitivity analysis
+
+In order to increase the consistency in test set performance measurement from
+run to run, the train, test set split was performed such that the y label would
+be stratified equally.  
 
 ## Justification
 
