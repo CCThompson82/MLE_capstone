@@ -312,9 +312,11 @@ first principle component) would separate the class labels, given that only
 genes where a significant difference in gene expression between the class labels
 were supplied to the learner.  By creating a pipeline from the  Gini Importance
 filter directly into the PCA transformation, that I had created something akin
-to a [Linear Discriminant Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html) (LDA).  Indeed a Logisitic regression model
-trained on the LDA transformation of the reduced, scaled feature set did perform
-as well as the first principle component in this pipeline.
+to a [Linear Discriminant
+Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
+(LDA).  Indeed a Logisitic regression model trained on the LDA transformation of
+the reduced, scaled feature set did perform as well as the first principle
+component in this pipeline.
 
 ![Figure 7](/Figures/PC_components_scatter_matrix.png)
 
@@ -323,21 +325,34 @@ as well as the first principle component in this pipeline.
 As the majority of variance was contained within the first component of this
 analysis, and seemed to, at least graphically, separate the metastasis states,
 inclusion of  a large number of principle components into the training of the
-learner was not  necessary.  Thus, the first three principle components were
-retained and samples split into train and test sets using the original train,
-test indices from the benchmark model generation, in which the
-[train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
-function was employed to generate a 75% train versus 25% test set.  By
-appropriating the samples into train and test sets consistently, comparison among
-the models is aided.
+logistic regression learner was not necessary.  Thus, just the first three principle components were
+retained in the input dataset pipeline.  
 
-A [Logistic Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model was allowed to learn with the 'Training' set described.  For this learning, the class-weight parameter was set to 'balanced' in order to guard against confounding effects of the unbalanced label set in model performance.  The
-regularization ('C') parameter was left at the default value of 1.  The C term is
-inversely proportional to the penalties awarded for misclassified samples.  As this
-dataset appears to be noisy from graphical analysis, I hypothesized a higher regularization
-term may increase performance of the model for future optimizations.  The solver for the
-algorithm was kept at the default 'liblinear' function which is most useful
-against smaller datasets, such as the one in this project.  
+This 3-feature dataset was then partitioned using the same indices from the
+first
+[train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
+that was performed prior to the benchmark model generation.  In detail, this
+split  partioned 70% of the samples into the training set, with 30% being held
+out for validation.  The  data was stratified by Gleason score, which was used
+as a surrogate measure for cancer severity. While not a perfect solution, this
+decision was made to ensure that 'easy' (_e.g._ mild or extremely severe
+malignancies) and 'difficult' (_e.g._ malignancies on the border between
+moderate and severe) cases would be distributed equally.  Another option would
+have been to stratify by  metastasis label (see 'Reflection' section for
+discussion on this decision).  
+
+A [Logistic
+Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+model was then fit on the the 'Training' set described.  For this learning, the
+class-weight parameter was set to 'balanced' in order to guard against
+confounding effects of the unbalanced label set in model performance.  The
+regularization ('C') parameter was left at the default value of 1.  The C term
+is inversely proportional to the penalties awarded for misclassified samples.
+As this dataset appears to be noisy from graphical analysis, I hypothesized a
+higher regularization term may increase performance of the model for future
+optimizations.  The solver for the algorithm was kept at the default 'liblinear'
+function which is most useful against smaller datasets, such as the one in this
+project.  
 
 Results were visualized using graphs generated with the
 [matplotlib](http://matplotlib.org/index.html)   package.  Performance of the
@@ -386,48 +401,47 @@ The final logistic regression model receives 2 feature variables:
 1. Gleason score
 2. the first principle component from a PCA transformed subset of 20 gene activation values
 
-The coefficients for these features were 0.58 and 0.52, respectively, indicating
+The coefficients for these features were routinely equivalent, indicating
 they contribute roughly evenly to dependent variable prediction.  The optimal
-regularization parameter was regularly determined to exceed 1000, indicating
-stringent penalties for misclassification were detrimental to model performance
-in the log loss metric; this observation is consistent with working in a noisy
-data environment.  
-
-### Performance
-
-This project's strategy was to leave out 20% of the original dataset to use as
-a true validation of the models' generalization capability.  Due to the small
-sample size of the dataset, ecsacerbated by missing data labels, this resulted
-in marginal amount of run to run variation, dependent on which samples were
-partitioned into the training versus test set.  The code was run across several
-different random state seeds and the model performance on the log loss metric
-ranged from 0.43-0.55 to   
-
-
-Due to the small sample size of the original data set (just 446 samples), the
-test set validation scores exhibit some variation from run to run, apparently
-depending on the training versus test set appropriation.  The final model test
-set log loss score ranged from 0.4272 to 0.4949 in five consecutive runs.  In the
-same runs the benchmark log loss score ranged from  0.560-0.596, showing that
-the final model was significantly more improved than the benchmark.  Taken
-further, outright classification metrics also showed improvement in the final
-model over the benchmark analysis.  In most runs, the F2 score (which weights
-recall twice as important as precision for the 'n1' class prediction) for the
-final model reached greater than 0.75.   
+regularization parameter was regularly determined as the maximum value tested, which is an
+indication of noisy (_i.e._ not linearly separable) data.
 
 ![Figure 8](/Figures/final_figure.png)
 
-**Figure 8 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better in all three metrics measured than the benchmark model.  
+**Figure 8 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better than the benchmark model in three metrics tested.
 
-### Sensitivity analysis
+The error / accuracy rate of three performance metrics was often similar
+between the training sample and test sample set predictions, indicating the
+model was not over-fit.  As only 2 feature  variables were incorporated into the
+training of the final model, the possibility of bias was present.  However
 
-In order to increase the consistency in test set performance measurement from
-run to run, the train, test set split was performed such that the y label would
-be stratified equally.  
+### Test set Validation
+
+Seed    LogLoss   Benchmark_LogLoss   %_Improvement_over_benchmark
+1       0.508049  0.594456            14.5
+12      0.477352  0.570673            16.5
+123     0.474036  0.644465            26.3
+1234    0.467069  0.617577            24.3
+12345   0.468992  0.606186            22.6
+
+
+This project's strategy was to leave out 30% of the original dataset to use as a
+true validation of the models' generalization capability.  The final model test
+set log loss score ranged from 0.467 to 0.508 across five different random state
+seeds, indicating that modification of the training and test set samples did not
+affect outcome of model performance.
 
 ## Justification
 
+The final logistic regression model was always more accurate in predicting the
+probability of prostate cancer  metastasis than the benchmark model.  Over the five
+consecutive runs described above, an average improvement of 20.8% in log loss
+score was achieved over the starting benchmark score.  
 
+Could this model be used in practice?  My impression is that the recall of the
+final model is not likely sensitive enough to be used in the decision of whether
+surgical resection (removal) of the prostate is warranted.  The recall for 'metastasis'
+class was consistently in the 80% range 
 
 # Conclusion
 
