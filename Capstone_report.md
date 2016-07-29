@@ -296,38 +296,6 @@ in Figure 6.
 
 **Figure 6** - Explained variance and Gene feature contribution to the first three principle components of the PCA transformation.  
 
-The initial plan was to provide the full  complement of principle components
-(originally, 200) to the logistic regression classifier as training data, and
-subsequently use each component's coefficient to  assess which were most able to
-explain the independent variable.  However, graphical analysis of the PCA
-transformed dataset revealed that the first principle component clearly
-separated the two metastasis states into separate Gaussian distributions,
-despite the fact that PCA is an unsupervised learning algorithm.  This
-separation was not evident in any other principle component that was graphically
-observed, however the same result for the first Principle component was observed
-irrespective of whether 10, 20, 50, 100, 200, or 400 genes were retained from
-the Gini Impurity filter step.  Upon reflection, it is not surprising that the
-eigenvector where the most variance in the dataset was contained (_i.e._ the
-first principle component) would separate the class labels, given that only
-genes where a significant difference in gene expression between the class labels
-were supplied to the learner.  By creating a pipeline from the  Gini Importance
-filter directly into the PCA transformation, that I had created something akin
-to a [Linear Discriminant
-Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
-(LDA).  Indeed a Logisitic regression model trained on the LDA transformation of
-the reduced, scaled feature set did perform as well as the first principle
-component in this pipeline.
-
-![Figure 7](/Figures/PC_components_scatter_matrix.png)
-
-**Figure 7** - The first component in a Gini Impurity filter into PCA pipeline correlates to metastasis state.  The second and third principle components are also shown for reference.  
-
-As the majority of variance was contained within the first component of this
-analysis, and seemed to, at least graphically, separate the metastasis states,
-inclusion of  a large number of principle components into the training of the
-logistic regression learner was not necessary.  Thus, just the first three principle components were
-retained in the input dataset pipeline.  
-
 This 3-feature dataset was then partitioned using the same indices from the
 first
 [train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
@@ -341,18 +309,17 @@ moderate and severe) cases would be distributed equally.  Another option would
 have been to stratify by  metastasis label (see 'Reflection' section for
 discussion on this decision).  
 
-A [Logistic
-Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
-model was then fit on the the 'Training' set described.  For this learning, the
-class-weight parameter was set to 'balanced' in order to guard against
-confounding effects of the unbalanced label set in model performance.  The
-regularization ('C') parameter was left at the default value of 1.  The C term
-is inversely proportional to the penalties awarded for misclassified samples.
-As this dataset appears to be noisy from graphical analysis, I hypothesized a
-higher regularization term may increase performance of the model for future
-optimizations.  The solver for the algorithm was kept at the default 'liblinear'
-function which is most useful against smaller datasets, such as the one in this
-project.  
+The training data set was then fed to a [Logistic
+Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model.
+For this learning, the class-weight parameter was set to 'balanced' in order to
+guard against confounding effects of the unbalanced label set in model
+performance.  The regularization ('C') parameter was left at the default value
+of 1.  The C term is inversely proportional to the penalties awarded for
+misclassified samples. As this dataset appears to be noisy from graphical
+analysis, I hypothesized a higher regularization term may increase performance
+of the model for future optimizations.  The solver for the algorithm was kept at
+the default 'liblinear' function which is most useful against smaller datasets,
+such as the one in this project.  
 
 Results were visualized using graphs generated with the
 [matplotlib](http://matplotlib.org/index.html)   package.  Performance of the
@@ -406,9 +373,9 @@ they contribute roughly evenly to dependent variable prediction.  The optimal
 regularization parameter was regularly determined as the maximum value tested, which is an
 indication of noisy (_i.e._ not linearly separable) data.
 
-![Figure 8](/Figures/final_figure.png)
+![Figure 7](/Figures/final_figure.png)
 
-**Figure 8 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better than the benchmark model in three metrics tested.
+**Figure 7 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better than the benchmark model in three metrics tested.
 
 The error / accuracy rate of three performance metrics was often similar
 between the training sample and test sample set predictions, indicating the
@@ -417,12 +384,15 @@ training of the final model, the possibility of bias was present.  However
 
 ### Test set Validation
 
-Seed    LogLoss   Benchmark_LogLoss   %_Improvement_over_benchmark
-1       0.508049  0.594456            14.5
-12      0.477352  0.570673            16.5
-123     0.474036  0.644465            26.3
-1234    0.467069  0.617577            24.3
-12345   0.468992  0.606186            22.6
+**Table 1**- Performance across 5 random seeds  
+
+| Seed    | LogLoss   | Benchmark_LogLoss   | %_Improvement_over_benchmark |
+|---------|-----------|---------------------|-----------------------------|
+| 1       | 0.508049  | 0.594456            | 14.5 |
+|12      |0.477352  |0.570673            |16.5
+|123     |0.474036  |0.644465            |26.3
+|1234    |0.467069  |0.617577            |24.3
+|12345   |0.468992  |0.606186            |22.6
 
 
 This project's strategy was to leave out 30% of the original dataset to use as a
@@ -443,30 +413,105 @@ score was achieved over the starting benchmark score.
 
 ## Free-Form Visualization
 
-The purpose of this project was to generate a model capable of supplying a
-patient and doctor with a metric for risk of Prostate Cancer metastasis that
-was more useful than simple use of the 'Gleason Score'.  A function was written
+A function was written
 that accepts an RNA-seq gene count profile (in TPM format), and outputs the
 model risk for metastasis.  This function was applied to every sample for which
 no label was given and showed that a significant portion of patients in the cohort
 exhibit a high level of risk for metastasis.   
 
-![Figure 9](/Figures/Label_missing.png)
+![Figure 8](/Figures/Label_missing.png)
 
-**Figure 9** - TCGA cohort patient samples that did not include a metastasis
+**Figure 8** - Metastasis predictions for unlabeled TCGA cohort samples.
+TCGA cohort patient samples that did not include a metastasis
 label and were Gleason range 7-10 were omitted from model learning and validation.
 Samples are subjected to the risk analysis function and plotted against the
 benchmark model prediction (left) and Gleason score (right).
 
 
-![Figure 10](/Figures/n0_re-analysis.png)
+![Figure 9](/Figures/n0_re-analysis.png)
 
-**Figure 10** - 
+**Figure 9** - Distribution of metastis probability for samples labeled and
+presumed to be non-metastatic.  Many examples are predicted to have a high likelihood
+of metastasis.  
 
 
 ## Reflection
 
+The purpose of this project was to generate a model capable of supplying a
+patient and doctor with a metric for risk of Prostate Cancer metastasis that
+was more useful than simple use of the 'Gleason Score'.  To accomplish this,
+RNA-seq (gene activation profile) was explored as a potential inroad into
+personalized therapy for newly diagnosed Prostate cancer patients.  From a machine learning perspective, the difficulty in this task was that a single gene activation
+profile contains 20501 features.  Understanding which of these features were capable
+of explaining metastasis outcome, if any, was paramount to the project's success.
 
+There are many techniques for feature reduction.  One avenue explored was feature
+elimination via a wrapping mechanism.  However this approach was very slow and
+provided inconsistent results in which features and how many features, were important.
+A different approach, which was successful, was to utilize the training of an
+ensemble Random Forest classifer, not for its use in classification, but in order
+to access its assessment of which genes were most informative in separation of the
+metastasis classes.  Despite the inherent random sampling employed by this approach,
+results were largely stable with 10-15 genes returned in the top ranked 20 in almost
+every run, across several random seeds.  
+
+Visualized individually, none of these 20 genes could separate the metastasis state
+linearly.
+
+![Figure 10](/Figures/Gene_separation.png)
+
+**Figure 10** - Genes with the highest 'Gini Impurity' score were not able to separate
+metastasis class linearly.  
+
+However, when compressed into principle components, this 20 feature set became
+predictive.  I chose to retain the top 3 principle components of the 20-feature set,
+due to the noise levels expected from the small dataset (at 3 features, this left ~110 examples per feature in the training dataset).  Curiously, with this approach
+the first principle component (labeled '0' in the notebook and relevant figures)
+always
+
+The initial plan was to provide the full  complement of principle components
+(originally, 20) to the logistic regression classifier as training data, and
+subsequently use each component's coefficient to  assess which were most able to
+explain the independent variable in a [Recursive
+Elimination]('http://scikit-learn.org/0.15/modules/generated/sklearn.feature_selection.RFECV.html#sklearn.feature_selection.RFECV')
+wrapping function.  However, graphical analysis of the PCA transformed dataset
+revealed that the first principle component clearly separated the two metastasis
+states into nearly distinct Gaussian distributions, despite the fact that PCA is
+an unsupervised learning algorithm.  The same result  was observed irrespective
+of whether 10, 20, 50, 100, 200, or 400 genes were retained from the Gini
+Impurity filter step.  
+
+How could this be?  Upon reflection, it is not surprising that the
+eigenvector where the most variance in the dataset was contained (_i.e._ the
+first principle component) would separate the class labels, given that only
+genes where a 'significant' difference in gene expression between the class labels
+were supplied to the learner.  By creating a pipeline from the  Gini Importance
+filter directly into the PCA transformation, that I had created something akin
+to a [Linear Discriminant
+Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
+(LDA).  Indeed a Logistic regression model trained on the LDA transformation of
+the reduced, scaled feature set did perform as well as the first principle
+component in this pipeline, despite PCA being an unsupervised learner.  
+
+![Figure 11](/Figures/PC_components_scatter_matrix.png)
+
+**Figure 11** - Analysis of PCA transformation of a 20-gene feature subset.  The
+first principle component of PCA transformation separates metastasis state more
+efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.  
+
+The 3-component feature set was split on the same indices that were generated in
+the training and validation sets used in the benchmark analysis.  This was
+done to aid in model to model comparisons within each run.  To note, this split
+was originally stratified on the y-label (metastasis state).  However, after
+observing moderately inconsistent results for final model validation performance,
+the decision was made to stratify by Gleason score (Cancer severity) of the samples.  
+This decision ensured that difficult cases - those in the middle range of severity -
+were equivalently distributed among the training and test sets, reducing the
+run to run variation vastly.  
+
+Logistic regression was chosen as the predictive model.  Other options were
+Linear Discriminant Analysis (LDA) or linear Support Vector Machine (SVM).  However,
+LDA 
 
 ## Improvement
 
