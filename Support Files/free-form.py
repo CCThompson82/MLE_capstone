@@ -1,11 +1,12 @@
-fig = plt.figure(figsize=(15,10))
-A= fig.add_subplot(2,2,1)
-B = fig.add_subplot(2,2,2)
+fig = plt.figure(figsize=(16,5))
+A= fig.add_subplot(1,2,1)
+B = fig.add_subplot(1,2,2)
 A.scatter(bench_risk,
           model_risk,
           color = 'green',
           alpha = 1,
           s = 25)
+A.set_xlim(0,1)
 B.scatter(clinicalDF_all.loc[not_labeled.index, 'gleason'],
           model_risk,
           color = 'green',
