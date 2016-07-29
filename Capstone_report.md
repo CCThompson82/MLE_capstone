@@ -453,12 +453,15 @@ exhibit a high level of risk for metastasis.
 
 ![Figure 9](/Figures/Label_missing.png)
 
-**Figure 9** -
+**Figure 9** - TCGA cohort patient samples that did not include a metastasis
+label and were Gleason range 7-10 were omitted from model learning and validation.
+Samples are subjected to the risk analysis function and plotted against the
+benchmark model prediction (left) and Gleason score (right).
 
 
 ![Figure 10](/Figures/n0_re-analysis.png)
 
-**Figure 10** -  
+**Figure 10** - 
 
 
 ## Reflection
