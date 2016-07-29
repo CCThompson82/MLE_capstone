@@ -46,5 +46,5 @@ B.plot(range(0,training_stat.shape[0],1),
 A.legend(loc=2)
 B.legend(loc=2)
 A.set_ylabel('Metric Score', fontsize=16)
-fig.suptitle('Summary of Model Performance', fontsize = 20)
+fig.suptitle('Summary of Model Performance Progression', fontsize = 20)
 plt.show()
