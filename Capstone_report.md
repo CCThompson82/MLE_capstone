@@ -438,14 +438,26 @@ probability of prostate cancer  metastasis than the benchmark model.  Over the f
 consecutive runs described above, an average improvement of 20.8% in log loss
 score was achieved over the starting benchmark score.  
 
-Could this model be used in practice?  My impression is that the recall of the
-final model is not likely sensitive enough to be used in the decision of whether
-surgical resection (removal) of the prostate is warranted.  The recall for 'metastasis'
-class was consistently in the 80% range 
 
 # Conclusion
 
-## Visualization
+## Free-Form Visualization
+
+The purpose of this project was to generate a model capable of supplying a
+patient and doctor with a metric for risk of Prostate Cancer metastasis that
+was more useful than simple use of the 'Gleason Score'.  A function was written
+that accepts an RNA-seq gene count profile (in TPM format), and outputs the
+model risk for metastasis.  This function was applied to every sample for which
+no label was given and showed that a significant portion of patients in the cohort
+exhibit a high level of risk for metastasis.   
+
+![Figure 9](/Figures/Label_missing.png)
+
+**Figure 9** -
+
+
+![Figure 10](/Figures/n0_re-analysis.png)
+
 
 
 
