@@ -407,8 +407,19 @@ affect outcome of model performance.
 The final logistic regression model was always more accurate in predicting the
 probability of prostate cancer  metastasis than the benchmark model.  Over the
 five consecutive runs described above, an average improvement of 20.8% in log
-loss score was achieved over the starting benchmark score.  
+loss score was achieved over the starting benchmark score.
 
+As analysis of sensitivity, a metastasis risk function was implemented and tested
+against unlabelled samples, the presumed 'non-metastatic' samples, and matched
+benign controls from the TCGA cohort study.   
+
+![Figure 8](/Figures/Sensitivity_analysis.png)
+
+**Figure 8** - Analysis of risk from matched, benign controls from the TCGA
+cohort data reveal that the final model is stringent.  Samples from this
+cohort were taken from benign areas of patient prostates where malignancies
+were present.  The majority of samples are predicted with a low probability of
+metastasis.  
 
 # Conclusion
 
@@ -419,18 +430,18 @@ format), and outputs the model risk for metastasis.  This function was applied
 to every sample for which no label was given and showed that a significant
 portion of patients in the cohort exhibit a high level of risk for metastasis.   
 
-![Figure 8](/Figures/Label_missing.png)
+![Figure 9](/Figures/Label_missing.png)
 
-**Figure 8** - Metastasis predictions for unlabeled TCGA cohort samples.
+**Figure 9** - Metastasis predictions for unlabeled TCGA cohort samples.
 TCGA cohort patient samples that did not include a metastasis
 label and were Gleason range 7-10 were omitted from model learning and validation.
 Samples are subjected to the risk analysis function and plotted against the
 benchmark model prediction (left) and Gleason score (right).
 
 
-![Figure 9](/Figures/n0_re-analysis.png)
+![Figure 10](/Figures/n0_re-analysis.png)
 
-**Figure 9** - Distribution of metastis probability for samples labeled and
+**Figure 10** - Distribution of metastasis probability for samples labeled and
 presumed to be non-metastatic.  Many examples are predicted to have a high likelihood
 of metastasis.  
 
@@ -454,7 +465,7 @@ time of update could become metastatic at a later date.
 3. Noise in the data -
 no single gene or biomarker had been reported as capable of efficiently
 separating non-metastatic and metastatic cancers(corroborated in this project,
-**Figure 10**).
+**Figure 11**).
 
 
 Thus from a machine learning perspective, it was clear from the project's onset
@@ -477,9 +488,9 @@ random seeds.
 Visualized individually, none of these 20 genes could separate the metastasis
 state linearly.
 
-![Figure 10](/Figures/Gene_separation.png)
+![Figure 11](/Figures/Gene_separation.png)
 
-**Figure 10** - Genes with the highest 'Gini Impurity' score were not able to separate
+**Figure 11** - Genes with the highest 'Gini Impurity' score were not able to separate
 metastasis class linearly.  
 
 However, when compressed into principle components, this 20 feature set became
@@ -519,7 +530,7 @@ had been generated.  Indeed, exploration of an supervised LDA compression of the
 20-feature set yielded a similar level of performance in the final model
 compared to compression via Gini Impurity to PCA pipeline.
 
-![Figure 11](/Figures/PC_components_scatter_matrix.png)
+![Figure 12](/Figures/PC_components_scatter_matrix.png)
 
 **Figure 11** - Analysis of PCA transformation of a 20-gene feature subset.  The
 first principle component of PCA transformation separates metastasis state more
