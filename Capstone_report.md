@@ -512,7 +512,7 @@ the first principle component) would separate the class labels, given that
 _only genes where a 'significant' difference in gene expression between the
 class labels_ were retained and provided to the PCA model.  
 
-By creating a pipeline from the  Gini Importance filter directly into the PCA
+By creating a pipeline from the  Gini Impurity filter directly into the PCA
 transformation, something similar to [Linear Discriminant
 Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
 had been generated.  Indeed, exploration of an supervised LDA compression of the
@@ -604,16 +604,6 @@ Evidence here and elsewhere suggests that no gene or principle component could
 be capable of separating  metastasis state classes, and thus logistic regression
 is an excellent long term  model for prediction.  However, it is possible that
 other sources of information  could help improve model accuracy, including
-genetic or epigenetic specimen data.  Ultimately a great many more number of
-cases will be required to increase the  resolution for metastasis prediction.  
-
-
-
-
-
-
-
-
-
-
-[End]
+genetic or epigenetic specimen data.  Ultimately only increasing the sample size
+will be able to significantly increase the resolution for Prostate cancer metastasis
+prediction.  
