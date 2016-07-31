@@ -26,12 +26,11 @@ sexual function, etc.
 
 Unfortunately, there are currently no prognostic tests for PC metastasis.  The
 patient data  that is typically available at the time of diagnosis is not rich
-enough to accurately predict the likelihood of prostate cancer metastasis
-{citation}.   A model that is able to predict whether an untreated malignancy
-would be likely to remain locally within the prostate or to metastasize could be
-an invaluable tool on whether prostatectomy (and the associated morbidity) is
-necessary.  To generate such a model, a more distinguishing set of feature data
-is required.
+enough to accurately predict the likelihood of prostate cancer metastasis.   A
+model that is able to predict whether an untreated malignancy would be likely to
+remain locally within the prostate or to metastasize could be an invaluable tool
+on whether prostatectomy (and the associated morbidity) is necessary.  To
+generate such a model, a more distinguishing set of feature data is required.
 
 One potential solution to this problem is an RNA-seq profile.  In brief, RNA-seq
 is a technique that reads and counts RNA sequences in a biological specimen
