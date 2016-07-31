@@ -437,19 +437,37 @@ of metastasis.
 
 ## Reflection
 
+### Objective
+
 The purpose of this project was to generate a model capable of supplying a
-patient and doctor with a metric for risk of Prostate Cancer metastasis that
-was more useful than simple use of the 'Gleason Score'.  To accomplish this,
-RNA-seq (gene activation profile) was explored as a potential inroad into
-personalized therapy for newly diagnosed Prostate cancer patients.  From a machine learning perspective, the difficulty in this task was that a single gene activation
-profile contains 20501 features.  Understanding which of these features were capable
-of explaining metastasis outcome, if any, was paramount to the project's success.
+patient and doctor with a metric for risk of Prostate Cancer metastasis that was
+more useful than simple use of the 'Gleason Score'.  To accomplish this, RNA-seq
+(gene activation profile) was explored as a potential inroad into personalized
+therapy for newly diagnosed Prostate cancer patients.  There were several issues
+that made this task difficult:
+1. Small, wide sample data - the effective
+dataset (containing Gene Activation profile and a metastasis label) was 446
+samples by 20501 gene features.   
+2. 'Inaccurate' / 'Pre-mature' data labelling -
+The TCGA cohort is regularly updated and those listed as non-metastatic at the
+time of update could become metastatic at a later date.
+3. Noise in the data -
+no single gene or biomarker had been reported as capable of efficiently
+separating non-metastatic and metastatic cancers(corroborated in this project,
+**Figure 10**).
+
+
+Thus from a machine learning perspective, it was clear from the project's onset
+that feature reduction and appropriate model selection would be paramount to
+success.  
+
+### Feature Selection
 
 There are many techniques for feature reduction.  One avenue explored was feature
 elimination via a wrapping mechanism.  However this approach was very slow and
 provided inconsistent results in which features and how many features, were important.
 A different approach, which was successful, was to utilize the training of an
-ensemble Random Forest classifer, not for its use in classification, but in order
+ensemble Random Forest classifier, not for its use in classification, but in order
 to access its assessment of which genes were most informative in separation of the
 metastasis classes.  Despite the inherent random sampling employed by this approach,
 results were largely stable with 10-15 genes returned in the top ranked 20 in almost
@@ -509,9 +527,21 @@ This decision ensured that difficult cases - those in the middle range of severi
 were equivalently distributed among the training and test sets, reducing the
 run to run variation vastly.  
 
-Logistic regression was chosen as the predictive model.  Other options were
-Linear Discriminant Analysis (LDA) or linear Support Vector Machine (SVM).  However,
-LDA 
+### Model Selection 
+
+There were several reasons that Logistic regression was chosen over techniques such as
+Linear SVC and Linear Discriminant Analysis.  
+
+
+Foremost,
+the dataset in use for this project is longitudinal and evolving; thus there
+very well may have been some cases in the TCGA cohort labeled as 'non-metastatic'
+that actually were, or would be metastatic.  The presence of such 'mis-labeled' samples
+would have greater negative effect on LinearSVM than logistic regression.  This is
+due to the fact that LinearSVM attempts to maximize a margin in some (hyper-) dimensional space between the class labels, whereas in this case, no such margin would be easily determined.  
+
+  Not a single gene of the 20501
+in the original set appeared to linearly separate the metastasis labels.  
 
 ## Improvement
 
