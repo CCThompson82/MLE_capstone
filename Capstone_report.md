@@ -499,17 +499,21 @@ an unsupervised learning algorithm.  The same result  was observed irrespective
 of whether 10, 20, 50, 100, 200, or 400 genes were retained from the Gini
 Impurity filter step.  
 
-How could this be?  Upon reflection, it is not surprising that the
-eigenvector where the most variance in the dataset was contained (_i.e._ the
-first principle component) would separate the class labels, given that only
-genes where a 'significant' difference in gene expression between the class labels
-were supplied to the learner.  By creating a pipeline from the  Gini Importance
-filter directly into the PCA transformation, that I had created something akin
-to a [Linear Discriminant
+How could this be?  This result would be expected if a transformation technique
+such as linear discriminant analysis (LDA) had been employed, as LDA uses data
+label in order to determine the component vectors where class label is discriminated
+the most.  PCA, on the other hand, is an unsupervised technique and had generated what
+appeared to be a discriminant component in the absence of label information.  However, upon reflection, it is perhaps not surprising that the
+eigenvector where the most variance in the data subset was contained (_i.e._ the
+first principle component) would separate the class labels, given that **only genes where a 'significant' difference in gene expression between the class labels*
+were retained and provided to the PCA model.  
+
+By creating a pipeline from the  Gini Importance
+filter directly into the PCA transformation, something similar to [Linear Discriminant
 Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
-(LDA).  Indeed a Logistic regression model trained on the LDA transformation of
-the reduced, scaled feature set did perform as well as the first principle
-component in this pipeline, despite PCA being an unsupervised learner.  
+ had been generated.  Indeed, exploration of an supervised LDA compression of the 20-feature set
+ yielded a similar level of performance in the final model compared to compression
+ via Gini Impurity to PCA pipeline.
 
 ![Figure 11](/Figures/PC_components_scatter_matrix.png)
 
@@ -524,24 +528,32 @@ was originally stratified on the y-label (metastasis state).  However, after
 observing moderately inconsistent results for final model validation performance,
 the decision was made to stratify by Gleason score (Cancer severity) of the samples.  
 This decision ensured that difficult cases - those in the middle range of severity -
-were equivalently distributed among the training and test sets, reducing the
-run to run variation vastly.  
+were equivalently distributed among the training and test sets, vastly reducing the
+run to run variation.  
 
-### Model Selection 
+### Model Selection
 
-There were several reasons that Logistic regression was chosen over techniques such as
-Linear SVC and Linear Discriminant Analysis.  
+ Having completed a feature selection and compression technique, in which at
+ least the first principle component seemed capable of distinguishing among
+ metastasis class via graphical analysis (**Figure 11**), a logistic regression
+ classifier was chosen as the predictive model.  Logistic regression was
+ preferred  to other hyperplane-based techniques, such as support vector
+ machines (SVM) due to the noise that was expected in the compressed dataset.
+ SVM classifiers attempt to define the hyperplane by which the margin between
+ the class labels is maximized.  In situations where data is not easily
+ separable, this result can be unstable, and  at times, arbitrary.  Moreover,
+ SVM does not provide a true probability of class assignment, as was the
+ objective of the project.  In contrast, logistic regression assumes that no
+ feature  is capable of explaining the outcome variable, but that the
+ combination of features  should be able to provide a probability of class
+ assignment.  This assumption holds true for the RNA-seq dataset employed in
+ this project.  Moreover, as the objective of this project was to provide a probability
+ of metastasis, the output of logistic regression classifier is perfectly suited.  
 
+### Training and Validation
 
-Foremost,
-the dataset in use for this project is longitudinal and evolving; thus there
-very well may have been some cases in the TCGA cohort labeled as 'non-metastatic'
-that actually were, or would be metastatic.  The presence of such 'mis-labeled' samples
-would have greater negative effect on LinearSVM than logistic regression.  This is
-due to the fact that LinearSVM attempts to maximize a margin in some (hyper-) dimensional space between the class labels, whereas in this case, no such margin would be easily determined.  
-
-  Not a single gene of the 20501
-in the original set appeared to linearly separate the metastasis labels.  
+Separate Train and Test indices were stratified based on cancer severity in each
+sample.  
 
 ## Improvement
 
