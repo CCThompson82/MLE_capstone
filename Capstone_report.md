@@ -16,7 +16,7 @@ malignant, whereas scores ranging from 6-10 are considered malignant and provide
 an added estimation of severity (Humphrey, 2004).
 
 Contrary to some types of cancer, malignancies that remain local within the
-prostate are rarely lethal (survival rate of ~99%) {citation}.  However, if a
+prostate are rarely lethal (survival rate of ~99%).  However, if a
 malignancy born of the prostate undergoes metastasis (the process of cancer cell
 migration to other sites in the body), the survival rate drops to ~28%.  Because
 of this discrepancy, many men opt for radical prostatectomy (surgical removal of
