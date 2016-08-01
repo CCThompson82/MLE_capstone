@@ -1,5 +1,6 @@
 ---
 output: pdf_document
+  toc : yes
 ---
 # Definition
 
@@ -128,7 +129,7 @@ which is 'pathologyNstage'.  This label is composed of 'n0' or 'n1',
 representing local versus metastatic cancer, respectively.  The current
 percentage of metastatic cases is approximately 16%.
 
-![Frequency of Metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.](Figures/Label_count.png)
+![Frequency of metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.](Figures/Label_count.png)
 
 
 The primary data set for this project is the gene count matrix.  This data set
@@ -150,7 +151,7 @@ score, will metastasize or not.  To illustrate, cancers that have been rated at
 a Gleason score of '9' are still more likely to belong to the 'n0' class than
 the metastasis class.
 
-![Frequency of Metastasis state grouped by Gleason score.](Figures/Gleason_hist.png)
+![Frequency of metastasis state grouped by Gleason score.](Figures/Gleason_hist.png)
 
 ## Exploratory Visualization
 
