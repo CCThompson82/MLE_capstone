@@ -5,20 +5,20 @@
 The prostate is a glandular organ of the male reproductive system that helps to
 control urinary and reproductive functions.  According to the charity Prostate
 Cancer UK, one in eight British men will  be diagnosed with prostate
-adenocarcinoma (prostate cancer, henceforth 'PC') in their  lifetime {citation}.
+adenocarcinoma (prostate cancer, henceforth 'PC') in their  lifetime [[1](http://prostatecanceruk.org/prostate-information)].
 Men over 50 years of age are often subjected to routine digital examinations, or
-urine test (the 'PCA' test) for signs of PC.  However the gold standard
+urine test (the Prostate Secreted Antigen, or 'PSA' test) for signs of PC.  However the gold standard
 diagnosis is the Gleason test.  In brief, a series of small needle sized
 biopsies are taken from the patient's prostate gland.  Each biopsy is processed
 and scored by a pathologist for signs of abnormal cell type and
 structure.  Gleason scores ranging from 2 to 5 are considered not
 malignant, whereas scores ranging from 6-10 are considered malignant and provide
-an added estimation of severity (Humphrey, 2004).
+an added estimation of severity [[2](http://www.nature.com/modpathol/journal/v17/n3/full/3800054a.html)].
 
 Contrary to some types of cancer, malignancies that remain local within the
 prostate are rarely lethal (survival rate of ~99%).  However, if a
-malignancy born of the prostate undergoes metastasis (the process of cancer cell
-migration to other sites in the body), the survival rate drops to ~28%.  Because
+malignancy born of the prostate undergoes distant metastasis (the process of cancer cell
+migration to other sites in the body), the survival rate drops to ~28% [[3](http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates)].  Because
 of this discrepancy, many men opt for radical prostatectomy (surgical removal of
 the entire prostate).  While ensuring prevention of metastasis, removal of the
 prostate results in high morbidity, e.g. inability to control urination, loss of
@@ -122,7 +122,7 @@ which is 'pathologyNstage'.  This label is composed of 'n0' or 'n1',
 representing local versus metastatic cancer, respectively.  The current
 percentage of metastatic cases is approximately 16%.
 
-![Figure 1](/Figures/Label_count.png)
+![Frequency of Metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.](Figures/Label_count.png)
 
 **Figure 1** - Frequency of Metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.
 
@@ -145,13 +145,13 @@ cancer, regardless of Gleason score, will metastasize or not.  To illustrate,
 cancers that have been rated at a Gleason score of '9' are still more likely to
 belong to the 'n0' class than the metastasis class.
 
-![Figure 2](/Figures/Gleason_hist.png)
+![Figure 2](Figures/Gleason_hist.png)
 
 **Figure 2** - Frequency of Metastasis state grouped by Gleason score.  
 
 ## Exploratory Visualization
 
-![Figure 3](/Figures/clin_scatter_matrix.png)
+![Figure 3](Figures/clin_scatter_matrix.png)
 
 **Figure 3** - Distribution of known clinical features grouped by metastasis state (blue: 'n0', red: 'n1').
 
@@ -160,7 +160,7 @@ some genes appear to be differentially activated in the two metastasis states.
 This indicates that there are genes that could be used for predictive purposes
 and validates the project rationale.
 
-![Figure 4](/Figures/F_distribution.png)
+![Figure 4](Figures/F_distribution.png)
 
 **Figure 4** - F-test statistic distribution for the comparison of gene expression levels between the 'n0' and 'n1' metastasis states.  
 
@@ -220,7 +220,7 @@ To establish a more fair benchmark for comparison, a logistic regression model
 normally be known at the time of diagnosis was generated.  These features were
 'age', 'PSA score', and 'Gleason score'.
 
-![Figure 5](/Figures/benchmark.png)
+![Figure 5](Figures/benchmark.png)
 
 **Figure 5** - Visualization of a benchmark logistic regression predictive model performance.  
 
@@ -291,7 +291,7 @@ transform the 20-feature dataset into its principle components.  The contributio
 from the 20 genes in each of the first three principle components is visualized
 in Figure 6.  
 
-![Figure 6](/Figures/PCA_explained_variance.png)
+![Figure 6](Figures/PCA_explained_variance.png)
 
 **Figure 6** - Explained variance and Gene feature contribution to the first three principle components of the PCA transformation.  
 
@@ -373,7 +373,7 @@ contribute roughly evenly to dependent variable prediction.  The optimal
 regularization parameter was regularly determined as the maximum value tested,
 which is an indication of noisy (_i.e._ not linearly separable) data.
 
-![Figure 7](/Figures/final_figure.png)
+![Figure 7](Figures/final_figure.png)
 
 **Figure 7 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better than the benchmark model in three metrics tested.
 
@@ -412,7 +412,7 @@ As analysis of sensitivity, a metastasis risk function was implemented and teste
 against unlabelled samples, the presumed 'non-metastatic' samples, and matched
 benign controls from the TCGA cohort study.   
 
-![Figure 8](/Figures/Sensitivity_analysis.png)
+![Figure 8](Figures/Sensitivity_analysis.png)
 
 **Figure 8** - Analysis of risk from matched, benign controls from the TCGA
 cohort data reveal that the final model is stringent.  Samples from this
@@ -429,7 +429,7 @@ format), and outputs the model risk for metastasis.  This function was applied
 to every sample for which no label was given and showed that a significant
 portion of patients in the cohort exhibit a high level of risk for metastasis.   
 
-![Figure 9](/Figures/Label_missing.png)
+![Figure 9](Figures/Label_missing.png)
 
 **Figure 9** - Metastasis predictions for unlabeled TCGA cohort samples.
 TCGA cohort patient samples that did not include a metastasis
@@ -438,7 +438,7 @@ Samples are subjected to the risk analysis function and plotted against the
 benchmark model prediction (left) and Gleason score (right).
 
 
-![Figure 10](/Figures/n0_re-analysis.png)
+![Figure 10](Figures/n0_re-analysis.png)
 
 **Figure 10** - Distribution of metastasis probability for samples labeled and
 presumed to be non-metastatic.  Many examples are predicted to have a high likelihood
@@ -487,7 +487,7 @@ random seeds.
 Visualized individually, none of these 20 genes could separate the metastasis
 state linearly.
 
-![Figure 11](/Figures/Gene_separation.png)
+![Figure 11](Figures/Gene_separation.png)
 
 **Figure 11** - Genes with the highest 'Gini Impurity' score were not able to separate
 metastasis class linearly.  
@@ -529,7 +529,7 @@ had been generated.  Indeed, exploration of an supervised LDA compression of the
 20-feature set yielded a similar level of performance in the final model
 compared to compression via Gini Impurity to PCA pipeline.
 
-![Figure 12](/Figures/PC_components_scatter_matrix.png)
+![Figure 12](Figures/PC_components_scatter_matrix.png)
 
 **Figure 11** - Analysis of PCA transformation of a 20-gene feature subset.  The
 first principle component of PCA transformation separates metastasis state more
@@ -617,3 +617,10 @@ other sources of information  could help improve model accuracy, including
 genetic or epigenetic specimen data.  Ultimately only increasing the sample size
 will be able to significantly increase the resolution for Prostate cancer metastasis
 prediction.  
+
+# References
+[1] [Prostate Cancer UK, http://prostatecanceruk.org/prostate-information, accessed 01-August-2016](http://prostatecanceruk.org/prostate-information)
+
+[2] [Humphrey PA. (2004) Gleason grading and prognostic factors in carcinoma of the prostate. Mod Pathol. 17, pg 292-306.](http://www.nature.com/modpathol/journal/v17/n3/full/3800054a.html)
+
+[3] [Cancer.org, http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates, accessed 01-August-2016](http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates)
