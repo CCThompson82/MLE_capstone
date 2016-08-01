@@ -30,7 +30,7 @@ sexual function, etc.
 
 Unfortunately, there are currently no prognostic tests for PC metastasis.  The
 patient data  that is typically available at the time of diagnosis is not rich
-enough to accurately predict the likelihood of prostate cancer metastasis.   A
+enough to accurately predict the likelihood of PC metastasis.   A
 model that is able to predict whether an untreated malignancy would be likely to
 remain locally within the prostate or to metastasize could be an invaluable tool
 on whether prostatectomy (and the associated morbidity) is necessary.  To
@@ -51,14 +51,14 @@ are likely to be many different genetic paths towards metastasis. Thus it is
 unlikely that a single gene could distinguish metastasis state and local
 malignancy. The ultimate goal of this project is to determine whether the
 RNA-seq profile taken from a cancerous prostate biopsy during initial
-presentation and diagnosis, is  sufficient for prognosis of prostate cancer
+presentation and diagnosis, is  sufficient for prognosis of PC
 metastasis.
 
 ## Problem Statement
 
 The primary questions that this project aims to answer are :
 
-* Can the risk of prostate cancer metastasis state be predicted from a gene activation (RNA-seq) profile?
+* Can the risk of PC metastasis state be predicted from a gene activation (RNA-seq) profile?
 
 * If so, what genes (individually or in concert) are important for this assessment?
 
@@ -69,7 +69,7 @@ prostate biopsy, taken at the initial Gleason Test diagnosis phase.
 To achieve this goal, it is likely that a  significant feature reduction
 exercise will be necessary, as each  RNA-seq profile quantifies expression of
 20501 human genes.  After feature reduction, a model will be generated to
-quantify the risk of prostate cancer metastasis (probability from 0 to 1).
+quantify the risk of PC metastasis (probability from 0 to 1).
 Finally, a function or application will be engineered that receives an RNA-seq
 profile as an input and outputs a prediction for future metastasis.
 
@@ -112,7 +112,7 @@ language.  The versions stored in the submission repository are current at
 the time of submission.
 
 The clinical data set contains 22 features, of which several are irrelevant
-(e.g. all prostate cancer patients are 'male').  Of the features, three would be
+(e.g. all PC patients are 'male').  Of the features, three would be
 known at or very near the time of presentation: age, PSA test score, and Gleason
 score.  One feature that would also be known but eliminated for ethical reasons is
 patient 'race'.  While a higher proportion of Black or Afro-Caribbean men are
@@ -233,7 +233,7 @@ normally be known at the time of diagnosis was generated.  These features were
 The coefficients for the three features in the model training exhibited that
 Gleason score was by far the most predictive (0.855), and that age and
 interestingly PSA score (which is the current default test that doctors rely on
-for prostate cancer risk)  provided very little use in classification.  Figure 5
+for PC risk)  provided very little use in classification.  Figure 5
 (left) shows the relationship between Gleason score and the benchmark model's
 prediction of metastasis.  Figure 5 (right) shows the distribution of metastasis
 probabilities, grouped by actual metastasis state.
@@ -406,7 +406,7 @@ affect outcome of model performance.
 ## Justification
 
 The final logistic regression model was always more accurate in predicting the
-probability of prostate cancer  metastasis than the benchmark model.  Over the
+probability of PC  metastasis than the benchmark model.  Over the
 five consecutive runs described above, an average improvement of 20.8% in log
 loss score was achieved over the starting benchmark score.
 
@@ -439,10 +439,10 @@ portion of patients in the cohort exhibit a high level of risk for metastasis.
 ### Objective
 
 The purpose of this project was to generate a model capable of supplying a
-patient and doctor with a metric for risk of Prostate Cancer metastasis that was
+patient and doctor with a metric for risk of PC metastasis that was
 more useful than simple use of the 'Gleason Score'.  To accomplish this, RNA-seq
 (gene activation profile) was explored as a potential inroad into personalized
-therapy for newly diagnosed Prostate cancer patients.  There were several issues
+therapy for newly diagnosed PC patients.  There were several issues
 that made this task difficult:
 1. Small, wide sample data - the effective
 dataset (containing Gene Activation profile and a metastasis label) was 446
@@ -597,7 +597,7 @@ be capable of separating  metastasis state classes, and thus logistic regression
 is an excellent long term  model for prediction.  However, it is possible that
 other sources of information  could help improve model accuracy, including
 genetic or epigenetic specimen data.  Ultimately only increasing the sample size
-will be able to significantly increase the resolution for Prostate cancer metastasis
+will be able to significantly increase the resolution for PC cancer metastasis
 prediction.  
 
 # References
