@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
 # Definition
 
 ## Project Overview
@@ -78,7 +81,7 @@ The equation for log loss is :
 $$ logloss = -\frac{1}{N} \sum_{i=1}^{N} (y_i *log(p_i) + (1- y_i) * log(1-p_i)) $$
 , where _p_ represents an observations
 predicted probability (0 < _p_ < 1) and _y_ represents the actual binomial class
-({0,1}).
+{0,1}.
 
 The log loss function provides a penalty score for each predicted observation in
 relation to the difference between the actual class {0,1} and predicted
@@ -94,12 +97,12 @@ classification) would have a benchmark log loss score of approximately 0.693147.
 
 ## Data Exploration
 
-['The Cancer Genome Atlas' (TCGA)](www.http://cancergenome.nih.gov/) is a research consortium set up to curate
-clinical data from thousands of patient participants, covering an array of
-cancer types.   Provided data includes basic clinical information as well as DNA
-and RNA sequencing of cancer biopsies. These data sets are updated frequently as
-new information becomes available.  Thus each data download represents a
-snapshot in an evolving data set.
+['The Cancer Genome Atlas' (TCGA)](www.http://cancergenome.nih.gov/) is a
+research consortium set up to curate clinical data from thousands of patient
+participants, covering an array of cancer types.   Provided data includes basic
+clinical information as well as DNA and RNA sequencing of cancer biopsies. These
+data sets are updated frequently as new information becomes available.  Thus
+each data download represents a snapshot in an evolving data set.
 
 While detailed genomic and RNA sequence data is control-accessed, pre-processed
 gene count data is publicly available.  Data can be downloaded via the
@@ -110,7 +113,10 @@ the time of submission.
 The clinical data set contains 22 features, of which several are irrelevant
 (e.g. all prostate cancer patients are 'male').  Of the features, three would be
 known at or very near the time of presentation: age, PSA test score, and Gleason
-score.  
+score.  One feature that would also be known but eliminated for ethical reasons is
+patient 'race'.  While a higher proportion of Black or Afro-Caribbean men are
+diagnosed with PC, the reasons for this are unclear and significant evidence suggests that
+race/ethnicity should not be used in cases of genetic / gene activation analysis [[4](http://science.sciencemag.org/content/351/6273/564.full)].  
 
 The primary data set to be used in this project is the gene count matrix.  This
 data set provides a value for gene expression level for every known human gene.
@@ -124,7 +130,6 @@ percentage of metastatic cases is approximately 16%.
 
 ![Frequency of Metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.](Figures/Label_count.png)
 
-**Figure 1** - Frequency of Metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.
 
 The primary data set for this project is the gene count matrix.  This data set
 provides a value for gene expression level for every known human gene.  The same
@@ -138,41 +143,35 @@ reads.  The next section will serve to describe the clinical data and provide a
 benchmark prognosis rate using information available to a doctor at
 presentation.
 
-When grouped by Gleason score, it is also evident that
-metastasis rates increase as the severity of cancer increases (Figure 2).  This
-is  intuitive, yet clearly not sufficient to determine whether a specific
-cancer, regardless of Gleason score, will metastasize or not.  To illustrate,
-cancers that have been rated at a Gleason score of '9' are still more likely to
-belong to the 'n0' class than the metastasis class.
+When grouped by Gleason score, it is also evident that metastasis rates increase
+as the severity of cancer increases (Figure 2).  This is  intuitive, yet clearly
+not sufficient to determine whether a specific cancer, regardless of Gleason
+score, will metastasize or not.  To illustrate, cancers that have been rated at
+a Gleason score of '9' are still more likely to belong to the 'n0' class than
+the metastasis class.
 
-![Figure 2](Figures/Gleason_hist.png)
-
-**Figure 2** - Frequency of Metastasis state grouped by Gleason score.  
+![Frequency of Metastasis state grouped by Gleason score.](Figures/Gleason_hist.png)
 
 ## Exploratory Visualization
 
-![Figure 3](Figures/clin_scatter_matrix.png)
-
-**Figure 3** - Distribution of known clinical features grouped by metastasis state (blue: 'n0', red: 'n1').
+![Distribution of known clinical features grouped by metastasis state (blue: 'n0', red: 'n1').](Figures/clin_scatter_matrix.png)
 
 An overview analysis shown in Figure 4 of the gene count dataset revealed that
 some genes appear to be differentially activated in the two metastasis states.
 This indicates that there are genes that could be used for predictive purposes
 and validates the project rationale.
 
-![Figure 4](Figures/F_distribution.png)
-
-**Figure 4** - F-test statistic distribution for the comparison of gene expression levels between the 'n0' and 'n1' metastasis states.  
-
+![Distribution of F-test statistics for the comparison of gene expression levels between the 'n0' and 'n1' metastasis states.](Figures/F_distribution.png)
 
 ## Algorithms and Techniques
 
 The basic outline for project completion is as follows:
 
-1. Feature reduction (filter)
-2. Feature compression into a lower dimensional set (removes collinearity)
-3. Training of the probabilistic-classification algorithm
-4. Measure performance of the trained algorithm on an unseen 'test' set, and compare to the benchmark model performance.  
+1. Feature selection (filter mechanism)
+2. Feature compression into a lower dimensional set
+3. Train the probabilistic-classification algorithm
+4. Measure performance of the trained algorithm on an independent validation ('test') set.
+5. Compare model performance to the benchmark model performance.  
 
 The feature reduction exercise will utilize Random Forest Classifier, not as a
 classification algorithm, but as a method to measure the ability of each gene to
@@ -200,10 +199,18 @@ malignancy) based on continuous input variables.
 
 Important parameters for the Logistic Regression are:
 
-* regularization equation ('penalty')  
-* solver
-* regularization term ('C')
+* regularization equation ('penalty') - 'l2'
+* solver - 'liblinear'
+* regularization term ('C') - '1'
 
+Of the options for the regularization equation parameter, the 'l2' algorithm was
+preferable to the 'l1' as the input set contained a relatively small set of
+features  (just 3).  For training situations with a large number of variables,
+the 'l1' equation is more suitable, as it generates sparsity (_i.e._ limits the
+number of features that  significantly contribute the the logistic function
+outcome).  The solver 'liblinear' is most appropriate with small datasets, such
+as this one.  The regularization term  was initialized at 1, but would be
+optimized later using cross-validation.  
 
 
 ## Benchmark
@@ -220,9 +227,7 @@ To establish a more fair benchmark for comparison, a logistic regression model
 normally be known at the time of diagnosis was generated.  These features were
 'age', 'PSA score', and 'Gleason score'.
 
-![Figure 5](Figures/benchmark.png)
-
-**Figure 5** - Visualization of a benchmark logistic regression predictive model performance.  
+![Visualization of a benchmark logistic regression predictive model performance.](Figures/benchmark.png)
 
 The coefficients for the three features in the model training exhibited that
 Gleason score was by far the most predictive (0.855), and that age and
@@ -278,7 +283,7 @@ small sample size of the dataset), only key default parameters were altered.
 Specifically, the maximum tree depth was limited to 3 nodes, and the minimum
 number of samples that could be split was limited to 30.  These parameter choices
 were instrumental in preventing any form of extraordinary variance.  The 'Gini
-Impurity' of each feature was retrieved from the model and the genes ranked
+Importance' of each feature was retrieved from the model and the genes ranked
 in the order of importance.  Originally, the top 200 genes were retained for the
 input dataset, however this was later reduced to 20 genes (explanation below).
 
@@ -291,9 +296,7 @@ transform the 20-feature dataset into its principle components.  The contributio
 from the 20 genes in each of the first three principle components is visualized
 in Figure 6.  
 
-![Figure 6](Figures/PCA_explained_variance.png)
-
-**Figure 6** - Explained variance and Gene feature contribution to the first three principle components of the PCA transformation.  
+![Explained variance and Gene feature contribution to the first three principle components of the PCA transformation.](Figures/PCA_explained_variance.png)
 
 This 3-feature dataset was then partitioned using the same indices from the
 first
@@ -373,9 +376,7 @@ contribute roughly evenly to dependent variable prediction.  The optimal
 regularization parameter was regularly determined as the maximum value tested,
 which is an indication of noisy (_i.e._ not linearly separable) data.
 
-![Figure 7](Figures/final_figure.png)
-
-**Figure 7 ** - Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better than the benchmark model in three metrics tested.
+![Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better than the benchmark model in three metrics tested.](Figures/final_figure.png)
 
 The error / accuracy rate of three performance metrics was often similar
 between the training sample and test sample set predictions, indicating the
@@ -412,13 +413,8 @@ As analysis of sensitivity, a metastasis risk function was implemented and teste
 against unlabelled samples, the presumed 'non-metastatic' samples, and matched
 benign controls from the TCGA cohort study.   
 
-![Figure 8](Figures/Sensitivity_analysis.png)
+![Analysis of risk from matched, benign controls from the TCGA cohort data reveal that the final model is stringent.  Samples from this cohort were taken from benign areas of patient prostates where malignancies were present.  The majority of samples are predicted with a low probability of metastasis.](Figures/Sensitivity_analysis.png)
 
-**Figure 8** - Analysis of risk from matched, benign controls from the TCGA
-cohort data reveal that the final model is stringent.  Samples from this
-cohort were taken from benign areas of patient prostates where malignancies
-were present.  The majority of samples are predicted with a low probability of
-metastasis.  
 
 # Conclusion
 
@@ -429,20 +425,12 @@ format), and outputs the model risk for metastasis.  This function was applied
 to every sample for which no label was given and showed that a significant
 portion of patients in the cohort exhibit a high level of risk for metastasis.   
 
-![Figure 9](Figures/Label_missing.png)
-
-**Figure 9** - Metastasis predictions for unlabeled TCGA cohort samples.
-TCGA cohort patient samples that did not include a metastasis
-label and were Gleason range 7-10 were omitted from model learning and validation.
-Samples are subjected to the risk analysis function and plotted against the
-benchmark model prediction (left) and Gleason score (right).
+![Metastasis predictions for unlabeled TCGA cohort samples.  TCGA cohort patient samples that did not include a metastasis label and were Gleason range 7-10 were omitted from model learning and validation.  Samples are subjected to the risk analysis function and plotted against the benchmark model prediction (left) and Gleason score (right).](Figures/Label_missing.png)
 
 
-![Figure 10](Figures/n0_re-analysis.png)
+![Distribution of metastasis probability for samples labeled and presumed to be non-metastatic.  Many examples are predicted to have a high likelihood of metastasis.](Figures/n0_re-analysis.png)
 
-**Figure 10** - Distribution of metastasis probability for samples labeled and
-presumed to be non-metastatic.  Many examples are predicted to have a high likelihood
-of metastasis.  
+
 
 
 ## Reflection
@@ -487,10 +475,7 @@ random seeds.
 Visualized individually, none of these 20 genes could separate the metastasis
 state linearly.
 
-![Figure 11](Figures/Gene_separation.png)
-
-**Figure 11** - Genes with the highest 'Gini Impurity' score were not able to separate
-metastasis class linearly.  
+![Genes with the highest 'Gini Importance' score were not able to separate metastasis class linearly.](Figures/Gene_separation.png)
 
 However, when compressed into principle components, this 20 feature set became
 predictive.  I chose to retain the top 3 principle components of the 20-feature
@@ -509,7 +494,7 @@ revealed that the first principle component clearly separated the two metastasis
 states into nearly distinct Gaussian distributions, despite the fact that PCA is
 an unsupervised learning algorithm.  The same result  was observed irrespective
 of whether 10, 20, 50, 100, 200, or 400 genes were retained from the Gini
-Impurity filter step.  
+Importance filter step.  
 
 How could this be?  This result would be expected if a transformation technique
 such as linear discriminant analysis (LDA) had been employed, as LDA uses data
@@ -522,18 +507,14 @@ the first principle component) would separate the class labels, given that
 _only genes where a 'significant' difference in gene expression between the
 class labels_ were retained and provided to the PCA model.  
 
-By creating a pipeline from the  Gini Impurity filter directly into the PCA
+By creating a pipeline from the  Gini Importance filter directly into the PCA
 transformation, something similar to [Linear Discriminant
 Analysis](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
 had been generated.  Indeed, exploration of an supervised LDA compression of the
 20-feature set yielded a similar level of performance in the final model
-compared to compression via Gini Impurity to PCA pipeline.
+compared to compression via Gini Importance to PCA pipeline.
 
-![Figure 12](Figures/PC_components_scatter_matrix.png)
-
-**Figure 11** - Analysis of PCA transformation of a 20-gene feature subset.  The
-first principle component of PCA transformation separates metastasis state more
-efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.  
+![Analysis of PCA transformation of a 20-gene feature subset.  The first principle component of PCA transformation separates metastasis state more efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.  ](Figures/PC_components_scatter_matrix.png)
 
 The 3-component feature set was split on the same indices that were generated in
 the training and validation sets used in the benchmark analysis.  This was done
@@ -621,6 +602,8 @@ prediction.
 # References
 [1] [Prostate Cancer UK, http://prostatecanceruk.org/prostate-information, accessed 01-August-2016](http://prostatecanceruk.org/prostate-information)
 
-[2] [Humphrey PA. (2004) Gleason grading and prognostic factors in carcinoma of the prostate. Mod Pathol. 17, pg 292-306.](http://www.nature.com/modpathol/journal/v17/n3/full/3800054a.html)
+[2] [Humphrey PA. (2004) Gleason grading and prognostic factors in carcinoma of the prostate. Mod Pathol. 17, pp 292-306.](http://www.nature.com/modpathol/journal/v17/n3/full/3800054a.html)
 
 [3] [Cancer.org, http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates, accessed 01-August-2016](http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates)
+
+[4] [Yudell M, Roberts D, DeSalle R & Tishkoff S. (2016) Taking race out of human genetics.  Science. 351, pp 564-565.](http://science.sciencemag.org/content/351/6273/564.full)
