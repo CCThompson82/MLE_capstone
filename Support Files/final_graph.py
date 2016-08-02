@@ -4,13 +4,13 @@ B = fig.add_subplot(1,2,2)
 ya = 0.2
 yb = 0.9
 A.set_ylim(ya,yb)
-A.set_xlim(-0.5,4.5)
+A.set_xlim(-0.5,3.5)
 A.xaxis.set_major_formatter(plt.NullFormatter())
 for i,x in enumerate(metric_stat.index) :
     A.text(i-.25,ya-((yb-ya)/20),x, rotation = -45, fontsize=14)
 
 B.set_ylim(ya,yb)
-B.set_xlim(-0.5,4.5)
+B.set_xlim(-0.5,3.5)
 B.xaxis.set_major_formatter(plt.NullFormatter())
 for i,x in enumerate(metric_stat.index) :
     B.text(i-.25,ya-((yb-ya)/20),x, rotation = -45, fontsize=14)
@@ -43,7 +43,7 @@ B.plot(range(0,training_stat.shape[0],1),
           color = 'black',
           label = 'LogLoss training score',
           linestyle ='--')
-A.legend(loc=2)
+A.legend(loc=2, ncol=2, fontsize=10)
 B.legend(loc=2)
 A.set_ylabel('Metric Score', fontsize=16)
 fig.suptitle('Summary of Model Performance', fontsize = 20)
