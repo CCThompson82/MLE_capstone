@@ -244,7 +244,7 @@ prediction of metastasis.  Figure 5 (right) shows the distribution of metastasis
 probabilities, grouped by actual metastasis state.
 
 The log loss score from this benchmark analysis ranged from 0.571 - 0.644 across 5 different runs, and
-thus was marginally more useful than a '50% model' (**Table 1**). 
+thus was marginally more useful than a '50% model' (**Table 1**).
 
 # Methodology
 
@@ -290,16 +290,24 @@ Specifically, the maximum tree depth was limited to 3 nodes, and the minimum
 number of samples that could be split was limited to 30.  These parameter choices
 were instrumental in preventing any form of extraordinary variance.  The 'Gini
 Importance' of each feature was retrieved from the model and the genes ranked
-in the order of importance.  Originally, the top 200 genes were retained for the
-input dataset, however this was later reduced to 20 genes (explanation below).
+in the order of importance.  
 
-This 20 gene set was scaled to standard mean and unit variance using the sklearn
+Originally, the top _k_ number of genes were retained for the
+input dataset, however the set of genes was not 100% stable.  Some genes, such as
+_gne_ were present in every case, each run resulted in a slightly different selection
+of genes.  To address this selection instability, the Gini Importance selection
+process was iterated across 5 different random seeds, and the genes present in the top
+_k_ in every iteration were kept.  In this solution, k was set to 100 and resulted
+in a relatively stable selection of ~16-22 genes that would regularly enter the
+next phase of the project.  
+
+This ~20 gene set was scaled to standard mean and unit variance using the sklearn
 [Standard Scaler](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler).  
 
 The second phase of Feature reduction was [Principle Component Analysis](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA)
 compression. A further compression was performed in which PCA was utilized to
-transform the 20-feature dataset into its principle components.  The contribution
-from the 20 genes in each of the first three principle components is visualized
+transform the k-feature dataset into its principle components.  The contribution
+from the k subset of genes in each of the first three principle components is visualized
 in Figure 6.  
 
 ![Explained variance and Gene feature contribution to the first three principle components of the PCA transformation.](Figures/PCA_explained_variance.png)
@@ -358,13 +366,7 @@ as the  scoring function.
 The next step in model optimization was to feed back the Gleason score, shown to
 be the most important explanatory variable in the benchmark analysis.  It was
 unclear whether adding another feature would contribute to variance or improve
-generalization. As the coefficients for the 2nd and 3rd principle component were
-significantly less than the coefficients for the first principle component and
-Gleason score, they were removed from the final model to achieve an incremental
-increase in model performance.  An alternative to this approach would have been
-to change the regularization function to 'l1', which would have the effect to
-silence the contribution of the less-important features on calculation of the
-dependent variable.  
+generalization.
 
 # Results
 
@@ -395,11 +397,11 @@ training of the final model, the possibility of bias was present.  However
 
 | Seed    | LogLoss   | Benchmark_LogLoss   | %_Improvement_over_benchmark |
 |---------|-----------|---------------------|-----------------------------|
-| 1       | 0.508049  | 0.594456            | 14.5 |
-|12      |0.477352  |0.570673            |16.5
-|123     |0.474036  |0.644465            |26.3
-|1234    |0.467069  |0.617577            |24.3
-|12345   |0.468992  |0.606186            |22.6
+| 1       | 0.496309  | 0.605505            | 18.0|
+|12      | 0.479994  |0.618392            |22.4
+|123     |0.556008  |0.621997            |10.6
+|1234    |0.51460  |0.615772          |16.4
+|12345   |0.467942  |0.595507            |21.4
 
 
 This project's strategy was to leave out 30% of the original dataset to use as a
@@ -436,9 +438,6 @@ portion of patients in the cohort exhibit a high level of risk for metastasis.
 
 ![Distribution of metastasis probability for samples labeled and presumed to be non-metastatic.  Many examples are predicted to have a high likelihood of metastasis.](Figures/n0_re-analysis.png)
 
-
-
-
 ## Reflection
 
 ### Objective
@@ -470,37 +469,27 @@ success.
 There are many techniques for feature reduction.  One avenue explored was
 feature elimination via a wrapping mechanism.  However this approach was very
 slow and provided inconsistent results in which features and how many features,
-were important. A different approach, which was successful, was to utilize the
+were important. A different approach was to utilize the
 training of an ensemble Random Forest classifier, not for its use in
 classification, but in order to access its assessment of which genes were most
-informative in separation of the metastasis classes.  Despite the inherent
-random sampling employed by this approach, results were largely stable with
-10-15 genes returned in the top ranked 20 in almost every run, across several
-random seeds.  
+informative in separation of the metastasis classes.  An iterative process was
+utilized to stabilize the gene set upon which PCA transformation would be performed. Implementation of this feature was not essential for increased final model
+validation performance, thought it did reduce the run to run variation in predictive
+performance.  
 
-Visualized individually, none of these 20 genes could separate the metastasis
+Importantly, visualized individually, none of this reduced k-gene set could separate the metastasis
 state linearly.
 
 ![Genes with the highest 'Gini Importance' score were not able to separate metastasis class linearly.](Figures/Gene_separation.png)
 
-However, when compressed into principle components, this 20 feature set became
-predictive.  I chose to retain the top 3 principle components of the 20-feature
-set, due to the noise levels expected from the small dataset (at 3 features,
-this left ~110 examples per feature in the training dataset).  Curiously, with
-this approach the first principle component (labeled '0' in the notebook and
-relevant figures) always
-
-The initial plan was to provide the full  complement of principle components
-(originally, 20) to the logistic regression classifier as training data, and
+The initial plan at this point was to provide the full complement of principle components to the logistic regression classifier as training data, and
 subsequently use each component's coefficient to  assess which were most able to
 explain the independent variable in a [Recursive
 Elimination]('http://scikit-learn.org/0.15/modules/generated/sklearn.feature_selection.RFECV.html#sklearn.feature_selection.RFECV')
-wrapping function.  However, graphical analysis of the PCA transformed dataset
-revealed that the first principle component clearly separated the two metastasis
-states into nearly distinct Gaussian distributions, despite the fact that PCA is
-an unsupervised learning algorithm.  The same result  was observed irrespective
-of whether 10, 20, 50, 100, 200, or 400 genes were retained from the Gini
-Importance filter step.  
+wrapping function.  However, graphical analysis of the principle component scatter matrix, grouped by
+metastasis state (Figure ) curiously showed that the first principle
+component seemed to generate distinct gaussian distributions for each of the metastasis states, despite the fact that PCA is an unsupervised technique.  This result was consistent independent of
+whether 5 through 500 genes were 'Gini' selected for PCA transformation.  
 
 How could this be?  This result would be expected if a transformation technique
 such as linear discriminant analysis (LDA) had been employed, as LDA uses data
@@ -520,9 +509,9 @@ had been generated.  Indeed, exploration of an supervised LDA compression of the
 20-feature set yielded a similar level of performance in the final model
 compared to compression via Gini Importance to PCA pipeline.
 
-![Analysis of PCA transformation of a 20-gene feature subset.  The first principle component of PCA transformation separates metastasis state more efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.](Figures/PC_components_scatter_matrix.png)
+![Analysis of PCA transformation of a k-gene feature subset.  The first principle component of PCA transformation separates metastasis state more efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.](Figures/PC_components_scatter_matrix.png)
 
-The 3-component feature set was split on the same indices that were generated in
+The 3-component feature set taken from this transformation was split on the same indices that were generated in
 the training and validation sets used in the benchmark analysis.  This was done
 to aid in model to model comparisons within each run.  To note, this split was
 originally stratified on the y-label (metastasis state).  However, after
