@@ -244,7 +244,7 @@ prediction of metastasis.  Figure 5 (right) shows the distribution of metastasis
 probabilities, grouped by actual metastasis state.
 
 The log loss score from this benchmark analysis ranged from 0.571 - 0.644 across 5 different runs, and
-thus was marginally more useful than a '50% model' (**Table 1**). 
+thus was marginally more useful than a '50% model' (**Table 1**).
 
 # Methodology
 
@@ -395,11 +395,11 @@ training of the final model, the possibility of bias was present.  However
 
 | Seed    | LogLoss   | Benchmark_LogLoss   | %_Improvement_over_benchmark |
 |---------|-----------|---------------------|-----------------------------|
-| 1       | 0.508049  | 0.594456            | 14.5 |
-|12      |0.477352  |0.570673            |16.5
-|123     |0.474036  |0.644465            |26.3
-|1234    |0.467069  |0.617577            |24.3
-|12345   |0.468992  |0.606186            |22.6
+| 1       | 0.496309  | 0.605505            | 18.0|
+|12      | 0.479994  |0.618392            |22.4
+|123     |0.556008  |0.621997            |10.6
+|1234    |0.51460  |0.615772          |16.4
+|12345   |0.467942  |0.595507            |21.4
 
 
 This project's strategy was to leave out 30% of the original dataset to use as a
