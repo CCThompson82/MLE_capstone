@@ -1,7 +1,12 @@
 ---
-output: pdf_document
-  toc : yes
+title : 'PC Metastasis'
+output:
+  pdf_document:
+    fig_caption: yes
+    fig_crop: no
+    toc: yes
 ---
+
 # Definition
 
 ## Project Overview
@@ -238,8 +243,8 @@ for PC risk)  provided very little use in classification.  Figure 5
 prediction of metastasis.  Figure 5 (right) shows the distribution of metastasis
 probabilities, grouped by actual metastasis state.
 
-The log loss score from this benchmark analysis generally ranged from 0.55 - 0.65, and
-thus was marginally more useful than a '50% model'.    
+The log loss score from this benchmark analysis ranged from 0.571 - 0.644 across 5 different runs, and
+thus was marginally more useful than a '50% model' (**Table 1**). 
 
 # Methodology
 
@@ -303,7 +308,7 @@ This 3-feature dataset was then partitioned using the same indices from the
 first
 [train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
 that was performed prior to the benchmark model generation.  In detail, this
-split  partioned 70% of the samples into the training set, with 30% being held
+split  partitioned 70% of the samples into the training set, with 30% being held
 out for validation.  The  data was stratified by Gleason score, which was used
 as a surrogate measure for cancer severity. While not a perfect solution, this
 decision was made to ensure that 'easy' (_e.g._ mild or extremely severe
@@ -515,7 +520,7 @@ had been generated.  Indeed, exploration of an supervised LDA compression of the
 20-feature set yielded a similar level of performance in the final model
 compared to compression via Gini Importance to PCA pipeline.
 
-![Analysis of PCA transformation of a 20-gene feature subset.  The first principle component of PCA transformation separates metastasis state more efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.  ](Figures/PC_components_scatter_matrix.png)
+![Analysis of PCA transformation of a 20-gene feature subset.  The first principle component of PCA transformation separates metastasis state more efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.](Figures/PC_components_scatter_matrix.png)
 
 The 3-component feature set was split on the same indices that were generated in
 the training and validation sets used in the benchmark analysis.  This was done
@@ -529,23 +534,23 @@ training and test sets, vastly reducing the run to run variation.
 
 ### Model Selection
 
- Having completed a feature selection and compression technique, in which at
- least the first principle component seemed capable of distinguishing among
- metastasis class via graphical analysis (**Figure 11**), a logistic regression
- classifier was chosen as the predictive model.  Logistic regression was
- preferred  to other hyperplane-based techniques, such as support vector
- machines (SVM) due to the noise that was expected in the compressed dataset.
- SVM classifiers attempt to define the hyperplane by which the margin between
- the class labels is maximized.  In situations where data is not easily
- separable, this result can be unstable, and  at times, arbitrary.  Moreover,
- SVM does not provide a true probability of class assignment, as was the
- objective of the project.  In contrast, logistic regression assumes that no
- feature  is capable of explaining the outcome variable, but that the
- combination of features  should be able to provide a probability of class
- assignment.  This assumption holds true for the RNA-seq dataset employed in
- this project.  Moreover, as the objective of this project was to provide a
- probability of metastasis, the output of logistic regression classifier is
- perfectly suited.  
+Having completed a feature selection and compression technique, in which at
+least the first principle component seemed capable of distinguishing among
+metastasis class via graphical analysis (**Figure 11**), a logistic regression
+classifier was chosen as the predictive model.  Logistic regression was
+preferred  to other hyperplane-based techniques, such as support vector
+machines (SVM) due to the noise that was expected in the compressed dataset.
+SVM classifiers attempt to define the hyperplane by which the margin between
+the class labels is maximized.  In situations where data is not easily
+separable, this result can be unstable, and  at times, arbitrary.  Moreover,
+SVM does not provide a true probability of class assignment, as was the
+objective of the project.  In contrast, logistic regression assumes that no
+feature  is capable of explaining the outcome variable, but that the
+combination of features  should be able to provide a probability of class
+assignment.  This assumption holds true for the RNA-seq dataset employed in
+this project.  Moreover, as the objective of this project was to provide a
+probability of metastasis, the output of logistic regression classifier is
+perfectly suited.  
 
 ### Training and Optimization
 
@@ -601,10 +606,10 @@ will be able to significantly increase the resolution for PC cancer metastasis
 prediction.  
 
 # References
-[1] [Prostate Cancer UK, http://prostatecanceruk.org/prostate-information, accessed 01-August-2016](http://prostatecanceruk.org/prostate-information)
+[1](http://prostatecanceruk.org/prostate-information) Prostate Cancer UK, http://prostatecanceruk.org/prostate-information, accessed 01-August-2016.
 
-[2] [Humphrey PA. (2004) Gleason grading and prognostic factors in carcinoma of the prostate. Mod Pathol. 17, pp 292-306.](http://www.nature.com/modpathol/journal/v17/n3/full/3800054a.html)
+[2](http://www.nature.com/modpathol/journal/v17/n3/full/3800054a.html) Humphrey PA. (2004) Gleason grading and prognostic factors in carcinoma of the prostate. Mod Pathol. 17, pp 292-306.
 
-[3] [Cancer.org, http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates, accessed 01-August-2016](http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates)
+[3](http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates) Cancer.org, http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates, accessed 01-August-2016
 
-[4] [Yudell M, Roberts D, DeSalle R & Tishkoff S. (2016) Taking race out of human genetics.  Science. 351, pp 564-565.](http://science.sciencemag.org/content/351/6273/564.full)
+[4](http://science.sciencemag.org/content/351/6273/564.full) Yudell M, Roberts D, DeSalle R & Tishkoff S. (2016) Taking race out of human genetics.  Science. 351, pp 564-565.
