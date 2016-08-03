@@ -18,5 +18,5 @@ for x in [A,B] :
 fig.suptitle('Metastasis predictions for unlabeled TCGA cohort samples', fontsize=18)
 A.set_xlabel('Benchmark Model probability')
 B.set_xlabel('Gleason Score')
-fig.savefig('Figures/Label_missing.png')
+#fig.savefig('Figures/Label_missing.png')
 plt.show

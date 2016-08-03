@@ -7,13 +7,13 @@ A.set_ylim(ya,yb)
 A.set_xlim(-0.5,3.5)
 A.xaxis.set_major_formatter(plt.NullFormatter())
 for i,x in enumerate(metric_stat.index) :
-    A.text(i-.25,ya-((yb-ya)/20),x, rotation = -45, fontsize=14)
+    A.text(i-.25,ya-((yb-ya)/20),x, rotation = -20, fontsize=14)
 
 B.set_ylim(ya,yb)
 B.set_xlim(-0.5,3.5)
 B.xaxis.set_major_formatter(plt.NullFormatter())
 for i,x in enumerate(metric_stat.index) :
-    B.text(i-.25,ya-((yb-ya)/20),x, rotation = -45, fontsize=14)
+    B.text(i-.25,ya-((yb-ya)/20),x, rotation = -20, fontsize=14)
 
 
 A.plot(range(0,metric_stat.shape[0],1),
