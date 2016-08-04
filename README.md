@@ -3,7 +3,7 @@
 This repository contains all the necessary files, scripts, and documentation to predict the probability of prostate cancer metastasis from a malignant biopsy RNA-seq profile (in Transcripts per million gene count format).  This is an exercise for completion of my Machine Learning Engineer Nanodegree from Udacity and should not be treated as a medical or diagnositic tool.  
 
 # Data sets
-The data used in this project is publically available from [The Cancer Genome Atlas](www.http://cancergenome.nih.gov/) (TCGA) portal.  It was retrieved and organized with help of an R package, [TCGA2STAT](https://cran.r-project.org/web/packages/TCGA2STAT/index.html). The data sets deposited in this repository were current as of the time of project submission (04-Aug-2016).   
+The data used in this project is publically available from [The Cancer Genome Atlas](http://cancergenome.nih.gov/) (TCGA) portal.  It was retrieved and organized with help of an R package, [TCGA2STAT](https://cran.r-project.org/web/packages/TCGA2STAT/index.html). The data sets deposited in this repository were current as of the time of project submission (04-Aug-2016).   
 
 # Implementation
 The easiest way to implement the project code is to clone this repository: https://github.com/CCThompson82/MLE_capstone.git
