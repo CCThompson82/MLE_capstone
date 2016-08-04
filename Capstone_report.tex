@@ -2,7 +2,7 @@
 \title{Prognosis of prostate adenocarcinoma metastasis using gene activation profiling}
 \author{Christopher C Thompson}
 %packages
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{sidecap}
@@ -111,6 +111,7 @@ other hand, an ultra-conservative model that predicted 0.5 for every observation
 (effectively not taking either stance in classification) would have a benchmark
 log loss score of approximately 0.693147.
 
+
 \section{Analysis}
 
 \subsection{Data Exploration}
@@ -130,7 +131,7 @@ in a python-readable format.  The versions stored in the project repository were
 the time of the report date.
 
 The clinical data set contains 22 features, of which several are irrelevant
-(e.g. all prostate cancer patients are 'male').  Of the features, three were relavant and would be
+(\textit{e.g.} all prostate cancer patients are 'male').  Of the features, three were relavant and would be
 known at or very near the time of presentation: age, PSA test score, and Gleason
 score.  One feature that would also be known but eliminated for ethical reasons is
 patient 'race'.  While a higher proportion of Black or Afro-Caribbean men are
@@ -147,7 +148,10 @@ discussion).
 \begin{SCfigure}
 	\centering
 	\includegraphics[scale=0.5]{LabelCount}
-  \caption{SCFrequency of metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.\label{MetFreq}}
+  \caption{Frequency of metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.\label{MetFreq}
+  Most cases in the TCGA cohort are labeled as 'non-metastatic', however this study is currently ongoing and
+  some may be updated as metastases are diagnosed in the cohort.  The frequency counts are accurate from the
+  date of this report.}
 \end{SCfigure}
 
 When grouped by Gleason score, it is was evident that metastasis rates increased
@@ -160,7 +164,8 @@ the metastasis class.
 \begin{SCfigure}
   \centering
   \includegraphics[scale=0.5]{GleasonHist}
-  \caption{Frequency of metastasis state grouped by Gleason score.\label{fig:preGSHist}}
+  \caption{Frequency of metastasis state grouped by Gleason grade.\label{fig:preGSHist}
+  The ratio of metastasis cases increases with cancer severity, as measured by Gleason grade.}
 \end{SCfigure}
 
 \subsection{Exploratory Visualization}
@@ -172,10 +177,13 @@ each observation is colored based on metastasis state (Figure \ref{fig:ClinSM}).
 While Gleason grade seems to correlate weakly to metastasis state, neither age or
 (surprisingly) PSA value were proportional to metastasis by visual analysis.
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[scale=0.33]{ClinScatterMatrix}
-  \caption{Relationship between age, PSA value, and Gleason grade in prostate cancer metastasis class ('n0'- blue, 'n1' - red)\label{fig:ClinSM}}
+  \caption{Relationship between age, PSA value, and Gleason grade in prostate cancer
+  metastasis class ('n0'- blue, 'n1' - red).\label{fig:ClinSM}  Only age appears to
+  be distributed normally.  Cases of metastasis appear to correlate weakly with
+  increase in Gleason grade.}
 \end{figure}
 
 The primary data set to be used in this project is the gene count (or RNA-seq)
@@ -186,14 +194,18 @@ experiment for the project rationale, an F-test was run for every gene feature
 in the normalized data set, comparing the 'n0' to 'n1' metastasis states.  The
 results from this analysis are  shown in Figure \ref{fig:FDist}, and reveal that
 while most genes are not differentially expressed between metastasis states,
-some genes do appear to be differentially activated. This indicates that there
+some genes do appear to be (in-)activated in metastasis. This indicates that there
 are genes that could be used for predictive purposes and validates the project
 rationale.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width = \textwidth]{FDist}
-  \caption{Distribution of F-test statistics for the comparison of gene expression levels between the 'n0' and 'n1' metastasis states.\label{fig:FDist}}
+  \caption{Distribution of F-test statistics for the comparison of gene expression
+  levels between the 'n0' and 'n1' metastasis states.\label{fig:FDist}  Larger F-scores
+  indicate a that the population means are different from one another, with respect to the
+  variation observed within the whole cohort of samples.  Clearly a moderate amount of
+  genes exhibit differential activation levels in the 'n0' and 'n1' classes.}
 \end{figure}
 
 \subsection{Algorithms and Techniques}
@@ -209,12 +221,14 @@ The basic outline for project completion is as follows:
 \end{enumerate}
 
 The feature reduction exercise will utilize Random Forest Classifier, not as a
-classification algorithm, but as a method to measure the ability of each gene to
-separate the data set by metastasis class.  Given noisy data, decision trees (and
-thus Random Forest) classifiers are prone to overfitting, so parameter limits on
-the tree depth and the minimum number of samples that can be split will be defined.
-The top portion of genes in 'Gini Importance' will be retained in a subset and carried
-into the next project phase.
+classification algorithm, but as a method to measure the ability sampled genes
+to separate the data set by metastasis class.  By increasing the number of
+trees, the  chance of sampling all features at least once is increased.  Given
+noisy data, decision trees (and thus Random Forest) classifiers are prone to
+overfitting, so parameter limits on the tree depth and the minimum number of
+samples that can be split will be defined. The top portion of genes in 'Gini
+Importance' will be retained in a subset and carried into the next project
+phase.
 
 The reduced feature data set will be compressed further using Principle Component
 Analysis (PCA).  PCA is an unsupervised learning technique that transforms a
@@ -230,7 +244,8 @@ principle components forward for further analysis.
 The probabilistic-classification algorithm chosen for this task is the logistic
 regression ('logit') model.  This algorithm was chosen for its inherent ability
 to assess the probability of a binary outcome (\textit{e.g.} metastasis or local
-malignancy) based on continuous input variables.  Logistic regression classification is well suited
+malignancy) based on continuous input variables that cannot cleanly differentiate between
+class labels individually.  Logistic regression classification is well suited
 for noisey data, in that it does not assume that there is any margin or hyperplane that
 is capable of separating class labels.  Instead, it returns a likelihood of class assignment
 based on the linear combination of input variables as a single term into the logistic
@@ -238,9 +253,12 @@ regression equation:
 
 $$ P(class = 1 | X) = \frac{1}{1+e^{-X}}$$
 
-where $X$ originates from :
+where $X$ is equated to :
 
 $$ X = \sum{ \beta_{n}*x_{n}} $$
+
+and $x_{n}$ represents each feature, $\beta_{n}$ represents each feature's coefficient, $e$ is
+euler's number.
 
 For algorithm training, a 'solver' is necessary to determine the optimal $\beta$
 coefficients to minimize penalties accumulated from a 'cost function'.  There are
@@ -253,8 +271,8 @@ a regularization term, 'C'.
   \item Cost function - the 'l2' cost function is more appropriate in situations
   where features have been pre-filtered or are few in number.  In cases of high
   dimensionality, the 'l1' cost function should be preferred as it practically eliminates
-  non-predictive features from contributing to the $X$ term by negating the absolute
-  values of the non-predictive features' $\beta$ coefficients.
+  non-predictive features from contributing to the $X$ term by minimizing the absolute
+  values of the respective $\beta$ coefficients.
   \item Regularization term - For situations of high noise (such as this), a larger term
   for $C$ is recommended.  However, the research plan was to optimize this term as needed with
   cross-validation.  Thus it was left at the default value of 1 in the first training instance.
@@ -278,7 +296,9 @@ normally be known at the time of diagnosis was generated.  These features were
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{benchmark}
-  \caption{Visualization of a benchmark logistic regression predictive model performance.\label{fig:benchScat}}
+  \caption{Visualization of a benchmark logistic regression predictive model performance.\label{fig:benchScat}
+  Training and test sets were stratified by Gleason grade, which appears to correlate to the benchmark model
+  prediction of metastasis risk.}
 \end{figure}
 
 \begin{table}
@@ -295,15 +315,16 @@ normally be known at the time of diagnosis was generated.  These features were
   \end{table}
 
 The coefficients for the three features in the model (representative values shown in Table \ref{tab:benchcoefs}) exhibited that
-Gleason score was by far the most predictive (approximately 0.85), and that age and
-interestingly PSA score (which is the current default test that doctors rely on
+Gleason score was by far the most predictive (approximately 0.85), and that age and, surprisingly,
+PSA score (which is the current default test that doctors rely on
 for prostate cancer risk)  provided very little use in classification.  Figure 5
 (left) shows the relationship between Gleason score and the benchmark model's
 prediction of metastasis.  Figure 5 (right) shows the distribution of metastasis
-probabilities, grouped by actual metastasis state.
+probabilities, color-filled by actual metastasis state.
 
 The log loss score from this benchmark analysis ranged from approximately 0.59 - 0.62 across 5 different runs (See Table \ref{tab:performance}), and
 thus could be considered marginally more useful than a '50\% model'.
+
 
 \section{Methodology}
 
@@ -321,11 +342,11 @@ algorithms were imported from the
 \subsection{Data Preprocessing}
 
 Samples with a Gleason score of 6 were homogenous in metastasis state (all
-'n0'), though many cases were not labeled.  In order to make more efficient use
+'n0'), though several cases were not labeled.  In order to make more efficient use
 of the  TCGA RNA-seq data set, 'n0' was imputed for all samples where no label
 existed and  Gleason grade was defined as 6.  The reasoning behind this decision
-was that those with low grade  malignancy are usually not screened from
-metastasis and thus the lack of data label  probably reflected the
+was that those with low grade malignancy are usually not screened for
+metastasis and thus the lack of data label probably reflected the
 dispensibility of the metastasis test in cases of mild malignancy. From a
 machine learning perspective, this step allowed more efficient use of a rather
 small dataset.  Given a much bigger data set, then this assumption would not be
@@ -336,12 +357,13 @@ clinical data were excluded from further analysis.
 \begin{SCfigure}
   \centering
   \includegraphics[scale=0.5]{GleasonHist2}
-  \caption{Distribution of known clinical features grouped by metastasis state (blue: 'n0', red: 'n1').\label{fig:postGSHist}}
+  \caption{Distribution of known clinical features grouped by metastasis state (blue: 'n0', red: 'n1').\label{fig:postGSHist}
+  'n0' was imputed for cases where label was missing and Gleason grade was mild.}
 \end{SCfigure}
 
 The gene count data retrieved from the TCGA portal was in an intermediary
 format.  While the raw RNA-sequence reads had been processed into gene
-activation estimations, each specimens profile required normalization for
+expression estimations, each profile required normalization for
 cross-sample comparison.   Therefore, the initial gene count dataset was transformed to
 transcripts per million (TPM) format.  This dataframe ('X') was the base upon
 which further feature reduction and test train splitting would be performed.
@@ -353,8 +375,8 @@ generation of a
 \href{http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier}{Random
 Forest Classifier} to supply information regarding the importance of each gene
 in the separation of metastasis states.  As the Random Forest model was not
-intended for actual classification purposes (not optimal due to the small sample
-size of the dataset), only key default parameters were altered. Specifically,
+intended for actual classification purposes (as it was not optimal due to the small sample
+size of the data set), only key default parameters were altered. Specifically,
 the maximum tree depth was limited to 3 nodes, and the minimum number of samples
 that could be split was limited to 30.  These parameter choices were intended to
 limit variance.  The 'Gini Importance' of each feature was retrieved from the
@@ -364,12 +386,19 @@ From this list, the original plan was to retain the top \textit{k-}number of
 genes for PCA compression.  However, run to run observation revealed that the
 set of genes  was rarely identical.  Many genes, such as \textit{gne} were
 present in every case, however their ranking changed each run, which affected
-the subset retained in each run.  To address the issue of feature stability, the Gini
-Importance selection process was repeated across 5 different random seeds, with only
-the genes present in the top \textit{k} of every epoch kept.  In this
+the subset composition in turn.  To address the issue of feature stability, the Gini
+Importance selection process was repeated across 5 different random seeds, with
+genes kept only if present in the top \textit{k} of each successive epoch.  In this
 solution, \textit{k} was set to 100 and resulted in a relatively stable selection of
-~11-18 genes.  This subset was scaled to standard mean and unit variance using the sklearn
+~15-18 genes.  This subset was scaled to standard mean and unit variance using the sklearn
 \href{http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler}{Standard Scaler} in preparation for further compression.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{boxplots}
+  \caption{\label{fig:separate}Genes with the highest 'Gini Importance' scores are generally not able of distinguishing metastasis class, individually.}
+\end{figure}
+
 
 The second phase of Feature reduction was \href{http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA}{Principle Component Analysis}
 compression. The PCA algorith ranks a data set's orthogonal vectors by variance, and transforms the data set to comply with the identified eigenvectors.  The percent explained
@@ -380,20 +409,23 @@ from each gene of the the \textit{k-}gene subset can be determined and is shown 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{pcaEV}
-  \caption{Explained variance and gene feature contribution to the first three principle components of the PCA transformation.\label{fig:pcaEV}}
+  \caption{\label{fig:pcaEV}Explained variance and gene feature contribution to the first three principle
+  components of the PCA transformation. Figure generated by code modified from
+  the Udacity Machine Learning Nanodegree Project \#3 - Creating Customer Segments.}
 \end{figure}
 
 This 3-feature dataset was then partitioned using the same indices from the
-first \href{http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html}{Train Test Split}
-performed prior to the benchmark model generation.  In detail, this
-split partitioned 70\% of the samples into the training set, with 30\% being held
-out for validation.  The data was stratified by Gleason score, which was used
-as a surrogate measure for cancer severity. While not a perfect solution, this
-decision was made to ensure that 'easy' (\textit{e.g.} mild or extremely severe
-malignancies) and 'difficult' (\textit{e.g.} malignancies on the border between
-moderate and severe) cases would be distributed equally.  Another option would
-have been to stratify by  metastasis label (see 'Reflection' section for  %set up reference label pair here
-discussion on this decision).
+first
+\href{http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html}{Train
+Test Split} performed prior to the benchmark model generation.  In detail, this
+split partitioned 70\% of the samples into the training set, with 30\% being
+held out for validation.  The data was stratified by Gleason score, which was
+used as a surrogate measure for cancer severity. This decision was made to
+ensure that 'easy' (\textit{e.g.} mild or extremely severe malignancies) and
+'difficult' (\textit{e.g.} malignancies on the border between moderate and
+severe) cases would be distributed equally.  Another option would have been to
+stratify by  metastasis label (see 'Reflection' section for  %set up reference
+label pair here discussion on this decision).
 
 The training data set was then fed into a
 \href{http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}{Logistic
@@ -424,14 +456,14 @@ Files'} folder in the GitHub repository.
 \subsection{Refinement}
 
 In order to optimize the C parameter, a \href{http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV}{Logistic Regression CV}
-classifier generated using 4 fold cross-validation across a 10-log range for C.
+classifier was generated using 4 fold cross-validation across a 10-log range for C.
 Performance was measured using \href{http://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss}{log loss}
-as the  scoring function.  This process yielded a maximum term for C, 10000.
+error rate.  This process yielded an elevated term for C, 10000, indicating significant noise in the data set.
 
 \begin{figure} [h!]
   \centering
     \includegraphics[width=\textwidth]{optPC3}
-    \caption{\label{fig:PC3}Optimization of the regularization parameter acheives minimal improvement on model performance.}
+    \caption{\label{fig:PC3}Model predictions on the Training and Test data sets after optimization of the regularization parameter.  }
 \end{figure}
 
 Because Gleason grade was clearly the most important clinical feature in predicting
@@ -441,8 +473,9 @@ if any improvement in performance could be acheived.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{PC3Gleason}
-  \caption{\label{fig:PC3GG}Addition of Gleason grade to the PC model acheives minimal improvement on model performance.}
+  \caption{\label{fig:PC3GG}Model predictions after the addition of Gleason grade to the PC model.}
 \end{figure}
+
 
 \section{Results}
 
@@ -473,16 +506,11 @@ The final logistic regression model receives 2 feature variables:
 
 The coefficients for Gleason grade and the first PC were routinely equivalent,
 indicating they contribute roughly evenly to dependent variable prediction.  The
-2nd and 3rd PCs do not contribute as much to the logistic regression decision
+2nd and 3rd PCs did not contribute as much to the logistic regression decision
 function (see Table \ref{tab:FFcoefs}).  The optimal regularization parameter
 was regularly determined as the maximum value tested, which is an indication of
 noisy (\textit{i.e.} not linearly separable) data set.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{FF}
-  \caption{Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a single principle component with Gleason score performs better than the benchmark model in three metrics tested.\label{fig:FM}}
-\end{figure}
 
 \subsubsection{Test set Validation}
 
@@ -522,9 +550,7 @@ metastasis.  To test the functionality of the pipeline application, all RNA-seq
 profiles where the label was missing and Gleason grade was 7-10 were subjected
 to prediciton.  Results from this analysis are shown in Figure
 \ref{fig:missing}.  Clearly several of these cases were risk for metastasis
-according to the model and risk appeared to be correlated  to Gleason grade (not
-surprising as Gleason grade is a positively correlated to metastasis
-probability, Table \ref{tab:FFcoefs}).
+according to the model.
 
 \begin{figure}[h!]
   \centering
@@ -532,28 +558,42 @@ probability, Table \ref{tab:FFcoefs}).
   \caption{\label{fig:missing}Metastasis predictions for unlabeled TCGA cohort samples.  TCGA cohort patient samples that did not include a metastasis label and were Gleason range 7-10 were omitted from model learning and validation.  Samples are subjected to the risk analysis function and plotted against the benchmark model prediction (left) and Gleason score (right).}
 \end{figure}
 
-As a true test of senstivity, matched patient benign controls were run through the
-pipeline function.  These samples originated from areas of the prostate where
-no malignancy was evident (though malignancy was present within the same prostate
-gland in each case).  As expected, the density of metastasis probability was was
-right-skewed with the vast majority of predictions falling in the <0.20 range.
-
 \begin{figure} [h!]
   \centering
   \includegraphics[scale = 0.5]{Sensitivity}
-  \caption{\label{fig:Sensitivity} Analysis of risk from matched, benign controls from the TCGA cohort data reveal that the final model is stringent.  Samples from this cohort were taken from benign areas of patient prostates where malignancies were present.  The majority of samples are predicted with a low probability of metastasis.}
+  \caption{\label{fig:Sensitivity} Analysis of risk from matched, benign controls
+  from the TCGA cohort data reveal that the final model is stringent.  Samples
+  from this cohort were taken from benign areas of patient prostates where
+  malignancies were present.  Gleason grade was borrowed from the orthoganol
+  malignancy.   Despite this potential bias, the majority of samples are predicted
+  with a low probability of metastasis.}
 \end{figure}
+
+
+As a true test of senstivity, matched patient benign controls were run through
+the pipeline function.  These samples originated from areas of the prostate
+where no malignancy was evident (though malignancy was present within the same
+prostate gland in each case).  For the gleason grade in these matched benign
+specimens, the grade from the malignant region was borrowed to make the test
+robust.  For example, in  some cases the RNA-seq of a benign specimen will be
+paired with a gleason score of 9, due to severe malignancy elsewhere in the
+prostate).  An easier test would have been to impute a Gleason grade of 2-5 for
+each of these specimens.  Nevertheless, despite the potential Gleason bias, the
+density of metastasis probability was was right-skewed with the vast majority of
+predictions falling in the 0.05-0.3 range for the benign samples.
+
+
 
 \section{Conclusion}
 
 \subsection{Free-Form Visualization}
+A summary of model improvement over the course of the run is shown in Figure \ref{fig:FM}.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{boxplots}
-  \caption{\label{fig:separate}Genes with the highest 'Gini Importance' scores are generally not able of distinguishing metastasis class, individually.}
+  \includegraphics[width=\textwidth]{FF}
+  \caption{Summary of the change in metric score over the optimization course of the project.  The final model, that incorporates a 3 PCs from a \textit{k-}gene subset of RNA-seq data, combined with Gleason grade performs better than the benchmark model in log loss error.\label{fig:FM}}
 \end{figure}
-
 
 \subsection{Reflection}
 
@@ -574,17 +614,11 @@ cohort is regularly updated and those listed as non-metastatic at the time of
 update could become metastatic at a later date.  Indeed many of the
 'non-metastatic' observations are still predicted to have a high chance of
 metastasis, despite many of the cases being used for training of the model
-algorithm (See Figure \ref{fig:n0}
+algorithm (See Figure \ref{fig:n0})
 \item Noise in the data - no single gene or
 biomarker had been reported as capable of efficiently separating non-metastatic
 and metastatic cancers(corroborated in this project, Figure \ref{fig:separate}).
 \end{enumerate}
-
-\begin{SCfigure}
-  \centering
-  \includegraphics[scale=0.5]{N0Analysis}
-  \caption{\label{fig:n0} Metastasis prediction of samples labeled as non-metastastic}
-\end{SCfigure}
 
 Thus from a machine learning perspective, it was clear from the project's onset
 that feature reduction and appropriate model selection would be paramount to
@@ -592,20 +626,20 @@ success.
 
 \subsubsection{Feature Selection}
 
-There are many techniques for feature reduction.  One avenue explored was
-feature elimination via a wrapping mechanism.  However this approach was very
-slow and provided inconsistent results in which, and how many, features,
+There are many techniques for feature reduction.  One avenue that was explored
+was feature elimination via a wrapping mechanism.  However this approach was
+very slow and provided inconsistent results in which, and how many, features,
 were important. A different approach was to utilize the training of an ensemble
 Random Forest classifier, not for its use in classification, but in order to
 access its assessment of which genes were most informative in separation of the
-metastasis classes.  In order to stabalize the gene set retained, an iterative
-process was implemented in which the top 100 genes of a Random Forest to Gini Importance
-of each epoch was compared to the list of the previous.  Those consistent were
-held over into a new list which was updated in each cycle.  Thus any gene retained
-for the \textit{k-}gene feature set would have been ranked in the top 100 of 20501
-genes for Gini Importance in 6 separate Random Forest to Gini Importance cycles.  This
-usually selected 14-18 genes for futher compression in the next step.
-
+metastasis classes.  In order to stabilize the gene set to be retained, an
+iterative process was implemented in which the top 100 genes of a Random Forest
+to Gini Importance pipeline was compared to the list of the previous cycle.
+Those genes present in both lists were held over into a new set which was
+updated in each successive cycle.  Thus any gene retained for the
+\textit{k-}gene feature set would have been ranked in the top 100 of 20501 genes
+for Gini Importance in 6 separate Random Forest to Gini Importance cycles.  This
+usually selected 14-18 genes for further compression in the next step.
 Interestingly, when visualized graphically, none of this reduced k-gene set
 could separate the metastasis state linearly (Figure \ref{fig:separate}),
 justifying selection of logistic regression as the eventual classification
@@ -614,10 +648,8 @@ algorithm.
 After PCA transformation of the \textit{k-}gene subset, the plan was to provide
 the full complement of PCs (\textit{i.e.} the number of dimensions from the
 \textit{k-}gene set) to the logistic regression classifier as training data, and
-subsequently use each component's coefficient to  assess which were most able to
-explain the independent variable in a
-\href{http://scikit-learn.org/0.15/modules/generated/sklearn.feature_selection.RFECV.html#sklearn.feature_selection.RFECV}{Recursive
-Feature Elimination} wrapping function.  However, graphical analysis of the
+subsequently use each component's coefficient to  assess which PCs were most able to
+explain the independent variable.  However, graphical analysis of the
 principle component scatter matrix, grouped by metastasis state (Figure
 \ref{fig:pcaScatter} ) curiously showed that the first principle component
 seemed to generate distinct gaussian distributions for each of the metastasis
@@ -628,15 +660,15 @@ PCA transformation.
 \begin{figure}[h!]
   \centering
   \includegraphics[scale = 0.5]{pcaScatter}
-  \caption{\label{fig:pcaScatter}Analysis of PCA transformation of a k-gene feature subset.  The first principle component of PCA transformation separates metastasis state more efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.}
+  \caption{\label{fig:pcaScatter}Analysis of PCA transformation of a \textit{k-}gene feature subset.  The first principle component of PCA transformation separates metastasis state more efficiently than any single gene from the input set.  The second and third principle components are also shown for reference.}
 \end{figure}
 
 How could this be?  This result would be expected if a transformation technique
 such as linear discriminant analysis (LDA) had been employed, as LDA uses data
 label in order to determine the component vectors where class label is
 discriminated the most.  PCA, on the other hand, is an unsupervised technique
-and had generated what appeared to be a discriminant component in the absence of
-label information.  However, upon reflection, it is perhaps not surprising that
+and had generated what appeared to be a discriminating component in the absence of
+label information.  Upon reflection, it is perhaps not surprising that
 the eigenvector where the most variance in the data subset was contained (\textit{i.e.}
 the first principle component) would separate the class labels, given that
 \textit{only genes where a 'significant' difference in gene expression between the
@@ -646,8 +678,12 @@ By creating a pipeline from the  Gini Importance filter directly into the PCA
 transformation, something similar to
 \href{http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html}{Linear
 Discriminant Analysis} had been generated.  Indeed, exploration of an supervised
-LDA compression of the 20-feature set yielded a similar level of performance in
-the final model compared to compression via Gini Importance to PCA pipeline.
+LDA compression of the \textit{k-}feature set yielded a similar level of
+performance in the final model compared to compression via Gini Importance to
+PCA pipeline (Data not shown in  the project's GitHub repository master branch,
+though this feature can be observed in terminal commit in the
+\href{https://github.com/CCThompson82/MLE_capstone/commit/d9b0c14ebe69603381b52093cb0ea35b0ca3b3b7}{LDA\_exploration}
+branch).
 
 The 3-component feature set taken from this transformation was split on the same indices that were generated in
 the training and validation sets used in the benchmark analysis.  This was done
@@ -663,18 +699,18 @@ training and test sets, vastly reducing the run to run variation.
 
 Having completed a feature selection and compression technique, in which at
 least the first principle component seemed capable of distinguishing among
-metastasis class via graphical analysis (Figure \ref{fig:pcaScatter}), a
+metastasis class (graphical analysis, Figure \ref{fig:pcaScatter}), a
 logistic regression classifier was chosen as the predictive model.  Logistic
 regression was preferred  to other hyperplane-based techniques, such as support
-vector machines (SVM) due to the noise that was expected in the compressed
-dataset. SVM classifiers attempt to define the hyperplane by which the margin
+vector machines (SVM), due to the noise that was expected in the
+data set. SVM classifiers attempt to define the hyperplane by which the margin
 between the class labels is maximized.  In situations where data is not easily
 separable, this result can be unstable, and  at times, arbitrary.  Moreover, SVM
 does not provide a true probability of class assignment, as was the objective of
 the project.  In contrast, logistic regression assumes that no feature  is
-capable of explaining the outcome variable, but that the combination of features
-should be able to provide a probability of class assignment.  This assumption
-holds true for the RNA-seq dataset employed in this project.  Moreover, as the
+capable of explaining the outcome variable completely, but that the combination of features
+should be able to provide an odds-probability of class assignment.  These assumptions
+are consistent with the RNA-seq data set employed in this project.  Moreover, as the
 objective of this project was to provide a probability of metastasis, the output
 of logistic regression classifier is perfectly suited.
 
@@ -686,19 +722,20 @@ subset into these indices.  A logistic regression classifier was trained and
 optimized on the Training set, prior to validation on the Test set.  Additionally,
 Gleason grade was added as a feature to the model to determine whether an increased
 predictive performance could be acheived.  Indeed, the addition of this feature
-provided an incremental decrease in log loss metric on prediction the testing set.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[scale=0.5]{PC3Gleason}
-    \caption{\label{fig:FMscatter}}
-\end{figure}
+provided an incremental decrease in log loss error.
 
 The final release version of the code was run across 5 seeds and performance in
 the primary metric (log loss) (Table \ref{tab:performance}), and secondary
 metrics (F2 and MCC) were recorded, compared to the benchmark.
 
 \subsubsection{Model Performance}
+
+The mean improvement of the final model over the benchmark model per run  was
+17\%. Considering the small starting sample size, unlabeled and mislabeled
+data, and number of features,  this improvement should be considered a success.
+A high level of sensitivity was observed in the model, as evidenced by the assessment
+of benign specimens (Figure \ref{fig:Sensitivity}).
+
 
 In every run tested, the performance of the final model exceeded performance of
 the benchmark model by at least 14\% in log loss score.  The pipeline exhibited
@@ -709,41 +746,45 @@ valuable disease prognosis.  Instead, by performing a feature selection and
 compression, researchers may be able to predict disease more regularly at the
 sacrifice of knowing \textit{exactly} what genes are causal.
 
-Importantly, I hypothesize that as the TCGA cohort study is updated
-longitudinally, its performance will be more accurate.  This is due to the
-nature  of analyzing an on-going cohort trial.  In the context of a machine
-learning problem,  sample labels will only move in one direction (from
-'non-metastatic' to 'metastatic', never \textit{vis-a-versa}).  Therefore those
-patient samples predicted with a high  probability of metastasis, currently
-labeled as non-metastatic, would be correctly classified in future validation.
+Importantly, hypothetically as the TCGA cohort study is updated longitudinally,
+the performance of the model may trend towards more accurate.  This would  occur
+if the 'n0' cases that have been predicted as highly likely to metastasize are
+currently mislabeled, or the model is predicting a metastasis event that has yet
+to  occur.  Unfortunately this uncertainty is part of analyzing an on-going
+cohort trial.
+
+\begin{SCfigure}
+  \centering
+  \includegraphics[scale=0.5]{N0Analysis}
+  \caption{\label{fig:n0} Metastasis prediction of samples labeled as non-metastastic.
+  Despite being labeled as 'non-metastatic', some observations are predicted with high risk of
+  metastasis.}
+\end{SCfigure}
 
 Unfortunately in the context of the TCGA cohort study, the link between patient
 and barcode has been broken for ethical reasons, meaning that such patients with
-high risk  can not be identified for extra care in monitoring metastasis.
+high risk can not be identified for extra care in monitoring metastasis.
 
 \subsection{Improvement}
 
-An increased number of patient participants could allow more resolution / stability in
-feature selection and  compression.  As there are many different genetic routes to metastasis,
-an increased sample size could help identify fractions within each metastasis route
-that would inform specific therapeutic decisions.  Another avenue would be to
-combine this model with another type of data, for mutation analysis or epigenetic
-screens, which are also available from the TCGA cohort.
+While certainly prosaic, this project could use an increased number of participants.
+With the short and wide input dataset, the options for algorithm choice were severely
+limited.  Convergence between the Training and test set error rates in log loss
+score indicate variance is not an issue, though the low number of final input features
+could very well be introducing bias.
 
 \subsection{Final Remarks}
 
 The objective of this machine learning exercise was to develop a model that
-incorporated RNA-seq profiles (a feature set of 20501 genes) into prediction of
-the probability risk of prostate cancer  metastasis.  Given the small sample
-size and incomplete / inaccurate labelling of  the data set utilized, a 15-20\%
-improvement over the benchmark rate should be  considered a success, especially
-considering that many 'non-metastatic' cases will eventually become metastatic.
-Indeed, were a link from TCGA barcode to patient ID exist, this model could
-inform doctors which study participants were likely to  develop metastasis in
-the near future.  Increased study could be warranted to  determine if use of
-this model could benefit those diagnosed with prostate cancer in the very difficult
-decision of resection versus monitoring.  Finally, it may be possible to utilize
-this same pipeline for metastasis predictions in other types of cancer.
+incorporated RNA-seq profiles (a feature set of 20501 genes) into the
+prediction of prostate cancer metastasis risk.  Given the small sample size and
+incomplete / inaccurate labelling of noisey data, a 15-20\% improvement over the
+benchmark rate should be  considered a success, especially considering that many
+'non-metastatic' cases may eventually be re-labeled as metastatic.  Increased study could
+be warranted to  determine if use of this model could benefit those diagnosed
+with prostate cancer in the very difficult decision of resection versus
+monitoring.  Finally, it may be possible to utilize this same pipeline for
+metastasis predictions in other types of cancer simply by modifying the input dataset.
 
 \section{References}
 
@@ -752,6 +793,14 @@ this same pipeline for metastasis predictions in other types of cancer.
     Prostate Cancer UK,
     http://prostatecanceruk.org/prostate-information,
     Accessed 01-August-2016.
+
+  \bibitem{Brawley16}
+    Brawley OW, Thompson IM Jr, Grönberg H.
+    (2016)
+    \emph{Evolving Recommendations on Prostate Cancer Screening},
+    \textbf{Am Soc Clin Oncol Educ Book},
+    35,
+    e80-7.
   \bibitem{Humphrey04}
     Humphrey PA.
     (2004)
@@ -763,20 +812,7 @@ this same pipeline for metastasis predictions in other types of cancer.
     Cancer.org,
     http://www.cancer.org/cancer/prostatecancer/detailedguide/prostate-cancer-survival-rates,
     accessed 01-August-2016.
-  \bibitem{Yudel16}
-    Yudell M, Roberts D, Desalle R, \& Tishkoff S.
-    (2016)
-    \emph{Taking race out of human genetics},
-    \textbf{Science}
-    351,
-    pp 564-565.
-  \bibitem{Brawley16}
-    Brawley OW, Thompson IM Jr, Grönberg H.
-    (2016)
-    \emph{Evolving Recommendations on Prostate Cancer Screening},
-    \textbf{Am Soc Clin Oncol Educ Book},
-    35,
-    e80-7.
+
   \bibitem{Shea08}
     Shea PR, Ishwad CS, Bunker CH, Patrick AL, Kuller LH, Ferrell RE.
     (2008)
@@ -784,6 +820,12 @@ this same pipeline for metastasis predictions in other types of cancer.
     \textbf{Prostate},
     68,
     pp 354-9.
-
+  \bibitem{Yudel16}
+    Yudell M, Roberts D, Desalle R, \& Tishkoff S.
+    (2016)
+    \emph{Taking race out of human genetics},
+    \textbf{Science}
+    351,
+    pp 564-565.
 \end{thebibliography}
 \end{document}
