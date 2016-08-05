@@ -4,7 +4,8 @@
 #package import
 library(TCGA2STAT)
 library(feather)
-setwd("~/Documents/Python Files/Udacity Projects/PC_capstone")
+
+#setwd("/PC_capstone/")  #May need to change the working directory here to the root folder (the folder above the Data_setup folder)
 
 # Download datasets into a list called 'PRAD'
 PRAD <- getTCGA(disease = "PRAD",

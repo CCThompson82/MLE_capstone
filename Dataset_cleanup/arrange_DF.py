@@ -76,7 +76,7 @@ def transformation(dataset) :
     read_count = dataset.sum(axis = 1) #get the total reads for each sample
     for r in range(0,dataset.shape[0]) :
         dataset.iloc[r] = 1000000 * dataset.iloc[r] / read_count.iloc[r] #transform each read abundance (rsem) by the sample reads / million
-    if sum(round(dataset.sum(axis = 1)) == 1e6) == dataset.shape[0] :  #the sum of each row in the transformed df should be 1000000.  if every row is transformed correctly, print statement
+    if sum(dataset.sum(axis = 1).round(decimals =0) == 1e6) == dataset.shape[0] :  #the sum of each row in the transformed df should be 1000000.  if every row is transformed correctly, print statement
         print("\nTransformation Successful!\n")
         print(dataset.shape[0],'Gene count estimate profiles have been transformed from gene counts to transcripts per million reads (TPM)')
     else :
