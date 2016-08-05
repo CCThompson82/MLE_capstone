@@ -1,4 +1,4 @@
-# This script utilizes the TCGA2STAT package for convenient access to the TCGA 
+# This script utilizes the TCGA2STAT package for convenient access to the TCGA
 # portal for dataset initiation.
 
 #package import
@@ -7,9 +7,9 @@ library(feather)
 setwd("~/Documents/Python Files/Udacity Projects/PC_capstone")
 
 # Download datasets into a list called 'PRAD'
-PRAD <- getTCGA(disease = "PRAD", 
+PRAD <- getTCGA(disease = "PRAD",
                 data.type = "RNASeq2",
-                p = getOption("mc.cores", 2L), 
+                p = getOption("mc.cores", 2L),
                 clinical = T)
 
 #wrangle into data_frame
@@ -28,6 +28,9 @@ benign$benign_index <- sapply(benign$benign_index, substr, 0, 12)
 
 
 #write files to be picked up in python
-write_feather(gc, "feather_files/Gene_counts.feather") 
+write_feather(gc, "feather_files/Gene_counts.feather")
 write_feather(clinical, "feather_files/Clinical_data.feather")
 write_feather(benign, "feather_files/benign.feather")
+write.csv(gc, "csv_files/Gene_counts.csv", row.names =FALSE)
+write.csv(clinical, "csv_files/Clinical_data.csv", row.names=FALSE)
+write.csv(benign, "csv_files/benign.csv", row.names=FALSE)

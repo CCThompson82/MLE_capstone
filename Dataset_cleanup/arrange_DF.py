@@ -1,11 +1,21 @@
-import feather
+try:
+    import feather
+except ImportError :
+    pass
 import numpy as np
 import pandas as pd
 
 """Import clinical (containing data labels) and gene count feather files into
 pandas DataFrames"""
-clinical = feather.read_dataframe('feather_files/Clinical_data.feather')
-gene_counts = feather.read_dataframe('feather_files/Gene_counts.feather')
+try :
+    clinical = feather.read_dataframe('feather_files/Clinical_data.feather')
+except NameError:
+    clinical = pd.read_csv('csv_files/Clinical_data.csv')
+
+try :
+    gene_counts = feather.read_dataframe('feather_files/Gene_counts.feather')
+except NameError:
+    gene_counts = pd.read_csv('csv_files/Gene_counts.csv')
 
 """Check imports"""
 if np.isfinite(clinical.shape[0]) :
