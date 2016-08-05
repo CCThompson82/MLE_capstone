@@ -4,7 +4,7 @@
 #package import
 library(TCGA2STAT)
 library(feather)
-setwd("~/Documents/Python Files/Udacity Projects/PC_capstone")
+setwd("../")
 
 # Download datasets into a list called 'PRAD'
 PRAD <- getTCGA(disease = "PRAD",
@@ -31,6 +31,8 @@ benign$benign_index <- sapply(benign$benign_index, substr, 0, 12)
 write_feather(gc, "feather_files/Gene_counts.feather")
 write_feather(clinical, "feather_files/Clinical_data.feather")
 write_feather(benign, "feather_files/benign.feather")
+
+#in case feather is not imported, drop csv files 
 write.csv(gc, "csv_files/Gene_counts.csv", row.names =FALSE)
 write.csv(clinical, "csv_files/Clinical_data.csv", row.names=FALSE)
 write.csv(benign, "csv_files/benign.csv", row.names=FALSE)

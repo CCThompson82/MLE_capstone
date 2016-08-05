@@ -19,15 +19,15 @@ except NameError:
 
 """Check imports"""
 if np.isfinite(clinical.shape[0]) :
-    print("Clinical data set imported!\nFeatures:",int(clinical.shape[1]-1),"\nPatients:",clinical.shape[0])
+    print "Clinical data set imported!\nFeatures:",int(clinical.shape[1]-1),"\nPatients:",clinical.shape[0]
 else :
-    print("Error in Clinical data set import")
+    print "Error in Clinical data set import"
 
 """Remove features that provide no information"""
 def useless_vars(dataset) :
     df = pd.DataFrame(dataset.describe())
     to_drop = df.columns[df.loc['unique'] <= 1]
-    print("\n","The following features do not provide any information:","\n",to_drop.values,"\n")
+    print "\n","The following features do not provide any information:","\n",to_drop.values,"\n"
     dataset.drop(to_drop, axis = 1, inplace = True)
     return(dataset)
 clinical = useless_vars(clinical)
@@ -51,16 +51,16 @@ def future_vars(dataset) :
     keep = df[df['Known_at_diagnosis'] != 'no'].index
     dropped = df[df['Known_at_diagnosis'] == 'no'].index
     dataset.drop(dropped.values, axis = 1, inplace = True)
-    print("Variables that are not known at initial diagnosis:","\n", dropped.values, "\n")
-    print("Variables that are known at the time of diagnosis:\n",keep.values)
+    print "Variables that are not known at initial diagnosis:","\n", dropped.values, "\n"
+    print "Variables that are known at the time of diagnosis:\n",keep.values
     return(dataset)
 clinical = future_vars(clinical)
 
 
 if np.isfinite(gene_counts.shape[0]) :
-    print("\n\nGene Counts data set imported!\nFeatures:",int(gene_counts.shape[1]-1),"\nPatients:",gene_counts.shape[0])
+    print "\n\nGene Counts data set imported!\nFeatures:",int(gene_counts.shape[1]-1),"\nPatients:",gene_counts.shape[0]
 else :
-    print("Error in Gene_counts import")
+    print "Error in Gene_counts import"
 
 """Set index for both data frames as the TCGA ID code"""
 clinical.set_index(['clinical_index'], inplace=True) #set index to the TCGA ID
@@ -68,19 +68,4 @@ gene_counts.set_index(['gc_index'], inplace = True) # set the index as the TCGA 
 
 """Retrieve metastasis states from clinical """
 y_all = clinical['pathologyNstage'] #pull out the label (metastasis or no metastasis) as y
-clinical.drop(['pathologyNstage'], axis = 1, inplace=True) #drop label from feature set
-
-"""Transform gene counts data set into normal format"""
-def transformation(dataset) :
-    print("\n\nTransforming gene counts to transcript per million (TPM)")
-    read_count = dataset.sum(axis = 1) #get the total reads for each sample
-    for r in range(0,dataset.shape[0]) :
-        dataset.iloc[r] = 1000000 * dataset.iloc[r] / read_count.iloc[r] #transform each read abundance (rsem) by the sample reads / million
-    if sum(round(dataset.sum(axis = 1)) == 1e6) == dataset.shape[0] :  #the sum of each row in the transformed df should be 1000000.  if every row is transformed correctly, print statement
-        print("\nTransformation Successful!\n")
-        print(dataset.shape[0],'Gene count estimate profiles have been transformed from gene counts to transcripts per million reads (TPM)')
-    else :
-        print("\nError in gene count transformation to TPM")
-    return(dataset)
-
-X_all = transformation(gene_counts)
+clinical.drop(['pathologyNstage','dateofinitialpathologicdiagnosis', 'race' ], axis = 1, inplace=True) #drop label from feature set
