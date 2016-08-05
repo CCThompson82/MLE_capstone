@@ -1,0 +1,500 @@
+"clinical_index","Composite.Element.REF","yearstobirth","vitalstatus","daystodeath","daystolastfollowup","tumortissuesite","pathologicstage","pathologyTstage","pathologyNstage","pathologyMstage","gender","dateofinitialpathologicdiagnosis","radiationtherapy","histologicaltype","residualtumor","numberoflymphnodes","gleasonscore","psavalue","daystopsa","race","ethnicity"
+"TCGA-CH-5753","value","70","0",NA,"31","prostate",NA,"t3b","n1",NA,"male","2008",NA,"prostate adenocarcinoma acinar type","r0","3","9","4.53","31","white","not hispanic or latino"
+"TCGA-CH-5763","value","66","0",NA,"365","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","360","white","not hispanic or latino"
+"TCGA-CH-5764","value","66","0",NA,"31","prostate",NA,"t3b","n0",NA,"male","2008",NA,"prostate adenocarcinoma acinar type","r0","0","7","13.95","29","white","not hispanic or latino"
+"TCGA-CH-5772","value","63","0",NA,"486","prostate",NA,"t3a","n0",NA,"male","2008","yes","prostate adenocarcinoma acinar type","r1","0","9","0.03","424","white","not hispanic or latino"
+"TCGA-CH-5790","value","64","0",NA,"974","prostate",NA,"t2c","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","914","white","not hispanic or latino"
+"TCGA-CH-5791","value","72","0",NA,"1004","prostate",NA,"t3a","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r1","0","7","0.18","882","white","not hispanic or latino"
+"TCGA-EJ-5542","value","60","0",NA,"1513","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","519","white","not hispanic or latino"
+"TCGA-EJ-7123","value","59","0",NA,"2572","prostate",NA,"t2c","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1491","white","not hispanic or latino"
+"TCGA-EJ-7312","value","58","0",NA,"1099","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","376",NA,NA
+"TCGA-EJ-7325","value","63","0",NA,"1070","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","507",NA,NA
+"TCGA-EJ-7791","value","67","0",NA,"1118","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","217","white","not hispanic or latino"
+"TCGA-EJ-A46B","value","66","0",NA,"657","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","157",NA,NA
+"TCGA-EJ-A46G","value","71","0",NA,"668","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma, other subtype","r0","0","8","0.1","93",NA,NA
+"TCGA-EJ-A65J","value","62","0",NA,"451","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","9","0.1","91",NA,NA
+"TCGA-EJ-A6RC","value","64","0",NA,"873","prostate",NA,NA,"n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","693",NA,NA
+"TCGA-G9-6364","value","72","0",NA,"1198","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","841","white","not hispanic or latino"
+"TCGA-HC-7233","value",NA,"0",NA,"1355","prostate",NA,"t2a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r1","0","7",NA,NA,"white",NA
+"TCGA-HC-7748","value","60","0",NA,"792","prostate",NA,"t2a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","6","0.1","99","white","not hispanic or latino"
+"TCGA-HC-7821","value","54","0",NA,"956","prostate",NA,"t3b","n1",NA,"male","2011","yes","prostate adenocarcinoma acinar type",NA,"2","8","0.01","236","white","not hispanic or latino"
+"TCGA-HC-A6AQ","value","60","0",NA,"106","prostate",NA,"t2c",NA,NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,NA,NA
+"TCGA-HC-A76W","value","73","0",NA,"213","prostate",NA,"t3b","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r1","0","7","0.01","213",NA,NA
+"TCGA-J4-A83N","value","57","0",NA,"992","prostate",NA,"t2c",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","530",NA,NA
+"TCGA-J9-A8CN","value","53","0",NA,"1237","prostate",NA,"t3a",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r1",NA,"6","0.03","963",NA,NA
+"TCGA-KC-A7FA","value","63","0",NA,"598","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0","161",NA,NA
+"TCGA-KK-A7AP","value","55","0",NA,"196","prostate",NA,"t3b","n1",NA,"male","2010",NA,"prostate adenocarcinoma acinar type","r1","2","9",NA,NA,NA,NA
+"TCGA-KK-A7B3","value","62","0",NA,"899","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","9","0.1","637",NA,NA
+"TCGA-KK-A7B4","value","64","0",NA,"987","prostate",NA,"t3b","n1",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","8","9","0.6","637",NA,NA
+"TCGA-KK-A8IB","value","65","0",NA,"83","prostate",NA,"t3a","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r0",NA,"9",NA,NA,NA,NA
+"TCGA-QU-A6IM","value","59","0",NA,"1247","prostate",NA,"t2a","n0",NA,"male","2003","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","896",NA,NA
+"TCGA-XK-AAJ3","value","56","0",NA,"1262","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","8","0.09","863",NA,NA
+"TCGA-XK-AAK1","value","62","0",NA,"979","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0.09","614",NA,NA
+"TCGA-2A-A8VL","value","51","0",NA,"621","prostate",NA,"t2b","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","6","0.05","585",NA,NA
+"TCGA-2A-A8VO","value","57","0",NA,"1701","prostate",NA,"t3a",NA,NA,"male","2010","no","prostate adenocarcinoma acinar type","r1",NA,"6","0.05","1332",NA,NA
+"TCGA-2A-A8VT","value","47","0",NA,"1373","prostate",NA,"t4","n1",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r1","2","9","0.05","995",NA,NA
+"TCGA-2A-A8VV","value","52","0",NA,"671","prostate",NA,"t2b","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","6","0.05","560",NA,NA
+"TCGA-2A-A8VX","value","70","0",NA,"1378","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","8","0.05","1033",NA,NA
+"TCGA-2A-A8W1","value","54","0",NA,"112","prostate",NA,"t3a","n0",NA,"male","2011",NA,"prostate adenocarcinoma acinar type","r1","0","7","0.05","-122",NA,NA
+"TCGA-2A-A8W3","value","69","0",NA,"863","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","9","0.36","771",NA,NA
+"TCGA-2A-AAYF","value","57","0",NA,"1364","prostate",NA,"t3a",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.05","972",NA,NA
+"TCGA-2A-AAYO","value","57","0",NA,"1272","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.05","922",NA,NA
+"TCGA-2A-AAYU","value","56","0",NA,"615","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","6","0.05","269",NA,NA
+"TCGA-4L-AA1F","value","64","0",NA,"350","prostate",NA,"t3b","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","0","8","3.5","350",NA,NA
+"TCGA-CH-5737","value","73","0",NA,"91","prostate",NA,"t2c","n0",NA,"male","2007",NA,"prostate adenocarcinoma acinar type","r0","0","7","14.69",NA,"white","not hispanic or latino"
+"TCGA-CH-5738","value","72","0",NA,"212","prostate",NA,NA,NA,NA,"male","2006","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.01","195","white","not hispanic or latino"
+"TCGA-CH-5739","value","65","0",NA,"671","prostate",NA,"t3a","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","7","0.02","586","white","not hispanic or latino"
+"TCGA-CH-5740","value","57","0",NA,"31","prostate",NA,"t2c","n0",NA,"male","2009",NA,"prostate adenocarcinoma acinar type","r0","0","7","1.6",NA,"white","not hispanic or latino"
+"TCGA-CH-5741","value","56","0",NA,"395","prostate",NA,"t3b","n1",NA,"male","2008","yes","prostate adenocarcinoma acinar type","r1","1","9","0.02","339","white","not hispanic or latino"
+"TCGA-CH-5743","value","66","0",NA,"425","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","394","white","not hispanic or latino"
+"TCGA-CH-5744","value","64","0",NA,"60","prostate",NA,"t2c","n0",NA,"male","2008",NA,"prostate adenocarcinoma acinar type","r0","0","7","9.63","48","white","not hispanic or latino"
+"TCGA-CH-5745","value","68","0",NA,"91","prostate",NA,"t3a","n0",NA,"male","2008",NA,"prostate adenocarcinoma acinar type","r0","0","7","4.3","84","white","not hispanic or latino"
+"TCGA-CH-5746","value","57","0",NA,"731","prostate",NA,"t2c","n0",NA,"male","2007","yes","prostate adenocarcinoma acinar type","r1","0","7","0.1","693","white","not hispanic or latino"
+"TCGA-CH-5748","value","64","0",NA,"31","prostate",NA,"t3a","n0",NA,"male","2009",NA,"prostate adenocarcinoma acinar type","r1","0","7",NA,NA,"white","not hispanic or latino"
+"TCGA-CH-5750","value","72","0",NA,"396","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.02","337","white","not hispanic or latino"
+"TCGA-CH-5751","value","68","0",NA,"1065","prostate",NA,"t4","n1",NA,"male","2006","no","prostate adenocarcinoma acinar type","r1","1","10","0.01","1004","white","not hispanic or latino"
+"TCGA-CH-5752","value","66","0",NA,"943","prostate",NA,"t3a","n0",NA,"male","2006","yes","prostate adenocarcinoma acinar type","r0","0","8","0.02","868","white","not hispanic or latino"
+"TCGA-CH-5754","value","65","0",NA,"62","prostate",NA,"t3b","n1",NA,"male","2008",NA,"prostate adenocarcinoma acinar type","r1","3","9","37.36","62","white","not hispanic or latino"
+"TCGA-CH-5761","value","61","0",NA,"28","prostate",NA,"t3b","n0",NA,"male","2007",NA,"prostate adenocarcinoma acinar type","r0","0","9","8.49","39","white","not hispanic or latino"
+"TCGA-CH-5762","value","60","0",NA,"1339","prostate",NA,"t3b","n0",NA,"male","2005","yes","prostate adenocarcinoma acinar type","r1","0","7","0.01","1313","white","not hispanic or latino"
+"TCGA-CH-5765","value","55","0",NA,"700","prostate",NA,"t3a","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","0.02","694","white","not hispanic or latino"
+"TCGA-CH-5766","value","55","0",NA,"31","prostate",NA,"t3a","n1",NA,"male","2007",NA,"prostate adenocarcinoma acinar type","r0","1","7","13.9","39","white","not hispanic or latino"
+"TCGA-CH-5767","value","66","0",NA,"458","prostate",NA,"t2c","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","0.04","377","white","not hispanic or latino"
+"TCGA-CH-5768","value","72","0",NA,"731","prostate",NA,"t3a","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","6","0.1","634","white","not hispanic or latino"
+"TCGA-CH-5769","value","48","0",NA,"62","prostate",NA,"t3b","n0",NA,"male","2007",NA,"prostate adenocarcinoma acinar type","r1","0","9","11.16","60","white","not hispanic or latino"
+"TCGA-CH-5771","value","63","0",NA,"396","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","396","white","not hispanic or latino"
+"TCGA-CH-5788","value","69","0",NA,"821","prostate",NA,"t3b","n1",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","6","7","3.58","786","white","not hispanic or latino"
+"TCGA-CH-5789","value","61","0",NA,"304","prostate",NA,"t3a","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","7","0.02","229","white","not hispanic or latino"
+"TCGA-CH-5792","value","57","0",NA,"91","prostate",NA,"t3a","n0",NA,"male","2009",NA,"prostate adenocarcinoma acinar type","r1","0","9","11.49","91","white","not hispanic or latino"
+"TCGA-CH-5794","value","65","0",NA,"882","prostate",NA,"t2b","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","7","0.01","821","white","not hispanic or latino"
+"TCGA-EJ-5494","value","50","0",NA,"1477","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7",NA,"184","white","not hispanic or latino"
+"TCGA-EJ-5495","value","68","0",NA,"1760","prostate",NA,"t3b","n1",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","1","8","0.13","606","white","not hispanic or latino"
+"TCGA-EJ-5496","value","59","0",NA,"595","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","595","white","not hispanic or latino"
+"TCGA-EJ-5497","value","47","0",NA,"405","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","204","white","not hispanic or latino"
+"TCGA-EJ-5498","value","56","0",NA,"1720","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","537","white","not hispanic or latino"
+"TCGA-EJ-5499","value","61","0",NA,"1415","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","533","asian","not hispanic or latino"
+"TCGA-EJ-5501","value","55","0",NA,"1365","prostate",NA,"t3b","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","729","white","not hispanic or latino"
+"TCGA-EJ-5502","value","50","0",NA,"1171","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","603",NA,NA
+"TCGA-EJ-5503","value","50","0",NA,"1391","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","530","white","not hispanic or latino"
+"TCGA-EJ-5504","value","65","0",NA,"1427","prostate",NA,"t3a","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","r1","1","7","1","77","white","not hispanic or latino"
+"TCGA-EJ-5505","value","57","0",NA,"922","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","448","white","not hispanic or latino"
+"TCGA-EJ-5506","value","67","0",NA,"1381","prostate",NA,"t3b","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","rx","1","8","0.1","356","white","not hispanic or latino"
+"TCGA-EJ-5507","value","54","0",NA,"1457","prostate",NA,"t3b","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","2","9","0.1","182","white","not hispanic or latino"
+"TCGA-EJ-5508","value","65","0",NA,"1965","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","907","white","not hispanic or latino"
+"TCGA-EJ-5509","value","63","0",NA,"1464","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1102","white","not hispanic or latino"
+"TCGA-EJ-5510","value","48","0",NA,"1887","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","738","white","not hispanic or latino"
+"TCGA-EJ-5511","value","55","0",NA,"1476","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.04","788","black or african american","not hispanic or latino"
+"TCGA-EJ-5512","value","46","0",NA,"1733","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0","782","white","not hispanic or latino"
+"TCGA-EJ-5514","value","66","0",NA,"1829","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","9","0.1","724","white","not hispanic or latino"
+"TCGA-EJ-5515","value","60","0",NA,"1832","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1061","white","not hispanic or latino"
+"TCGA-EJ-5516","value","49","0",NA,"1889","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.12","730","white","not hispanic or latino"
+"TCGA-EJ-5517","value","55","0",NA,"1889","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","6","0.1","187","white","not hispanic or latino"
+"TCGA-EJ-5518","value","66","0",NA,"2118","prostate",NA,"t4","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","9","0.1","1195","white","not hispanic or latino"
+"TCGA-EJ-5519","value","64","0",NA,"1962","prostate",NA,"t3b","n1",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","3","8","0.2","1153","white","not hispanic or latino"
+"TCGA-EJ-5521","value","63","0",NA,"2279","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","240","white","not hispanic or latino"
+"TCGA-EJ-5522","value","51","0",NA,"2079","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1403","white","not hispanic or latino"
+"TCGA-EJ-5524","value","57","0",NA,"1882","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","9","0.1","811","white","not hispanic or latino"
+"TCGA-EJ-5525","value","67","0",NA,"1115","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","9","3","521","white","not hispanic or latino"
+"TCGA-EJ-5526","value","56","0",NA,"1909","prostate",NA,"t3a","n1",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","1","8","0.1","175","white","not hispanic or latino"
+"TCGA-EJ-5527","value","69","0",NA,"1778","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","217","white","not hispanic or latino"
+"TCGA-EJ-5530","value","61","0",NA,"1832","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","586","white","not hispanic or latino"
+"TCGA-EJ-5531","value","62","0",NA,"1273","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","724","white","not hispanic or latino"
+"TCGA-EJ-5532","value","57","0",NA,"1828","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","926","white","not hispanic or latino"
+"TCGA-EJ-7115","value","65","0",NA,"2687","prostate",NA,"t3a","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","204","white","not hispanic or latino"
+"TCGA-EJ-7125","value","44","0",NA,"2850","prostate",NA,"t2c","n0",NA,"male","2005","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1860","white","not hispanic or latino"
+"TCGA-EJ-7218","value","71","0",NA,"2542","prostate",NA,"t2c","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1473",NA,NA
+"TCGA-EJ-7314","value","62","0",NA,"1150","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","295","white","not hispanic or latino"
+"TCGA-EJ-7315","value","68","0",NA,"1008","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","289","white","not hispanic or latino"
+"TCGA-EJ-7317","value","71","0",NA,"771","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","285","white","not hispanic or latino"
+"TCGA-EJ-7318","value","51","0",NA,"1029","prostate",NA,"t3a",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.08","189",NA,NA
+"TCGA-EJ-7321","value","57","0",NA,"824","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","6","0.1","128","black or african american","not hispanic or latino"
+"TCGA-EJ-7327","value","61","0",NA,"923","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","175","white","not hispanic or latino"
+"TCGA-EJ-7328","value","70","0",NA,"842","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7",NA,NA,"white","not hispanic or latino"
+"TCGA-EJ-7330","value","68","0",NA,"191","prostate",NA,"t3a","n0",NA,"male","2011",NA,"prostate adenocarcinoma acinar type","r0","0","7","0.1","191","white","not hispanic or latino"
+"TCGA-EJ-7331","value","64","0",NA,"742","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.8","189","white","not hispanic or latino"
+"TCGA-EJ-7781","value","65","0",NA,"1073","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","169","white","not hispanic or latino"
+"TCGA-EJ-7782","value","71","0",NA,"1167","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","350","black or african american","not hispanic or latino"
+"TCGA-EJ-7783","value","70","0",NA,"787","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.7","172","white","not hispanic or latino"
+"TCGA-EJ-7784","value","63","0",NA,"781","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","167","white","not hispanic or latino"
+"TCGA-EJ-7785","value","54","0",NA,"1177","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","259","white","not hispanic or latino"
+"TCGA-EJ-7786","value","62","0",NA,"1096","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","79","white","not hispanic or latino"
+"TCGA-EJ-7788","value","53","0",NA,"859","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.2","52","white","not hispanic or latino"
+"TCGA-EJ-7789","value","66","0",NA,"1105","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7",NA,NA,"black or african american","not hispanic or latino"
+"TCGA-EJ-7792","value","53","0",NA,"1396","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.13","526","white","not hispanic or latino"
+"TCGA-EJ-7793","value","49","0",NA,"114","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","114","white","not hispanic or latino"
+"TCGA-EJ-7794","value","67","0",NA,"1306","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","285","white","not hispanic or latino"
+"TCGA-EJ-7797","value","53","0",NA,"983","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","187","white","not hispanic or latino"
+"TCGA-EJ-8468","value","63","0",NA,"2347","prostate",NA,"t3a","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","1961",NA,NA
+"TCGA-EJ-8469","value","46","0",NA,"2324","prostate",NA,"t3a","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","rx","0","9","3.1","1925",NA,NA
+"TCGA-EJ-8470","value","58","0",NA,"1159","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type",NA,"0","7",NA,NA,NA,NA
+"TCGA-EJ-8472","value","63","0",NA,"756","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","8","0.4","196",NA,NA
+"TCGA-EJ-8474","value","69","0",NA,"766","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","8","0.01","766",NA,NA
+"TCGA-EJ-A46D","value","53","0",NA,"626","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type",NA,"0","8","0.03","122",NA,NA
+"TCGA-EJ-A46E","value","57","0",NA,"524","prostate",NA,NA,"n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","503",NA,NA
+"TCGA-EJ-A46F","value","57","0",NA,"783","prostate",NA,"t3b","n1",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","1","8","19.8","215",NA,NA
+"TCGA-EJ-A46H","value","60","0",NA,"724","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","131",NA,NA
+"TCGA-EJ-A46I","value","57","0",NA,"668","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","484",NA,NA
+"TCGA-EJ-A65B","value","55","0",NA,"710","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma, other subtype","r1","0","9","0.01","536",NA,NA
+"TCGA-EJ-A65D","value","66","0",NA,"393","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma, other subtype","r0","0","8","0.1","393",NA,NA
+"TCGA-EJ-A65E","value","67","0",NA,"417","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma, other subtype","r0","0","7","0.1","254",NA,NA
+"TCGA-EJ-A65F","value","59","0",NA,"560","prostate",NA,"t3b","n0",NA,"male","2012","yes","prostate adenocarcinoma, other subtype","r0","0","9","0.8","75",NA,NA
+"TCGA-EJ-A65G","value","57","0",NA,"666","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","152",NA,NA
+"TCGA-EJ-A65M","value","65","0",NA,"230","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type",NA,"0","6","0.1","230",NA,NA
+"TCGA-EJ-A6RA","value","70","0",NA,"353","prostate",NA,"t3b","n1",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","1","8","0.652","353",NA,NA
+"TCGA-EJ-A7NF","value","56","0",NA,"250","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","117",NA,NA
+"TCGA-EJ-A7NG","value","64","0",NA,"432","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","264",NA,NA
+"TCGA-EJ-A7NH","value","56","0",NA,"474","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","105",NA,NA
+"TCGA-EJ-A7NJ","value","59","0",NA,"197","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","92",NA,NA
+"TCGA-EJ-A7NK","value","58","0",NA,"476","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","295",NA,NA
+"TCGA-EJ-A7NM","value","64","0",NA,"128","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma, other subtype","r0","3","9","0.1","128",NA,NA
+"TCGA-EJ-A7NN","value","61","0",NA,"197","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","3","7","0.3","197",NA,NA
+"TCGA-EJ-A8FN","value","58","0",NA,"329","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","203",NA,NA
+"TCGA-EJ-A8FO","value","51","0",NA,"282","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma, other subtype","r0","0","7","0.1","156",NA,NA
+"TCGA-EJ-A8FP","value","59","0",NA,"299","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma, other subtype","r0","0","8","0.2","117",NA,NA
+"TCGA-EJ-A8FS","value","66","0",NA,"266","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0.3","216",NA,NA
+"TCGA-EJ-A8FU","value","64","0",NA,"138","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","8",NA,NA,NA,NA
+"TCGA-EJ-AB20","value","61","0",NA,"131","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","6","0.1","131",NA,NA
+"TCGA-EJ-AB27","value","51","0",NA,"145","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","6","0.1","145",NA,NA
+"TCGA-FC-7708","value","52","0",NA,"864","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","rx","0","7",NA,NA,"asian","not hispanic or latino"
+"TCGA-FC-7961","value","62","0",NA,"469","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type",NA,"0","9",NA,NA,"white","not hispanic or latino"
+"TCGA-FC-A4JI","value","70","0",NA,"877","prostate",NA,"t3a",NA,NA,"male","2012","yes","prostate adenocarcinoma acinar type","r0",NA,"8",NA,NA,NA,NA
+"TCGA-FC-A5OB","value","53","0",NA,"680","prostate",NA,"t3b","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","0","9","5.22","110",NA,NA
+"TCGA-FC-A66V","value","74","0",NA,"524","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","10.8","-164",NA,NA
+"TCGA-FC-A6HD","value","77","0",NA,"789","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7",NA,NA,NA,NA
+"TCGA-FC-A8O0","value","68","0",NA,"616","prostate",NA,"t3a","n0",NA,"male","2013",NA,"prostate adenocarcinoma acinar type","r0","0","6","7.82","18",NA,NA
+"TCGA-G9-6329","value","67","0",NA,"1266","prostate",NA,"t2c",NA,NA,"male","2009","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.03","923","white","not hispanic or latino"
+"TCGA-G9-6332","value","55","0",NA,"2657","prostate",NA,"t3a","n0",NA,"male","2005","no","prostate adenocarcinoma acinar type","r0","0","7","0.73","2090","white","not hispanic or latino"
+"TCGA-G9-6333","value","66","0",NA,"2465","prostate",NA,"t2c","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","1920","white","not hispanic or latino"
+"TCGA-G9-6336","value","57","0",NA,"2068","prostate",NA,NA,"n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r1","0","7","0.1","1669","white","not hispanic or latino"
+"TCGA-G9-6338","value","61","0",NA,"2028","prostate",NA,"t3a","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r1","0","7","0.05","1634","white","not hispanic or latino"
+"TCGA-G9-6339","value","58","0",NA,"2551","prostate",NA,"t3b","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","2110",NA,NA
+"TCGA-G9-6342","value","61","0",NA,"1696","prostate",NA,"t3a",NA,NA,"male","2008","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.05","1338","white","not hispanic or latino"
+"TCGA-G9-6343","value","62","0",NA,"2450","prostate",NA,"t2c",NA,NA,"male","2008","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.03","554","white","not hispanic or latino"
+"TCGA-G9-6347","value","59","0",NA,"2089","prostate",NA,"t2c",NA,NA,"male","2008","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.03","1718",NA,NA
+"TCGA-G9-6348","value","68","0",NA,"1515","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.02","1136","white","not hispanic or latino"
+"TCGA-G9-6351","value","51","0",NA,"2048","prostate",NA,"t2c",NA,NA,"male","2008","yes","prostate adenocarcinoma acinar type","r1",NA,"7","0.03","1215","white","not hispanic or latino"
+"TCGA-G9-6353","value","58","0",NA,"1542","prostate",NA,"t3a",NA,NA,"male","2009","no","prostate adenocarcinoma acinar type","r1",NA,"7","0.1","590","white","not hispanic or latino"
+"TCGA-G9-6354","value","55","0",NA,"2066","prostate",NA,"t2b",NA,NA,"male","2009","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.03","525",NA,NA
+"TCGA-G9-6356","value","60","0",NA,"1434","prostate",NA,"t3b","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","0","9","0.13","986","white","not hispanic or latino"
+"TCGA-G9-6361","value","61","0",NA,"1415","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","0","7","0.1","1002","white","not hispanic or latino"
+"TCGA-G9-6362","value","57","0",NA,"1443","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","0","7","0.07","815","white","not hispanic or latino"
+"TCGA-G9-6363","value","64","0",NA,"1378","prostate",NA,"t4","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","993","white","not hispanic or latino"
+"TCGA-G9-6365","value","71","0",NA,"1363","prostate",NA,"t4","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","0","7","0.01","804","white","not hispanic or latino"
+"TCGA-G9-6366","value","61","0",NA,"1947","prostate",NA,"t3b",NA,NA,"male","2009",NA,"prostate adenocarcinoma acinar type","r0",NA,"7","0.1","101","white","not hispanic or latino"
+"TCGA-G9-6367","value","60","0",NA,"1222","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","0","9","0.42","836","white","not hispanic or latino"
+"TCGA-G9-6369","value","55","0",NA,"1215","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","851","white","not hispanic or latino"
+"TCGA-G9-6370","value","52","0",NA,"1156","prostate",NA,"t3b","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","806","white","not hispanic or latino"
+"TCGA-G9-6371","value","58","0",NA,"1226","prostate",NA,"t2c",NA,NA,"male","2009","no","prostate adenocarcinoma acinar type","r1",NA,"6","0.03","846","white","not hispanic or latino"
+"TCGA-G9-6373","value","68","0",NA,"811","prostate",NA,"t3a",NA,NA,"male","2009","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,"white","not hispanic or latino"
+"TCGA-G9-6377","value","61","0",NA,"958","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","518","white","not hispanic or latino"
+"TCGA-G9-6378","value","54","0",NA,"1155","prostate",NA,"t2c",NA,NA,"male","2009","no","prostate adenocarcinoma acinar type","r1",NA,"7","0.03","223","black or african american","not hispanic or latino"
+"TCGA-G9-6379","value","68","0",NA,"1778","prostate",NA,"t3b","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","0","7","0.03","1393",NA,NA
+"TCGA-G9-6384","value","53","0",NA,"765","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","390","white","not hispanic or latino"
+"TCGA-G9-6385","value","66","0",NA,"830","prostate",NA,"t2c",NA,NA,"male","2010","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.064","336","white","not hispanic or latino"
+"TCGA-G9-6494","value","66","0",NA,"1771","prostate",NA,"t4","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","7","1.13","1423","white","not hispanic or latino"
+"TCGA-G9-6496","value","61","0",NA,"1726","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","703","white","not hispanic or latino"
+"TCGA-G9-6498","value","53","0",NA,"1952","prostate",NA,"t3a",NA,NA,"male","2008","no","prostate adenocarcinoma acinar type","r1",NA,"7","0.03","1608",NA,NA
+"TCGA-G9-6499","value","66","0",NA,"1543","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","9","0.11","1109","white","not hispanic or latino"
+"TCGA-G9-7509","value","48","0",NA,"1610","prostate",NA,"t2c",NA,NA,"male","2009","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.03","352",NA,NA
+"TCGA-G9-7510","value","66","0",NA,"1185","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r1","0","8","0.03","674",NA,NA
+"TCGA-G9-7519","value","58","0",NA,"849","prostate",NA,"t2c",NA,NA,"male","2010","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.03","457",NA,NA
+"TCGA-G9-7521","value","52","0",NA,"942","prostate",NA,"t3a","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","1","8","0.06","487",NA,NA
+"TCGA-G9-7522","value","49","0",NA,"1078","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","452",NA,NA
+"TCGA-G9-7523","value","44","0",NA,"857","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","10","0.03","324",NA,NA
+"TCGA-G9-7525","value","64","0",NA,"994","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.03","512",NA,NA
+"TCGA-G9-A9S0","value","53","1","791",NA,"prostate",NA,"t3b","n1",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r1","5","8","10.87","759",NA,NA
+"TCGA-G9-A9S4","value","62","0",NA,"906","prostate",NA,"t3b","n1",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","4","8","0.03","753",NA,NA
+"TCGA-G9-A9S7","value","55","0",NA,"728","prostate",NA,"t3a","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r0","0","8","0.13","643",NA,NA
+"TCGA-H9-7775","value","68","0",NA,"185","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type",NA,NA,"7","0.04","73","white","not hispanic or latino"
+"TCGA-H9-A6BX","value","60","0",NA,"941","prostate",NA,"t2c",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.04","570",NA,NA
+"TCGA-H9-A6BY","value","63","0",NA,"112","prostate",NA,"t3a","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","rx","0","7",NA,NA,NA,NA
+"TCGA-HC-7075","value",NA,"0",NA,"601","prostate",NA,"t2a",NA,NA,"male","2010","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.01","96","white","not hispanic or latino"
+"TCGA-HC-7077","value","64","0",NA,"2115","prostate",NA,"t3a",NA,NA,"male","2006","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.83","1749","black or african american","not hispanic or latino"
+"TCGA-HC-7078","value","69","0",NA,"1985","prostate",NA,"t3a","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","0.01","1409","white","not hispanic or latino"
+"TCGA-HC-7079","value","51","0",NA,"1184","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","126","white","not hispanic or latino"
+"TCGA-HC-7080","value","66","0",NA,"1106","prostate",NA,"t2a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","104","white","not hispanic or latino"
+"TCGA-HC-7081","value",NA,"0",NA,"1136","prostate",NA,"t3b",NA,NA,"male","2010","yes","prostate adenocarcinoma acinar type","r2",NA,"9",NA,NA,"white",NA
+"TCGA-HC-7209","value","60","0",NA,"440","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","6","0.05","108","white","not hispanic or latino"
+"TCGA-HC-7210","value","74","0",NA,"868","prostate",NA,"t2a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","149","white","not hispanic or latino"
+"TCGA-HC-7211","value","62","0",NA,"1221","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","10.9","-17","white","not hispanic or latino"
+"TCGA-HC-7212","value","56","0",NA,"870","prostate",NA,"t2a","n0",NA,"male","2011",NA,"prostate adenocarcinoma acinar type",NA,"0","7","0.28","424","white","not hispanic or latino"
+"TCGA-HC-7213","value","53","0",NA,"1219","prostate",NA,"t3b","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","9","4.09","170","white","not hispanic or latino"
+"TCGA-HC-7230","value","50","0",NA,"1001","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","3",NA,"white","not hispanic or latino"
+"TCGA-HC-7231","value","66","0",NA,"939","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,"white",NA
+"TCGA-HC-7232","value","66","0",NA,"1161","prostate",NA,"t3b",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"9",NA,NA,"white","not hispanic or latino"
+"TCGA-HC-7736","value","59","0",NA,"1103","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.02","102","white","not hispanic or latino"
+"TCGA-HC-7737","value","55","0",NA,"1090","prostate",NA,"t2c","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","1","7","0.1","147","black or african american",NA
+"TCGA-HC-7738","value","58","0",NA,"964","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,"white","not hispanic or latino"
+"TCGA-HC-7740","value","59","0",NA,"717","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0","154","white","not hispanic or latino"
+"TCGA-HC-7742","value","58","0",NA,"938","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","113","white","not hispanic or latino"
+"TCGA-HC-7744","value","46","0",NA,"531","prostate",NA,"t3b","n0",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r1","0","7","0.04","282","white","not hispanic or latino"
+"TCGA-HC-7745","value","65","0",NA,"721","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7",NA,NA,"white","not hispanic or latino"
+"TCGA-HC-7747","value","52","0",NA,"748","prostate",NA,"t2c","n0",NA,"male","2011","yes","prostate adenocarcinoma acinar type",NA,"0","7","0.19","392","white","not hispanic or latino"
+"TCGA-HC-7749","value","70","0",NA,"724","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","102","white","not hispanic or latino"
+"TCGA-HC-7750","value","50","0",NA,"522","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","83","white","not hispanic or latino"
+"TCGA-HC-7752","value","61","0",NA,"782","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","138","white","not hispanic or latino"
+"TCGA-HC-7817","value","52","0",NA,"928","prostate",NA,"t3b",NA,NA,"male","2011","yes","prostate adenocarcinoma acinar type",NA,NA,"7","0.1","171",NA,NA
+"TCGA-HC-7818","value","66","0",NA,"938","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.01","99","white","not hispanic or latino"
+"TCGA-HC-7819","value","53","0",NA,"543","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r2","0","8","0.01","172","white","not hispanic or latino"
+"TCGA-HC-7820","value","72","0",NA,"747","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,"white","not hispanic or latino"
+"TCGA-HC-8212","value","53","0",NA,"2179","prostate",NA,"t3a","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","3.27","640",NA,NA
+"TCGA-HC-8213","value","48","0",NA,"589","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"6",NA,NA,NA,NA
+"TCGA-HC-8216","value","58","0",NA,"682","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.19","137",NA,NA
+"TCGA-HC-8256","value","53","0",NA,"860","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,NA,NA
+"TCGA-HC-8257","value","70","0",NA,"726","prostate",NA,"t3b","n1",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","1","7","0.1","726",NA,NA
+"TCGA-HC-8258","value","56","0",NA,"847","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type",NA,"0","6","0.01","162",NA,NA
+"TCGA-HC-8259","value","50","0",NA,"924","prostate",NA,"t2a",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.01","123",NA,NA
+"TCGA-HC-8260","value","43","0",NA,"686","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","7","0.01","106",NA,NA
+"TCGA-HC-8261","value","48","0",NA,"546","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,NA,NA
+"TCGA-HC-8262","value","57","0",NA,"679","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","112",NA,NA
+"TCGA-HC-8264","value","60","0",NA,"48","prostate",NA,"t3b","n1",NA,"male","2011",NA,"prostate adenocarcinoma acinar type","r1","1","9",NA,NA,NA,NA
+"TCGA-HC-8265","value","66","0",NA,"483","prostate",NA,"t3a","n0",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r1","0","8","0.1","119",NA,NA
+"TCGA-HC-8266","value","55","0",NA,"473","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","8",NA,NA,NA,NA
+"TCGA-HC-A48F","value","47","0",NA,"680","prostate",NA,"t2c","n1",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","1","8",NA,NA,NA,NA
+"TCGA-HC-A4ZV","value","56","0",NA,"23","prostate",NA,"t3b","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r1","0","9",NA,NA,NA,NA
+"TCGA-HC-A631","value","67","0",NA,"54","prostate",NA,"t2c","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r1","0","9",NA,NA,NA,NA
+"TCGA-HC-A632","value","68","0",NA,"61","prostate",NA,"t3a","n0",NA,"male","2013",NA,"prostate adenocarcinoma acinar type","r0","0","9",NA,NA,NA,NA
+"TCGA-HC-A6AL","value","64","0",NA,"67","prostate",NA,"t2c","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r0","0","7",NA,NA,NA,NA
+"TCGA-HC-A6AN","value","67","0",NA,"49","prostate",NA,"t3a","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r1","0","7",NA,NA,NA,NA
+"TCGA-HC-A6AO","value","52","0",NA,"530","prostate",NA,"t2c",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,NA,NA
+"TCGA-HC-A6AP","value","61","0",NA,"71","prostate",NA,"t2c",NA,NA,"male","2012",NA,"prostate adenocarcinoma acinar type","rx",NA,"7",NA,NA,NA,NA
+"TCGA-HC-A6AS","value","70","0",NA,"44","prostate",NA,"t2a","n0",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r0","0","7",NA,NA,NA,NA
+"TCGA-HC-A6HX","value","55","0",NA,"38","prostate",NA,"t2c","n0",NA,"male","2013",NA,"prostate adenocarcinoma acinar type","r0","0","7",NA,NA,NA,NA
+"TCGA-HC-A6HY","value","51","0",NA,"134","prostate",NA,"t2c",NA,NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r0",NA,"7",NA,NA,NA,NA
+"TCGA-HC-A76X","value","62","0",NA,"150","prostate",NA,"t2c","n0",NA,"male","2013",NA,"prostate adenocarcinoma acinar type","r0","0","7","0.01","150",NA,NA
+"TCGA-HC-A8CY","value","63","0",NA,"290","prostate",NA,"t3a","n1",NA,"male","2013",NA,"prostate adenocarcinoma acinar type","r1","1","9","0.9","290",NA,NA
+"TCGA-HC-A8D0","value","61","0",NA,"775","prostate",NA,"t2a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0.01","110",NA,NA
+"TCGA-HC-A8D1","value","68","0",NA,"573","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0.01","168",NA,NA
+"TCGA-HC-A9TE","value","64","0",NA,"587","prostate",NA,"t3b","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","1","9","0.064","134",NA,NA
+"TCGA-HC-A9TH","value","58","0",NA,"844","prostate",NA,"t3b","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","0","9","0.38","295",NA,NA
+"TCGA-HI-7168","value","62","0",NA,"3323","prostate",NA,"t3b","n0",NA,"male","2005","no","prostate adenocarcinoma acinar type","r0","0","9","0.3","2289","white","not hispanic or latino"
+"TCGA-HI-7169","value","55","0",NA,"2684","prostate",NA,"t3a","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r1","0","7","0.1","1941","white","not hispanic or latino"
+"TCGA-HI-7170","value","58","0",NA,"2522","prostate",NA,"t2c","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","6","0.1","1746","white","not hispanic or latino"
+"TCGA-HI-7171","value","56","1","1329",NA,"prostate",NA,"t3b","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","9","0.7","631","white","not hispanic or latino"
+"TCGA-J4-8198","value","49","0",NA,"614","prostate",NA,"t3b",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type",NA,NA,"7","0.1","76",NA,NA
+"TCGA-J4-8200","value","47","0",NA,"1218","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","196",NA,NA
+"TCGA-J4-A67K","value","68","0",NA,"1004","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","557",NA,NA
+"TCGA-J4-A67L","value","54","0",NA,"770","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.01","518",NA,NA
+"TCGA-J4-A67M","value","55","0",NA,"941","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","482",NA,NA
+"TCGA-J4-A67N","value","61","0",NA,"937","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.7","503",NA,NA
+"TCGA-J4-A67O","value","59","0",NA,"839","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","490",NA,NA
+"TCGA-J4-A67Q","value","77","0",NA,"975","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type",NA,NA,"6","0.1","616",NA,NA
+"TCGA-J4-A67R","value","65","0",NA,"910","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","454",NA,NA
+"TCGA-J4-A67S","value","63","0",NA,"833","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","7","0.1","522",NA,NA
+"TCGA-J4-A67T","value","63","0",NA,"183","prostate",NA,"t2c",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","154",NA,NA
+"TCGA-J4-A6G1","value","68","0",NA,"769","prostate",NA,"t3a","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r0","0","8","0.1","178",NA,NA
+"TCGA-J4-A6G3","value","57","0",NA,"849","prostate",NA,"t3b","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","0","8","0.4","528",NA,NA
+"TCGA-J4-A6M7","value","53","0",NA,"512","prostate",NA,"t2c",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","279",NA,NA
+"TCGA-J4-A83I","value","63","0",NA,"685","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","257",NA,NA
+"TCGA-J4-A83J","value","68","0",NA,"696","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","0","7","0.04","235",NA,NA
+"TCGA-J4-A83K","value","52","0",NA,"328","prostate",NA,"t2c",NA,NA,"male","2013","no","prostate adenocarcinoma acinar type","r0",NA,"6","0.1","205",NA,NA
+"TCGA-J4-A83L","value","61","0",NA,"720","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","316",NA,NA
+"TCGA-J4-A83M","value","64","0",NA,"543","prostate",NA,"t2c","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","0","7","0.2","437",NA,NA
+"TCGA-J4-AATV","value","71","0",NA,"553","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1",NA,"6","0","358",NA,NA
+"TCGA-J4-AATZ","value","66","0",NA,"412","prostate",NA,"t3a","n0",NA,"male","2013","yes","prostate adenocarcinoma acinar type","r1","0","9","0","386",NA,NA
+"TCGA-J4-AAU2","value","59","0",NA,"825","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","6","0","224",NA,NA
+"TCGA-J9-A52B","value","62","0",NA,"422","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","9","0.01","414",NA,NA
+"TCGA-J9-A52C","value","57","0",NA,"178","prostate",NA,"t3b",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r0",NA,"9","0.03","178",NA,NA
+"TCGA-J9-A52D","value","71","0",NA,"212","prostate",NA,"t3a",NA,NA,"male","2012","no","prostate adenocarcinoma, other subtype","r0",NA,"9","0.059","146",NA,NA
+"TCGA-J9-A52E","value","65","0",NA,"323","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","9","0.01","393",NA,NA
+"TCGA-J9-A8CK","value","66","0",NA,"321","prostate",NA,"t3a",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r1",NA,"9","0.01","321",NA,NA
+"TCGA-J9-A8CL","value","66","0",NA,"405","prostate",NA,"t3b",NA,NA,"male","2013",NA,"prostate adenocarcinoma acinar type","r1",NA,"9","12.01","405",NA,NA
+"TCGA-J9-A8CM","value","66","0",NA,"463","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","1","9","0.55","463",NA,NA
+"TCGA-J9-A8CP","value","66","0",NA,"386","prostate",NA,"t3a",NA,NA,"male","2013","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.01","298",NA,NA
+"TCGA-KC-A4BL","value","65","0",NA,"934","prostate",NA,"t2c","n0",NA,"male","2006",NA,"prostate adenocarcinoma acinar type","r0","0","7","3.15","206",NA,NA
+"TCGA-KC-A4BN","value","55","0",NA,"1815","prostate",NA,"t2a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0","529",NA,NA
+"TCGA-KC-A4BO","value","55","0",NA,"607","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.04","478",NA,NA
+"TCGA-KC-A4BR","value","75","0",NA,"1349","prostate",NA,"t3b","n1",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","1","9","0","1258",NA,NA
+"TCGA-KC-A4BV","value","66","0",NA,"1328","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","9","0.53","1328",NA,NA
+"TCGA-KC-A7F3","value","67","0",NA,"665","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0","664",NA,NA
+"TCGA-KC-A7F5","value","54","0",NA,"91","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0","91",NA,NA
+"TCGA-KC-A7F6","value","63","0",NA,"263","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0","193",NA,NA
+"TCGA-KC-A7FD","value","62","0",NA,"270","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0","144",NA,NA
+"TCGA-KC-A7FE","value","62","0",NA,"352","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","0","7","0","185",NA,NA
+"TCGA-KK-A59V","value","64","0",NA,"3440","prostate",NA,"t3b","n0",NA,"male","2005","no","prostate adenocarcinoma acinar type","r0","0","9","0.1","2500",NA,NA
+"TCGA-KK-A59X","value","55","0",NA,"2535","prostate",NA,"t3b","n1",NA,"male","2008","yes","prostate adenocarcinoma acinar type","r1","2","9",NA,NA,NA,NA
+"TCGA-KK-A59Y","value","56","0",NA,"1968","prostate",NA,"t3a","n1",NA,"male","2009","yes","prostate adenocarcinoma acinar type","rx","2","9","0.1","1359",NA,NA
+"TCGA-KK-A59Z","value","66","0",NA,"2628","prostate",NA,"t2c","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","849",NA,NA
+"TCGA-KK-A5A1","value","72","1","2469",NA,"prostate",NA,"t3b","n0",NA,"male","2003","no","prostate adenocarcinoma acinar type","r1","0","9","0.1","420",NA,NA
+"TCGA-KK-A6DY","value","50","0",NA,"4295","prostate",NA,"t2c","n0",NA,"male","2002","no","prostate adenocarcinoma acinar type","r1","0","7","0.1","903",NA,NA
+"TCGA-KK-A6E0","value","59","0",NA,"1483","prostate",NA,"t3a","n0",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r0","0","9","0.3","941",NA,NA
+"TCGA-KK-A6E1","value","57","0",NA,"2198","prostate",NA,"t3b","n1",NA,"male","2008","yes","prostate adenocarcinoma acinar type","rx","5","9","0.1","356",NA,NA
+"TCGA-KK-A6E2","value","54","0",NA,"5024","prostate",NA,"t2c","n0",NA,"male","2000","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","438",NA,NA
+"TCGA-KK-A6E3","value","56","0",NA,"2056","prostate",NA,"t2c","n0",NA,"male","2004","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1065",NA,NA
+"TCGA-KK-A6E4","value","69","1","3502",NA,"prostate",NA,"t2b","n0",NA,"male","2004","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","890",NA,NA
+"TCGA-KK-A6E5","value","63","0",NA,"2073","prostate",NA,"t3b","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1496",NA,NA
+"TCGA-KK-A6E6","value","69","0",NA,"3447","prostate",NA,"t3a","n0",NA,"male","2002","no","prostate adenocarcinoma acinar type","r0","0","9","0.1","3447",NA,NA
+"TCGA-KK-A6E7","value","46","0",NA,"2760","prostate",NA,"t3a","n1",NA,"male","2007","no","prostate adenocarcinoma acinar type","r1","1","9","0.1","1847",NA,NA
+"TCGA-KK-A6E8","value","68","0",NA,"1770","prostate",NA,"t2c","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","rx","0","9","0.1","1769",NA,NA
+"TCGA-KK-A7AQ","value","62","0",NA,"1610","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","1385",NA,NA
+"TCGA-KK-A7AU","value","63","0",NA,"1775","prostate",NA,"t3b","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","r1","3","9","0","1621",NA,NA
+"TCGA-KK-A7AV","value","58","0",NA,"822","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","rx","0","7","0.1","822",NA,NA
+"TCGA-KK-A7AW","value","57","0",NA,"1054","prostate",NA,"t3a","n1",NA,"male","2010",NA,"prostate adenocarcinoma acinar type","r0","1","7","0.8","204",NA,NA
+"TCGA-KK-A7AY","value","60","0",NA,"1754","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.2","1572",NA,NA
+"TCGA-KK-A7AZ","value","56","0",NA,"1519","prostate",NA,"t3a","n0",NA,"male","2010",NA,"prostate adenocarcinoma acinar type","r0","0","7",NA,NA,NA,NA
+"TCGA-KK-A7B0","value","67","0",NA,"1329","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","9","0.1","999",NA,NA
+"TCGA-KK-A7B1","value","65","0",NA,"1063","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","179",NA,NA
+"TCGA-KK-A7B2","value","68","0",NA,"1099","prostate",NA,"t3a","n1",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","1","9","0.3","845",NA,NA
+"TCGA-KK-A8I4","value","64","0",NA,"2259","prostate",NA,"t3b","n1",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","1","7","0.2","1964",NA,NA
+"TCGA-KK-A8I5","value","55","0",NA,"3096","prostate",NA,"t2b","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","1979",NA,NA
+"TCGA-KK-A8I6","value","58","0",NA,"668","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.2","668",NA,NA
+"TCGA-KK-A8I7","value","55","0",NA,"2002","prostate",NA,"t3b","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","0","9","0.1","1877",NA,NA
+"TCGA-KK-A8I8","value","69","0",NA,"967","prostate",NA,"t3b","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1",NA,"9","0.1","757",NA,NA
+"TCGA-KK-A8I9","value","61","0",NA,"1001","prostate",NA,"t3a","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","rx",NA,"8","0.1","721",NA,NA
+"TCGA-KK-A8IA","value","69","0",NA,"1931","prostate",NA,"t3b","n1",NA,"male","2009","no","prostate adenocarcinoma acinar type","rx","3","9","0.1","1383",NA,NA
+"TCGA-KK-A8IC","value","54","0",NA,"2051","prostate",NA,"t3b","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0",NA,"9","0.9","2047",NA,NA
+"TCGA-KK-A8ID","value","70","0",NA,"2107","prostate",NA,"t3b","n1",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","2","9","0.1","1924",NA,NA
+"TCGA-KK-A8IF","value","57","0",NA,"804","prostate",NA,"t3a","n0",NA,"male","2007",NA,"prostate adenocarcinoma acinar type","r0",NA,"7","0.7","788",NA,NA
+"TCGA-KK-A8IG","value","55","0",NA,"2505","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1",NA,"7","0.1","2211",NA,NA
+"TCGA-KK-A8IH","value","50","0",NA,"2013","prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","1634",NA,NA
+"TCGA-KK-A8II","value","61","1","3467",NA,"prostate",NA,"t3a","n0",NA,"male","2004","no","prostate adenocarcinoma, other subtype","r0",NA,"9","39.8","2891",NA,NA
+"TCGA-KK-A8IJ","value","59","0",NA,"1559","prostate",NA,"t3b","n1",NA,"male","2009",NA,"prostate adenocarcinoma acinar type","r0","1","7","0.1","167",NA,NA
+"TCGA-KK-A8IK","value","56","0",NA,"2052","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0",NA,"9","0",NA,NA,NA
+"TCGA-KK-A8IL","value","65","1","628",NA,"prostate",NA,"t3b","n1",NA,"male","2009",NA,"prostate adenocarcinoma acinar type","r1","1","9","0.1","144",NA,NA
+"TCGA-KK-A8IM","value","55","0",NA,"1915","prostate",NA,"t2c","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.1","1438",NA,NA
+"TCGA-M7-A71Y","value","55","0",NA,"493","prostate",NA,"t2c",NA,NA,"male","2013","no","prostate adenocarcinoma acinar type","r0",NA,"7",NA,"158",NA,NA
+"TCGA-M7-A71Z","value","62","0",NA,"643","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7",NA,"209",NA,NA
+"TCGA-M7-A720","value","53","0",NA,"384","prostate",NA,"t2c",NA,NA,"male","2013","no","prostate adenocarcinoma acinar type","r0",NA,"6",NA,"302",NA,NA
+"TCGA-M7-A721","value","70","0",NA,"400","prostate",NA,"t2c",NA,NA,"male","2012","no","prostate adenocarcinoma acinar type","r1",NA,"7",NA,"162",NA,NA
+"TCGA-M7-A722","value","65","0",NA,"1060","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","8",NA,"559",NA,NA
+"TCGA-M7-A723","value","54","0",NA,"763","prostate",NA,"t3b","n1",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","1","7","0.1","62",NA,NA
+"TCGA-M7-A724","value","64","0",NA,"889","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","8",NA,"483",NA,NA
+"TCGA-M7-A725","value","56","0",NA,"573","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","7",NA,"96",NA,NA
+"TCGA-MG-AAMC","value","59","0",NA,"173","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0",NA,"9","0.01","54",NA,NA
+"TCGA-QU-A6IL","value","64","0",NA,"97","prostate",NA,"t2c","n0",NA,"male","2002","no","prostate adenocarcinoma acinar type","r0","0","7","0.2","91",NA,NA
+"TCGA-QU-A6IN","value","61","0",NA,"4264","prostate",NA,"t2c","n0",NA,"male","2003","no","prostate adenocarcinoma acinar type","r0","0","7","0.1","3428",NA,NA
+"TCGA-QU-A6IO","value","53","0",NA,"3716","prostate",NA,"t2c","n0",NA,"male","2003","no","prostate adenocarcinoma acinar type","r1","0","6","0.1","1436",NA,NA
+"TCGA-QU-A6IP","value","66","0",NA,"2620","prostate",NA,"t2a","n0",NA,"male","2004","no","prostate adenocarcinoma acinar type","r0","0","6","0","2620",NA,NA
+"TCGA-SU-A7E7","value","60","0",NA,"551","prostate",NA,"t2b","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","8","0.01","426",NA,NA
+"TCGA-TK-A8OK","value","73","0",NA,"27","prostate",NA,NA,NA,NA,"male","2013","no","prostate adenocarcinoma acinar type",NA,NA,"7",NA,NA,NA,NA
+"TCGA-TP-A8TT","value","64","0",NA,"526","prostate",NA,"t3a","n0",NA,"male","2013","yes","prostate adenocarcinoma acinar type","r0","0","7","0.024","237",NA,NA
+"TCGA-TP-A8TV","value","62","0",NA,"610","prostate",NA,"t2c","n0",NA,"male","2013","yes","prostate adenocarcinoma acinar type","r1","0","7","0.019","249",NA,NA
+"TCGA-V1-A8MF","value","65","0",NA,"1449","prostate",NA,"t3a","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1","0","6","0.14","1218",NA,NA
+"TCGA-V1-A8MG","value","53","0",NA,"857","prostate",NA,"t3b",NA,NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1",NA,"7","0.03","583",NA,NA
+"TCGA-V1-A8MJ","value","58","0",NA,"1791","prostate",NA,"t3a","n1",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","1","7","0.015","1230",NA,NA
+"TCGA-V1-A8MK","value","41","0",NA,"508","prostate",NA,"t2c","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0",NA,"6","0.83","-1",NA,NA
+"TCGA-V1-A8ML","value","63","0",NA,"448","prostate",NA,"t2c","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","7","0.01","448",NA,NA
+"TCGA-V1-A8MM","value","60","0",NA,"1195","prostate",NA,"t3a","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","7","0.37","990",NA,NA
+"TCGA-V1-A8MU","value","56","0",NA,"1876","prostate",NA,"t3a","n1",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1","1","7","0.015","1384",NA,NA
+"TCGA-V1-A8WL","value","64","0",NA,"1948","prostate",NA,"t3a","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","7","0.015","1175",NA,NA
+"TCGA-V1-A8WN","value","47","0",NA,"924","prostate",NA,"t2c",NA,NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0",NA,"6","0.02","463",NA,NA
+"TCGA-V1-A8WS","value","56","0",NA,"474","prostate",NA,"t3b",NA,NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0",NA,"6","0.09","474",NA,NA
+"TCGA-V1-A8WV","value","52","0",NA,"686","prostate",NA,"t3b","n1",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","1","9","0.01","686",NA,NA
+"TCGA-V1-A8WW","value","59","0",NA,"1078","prostate",NA,"t3b","n1",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","1","9","0.015","695",NA,NA
+"TCGA-V1-A8X3","value","51","0",NA,"202","prostate",NA,"t2c","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1","0","7","0.03","202",NA,NA
+"TCGA-V1-A9O5","value","64","0",NA,"1932","prostate",NA,"t4","n1",NA,"male",NA,"yes","prostate adenocarcinoma acinar type","r1","6","9","3.26","1776",NA,NA
+"TCGA-V1-A9O7","value","60","0",NA,"2499","prostate",NA,"t3a","n0",NA,"male",NA,"yes","prostate adenocarcinoma acinar type","r1","0","9","9.69","2425",NA,NA
+"TCGA-V1-A9O9","value","56","0",NA,"2870","prostate",NA,"t3b","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","8","5.04","-53",NA,NA
+"TCGA-V1-A9OA","value","61","0",NA,"636","prostate",NA,"t3b","n1",NA,"male",NA,"yes","prostate adenocarcinoma acinar type","r0","1","9","0.01","510",NA,NA
+"TCGA-V1-A9OF","value","49","0",NA,"1184","prostate",NA,"t2c",NA,NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1",NA,"6","0.01","1184",NA,NA
+"TCGA-V1-A9OH","value","63","0",NA,"2403","prostate",NA,"t2b",NA,NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0",NA,"8","0.01","1253",NA,NA
+"TCGA-V1-A9OL","value","65","0",NA,"1913","prostate",NA,"t3b","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","9","0.01","559",NA,NA
+"TCGA-V1-A9OQ","value","67","0",NA,"371","prostate",NA,"t3a",NA,NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1",NA,"6","0.01","371",NA,NA
+"TCGA-V1-A9OT","value","61","0",NA,"476","prostate",NA,"t2c",NA,NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1",NA,"6","0.01","349",NA,NA
+"TCGA-V1-A9OX","value","56","0",NA,"1134","prostate",NA,"t2c","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","8","0.04","256",NA,NA
+"TCGA-V1-A9OY","value","57","0",NA,"1067","prostate",NA,"t3a","n1",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1","1","7","0.099","170",NA,NA
+"TCGA-V1-A9Z7","value","54","0",NA,"874","prostate",NA,"t3b","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","9","28.1","-75",NA,NA
+"TCGA-V1-A9Z8","value","59","0",NA,"827","prostate",NA,"t3b","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1","0","9","0.01","181",NA,NA
+"TCGA-V1-A9Z9","value","63","0",NA,"540","prostate",NA,"t2c","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","9","0.015","291",NA,NA
+"TCGA-V1-A9ZG","value","64","0",NA,"1517","prostate",NA,"t2c","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","9","0.015","893",NA,NA
+"TCGA-V1-A9ZI","value","68","0",NA,"1640","prostate",NA,"t3b","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","9","3.11","86",NA,NA
+"TCGA-V1-A9ZK","value","68","0",NA,"1383","prostate",NA,"t3b","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r0","0","8","0.01","1049",NA,NA
+"TCGA-V1-A9ZR","value","68","0",NA,"1361","prostate",NA,"t4","n0",NA,"male",NA,"no","prostate adenocarcinoma acinar type","r1",NA,"8","1.44","54",NA,NA
+"TCGA-VN-A88I","value","59","0",NA,"269","prostate",NA,"t3a","n0",NA,"male","2011",NA,"prostate adenocarcinoma acinar type","r0","0","8","0.16","269",NA,NA
+"TCGA-VN-A88K","value","58","0",NA,"776","prostate",NA,"t3a","n1",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","15","8","0","776",NA,NA
+"TCGA-VN-A88L","value","54","0",NA,"746","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0","394",NA,NA
+"TCGA-VN-A88M","value","55","0",NA,"189","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7",NA,NA,NA,NA
+"TCGA-VN-A88N","value","62","0",NA,"766","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","7","0","176",NA,NA
+"TCGA-VN-A88O","value","49","0",NA,"481","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","7","0","376",NA,NA
+"TCGA-VN-A88P","value","60","0",NA,"1260","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0","917",NA,NA
+"TCGA-VN-A88Q","value","60","0",NA,"1366","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma, other subtype","r0","0","8","0","1000",NA,NA
+"TCGA-VN-A88R","value","53","0",NA,"784","prostate",NA,"t2c","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","8","0.15","459",NA,NA
+"TCGA-VN-A943","value","71","0",NA,"496","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","8","0.01","132",NA,NA
+"TCGA-VP-A872","value","60","0",NA,"3631","prostate",NA,"t3a","n0",NA,"male","2005","no","prostate adenocarcinoma, other subtype","r0","0","8","0.01","3253",NA,NA
+"TCGA-VP-A875","value","67","0",NA,"2309","prostate",NA,"t3a","n0",NA,"male","2005","no","prostate adenocarcinoma acinar type","r0","0","7","0.01","867",NA,NA
+"TCGA-VP-A876","value","46","0",NA,"3333","prostate",NA,"t2c","n0",NA,"male","2005","no","prostate adenocarcinoma acinar type","r0","0","8","0.1","2576",NA,NA
+"TCGA-VP-A878","value","58","0",NA,"3130","prostate",NA,"t2c","n1",NA,"male","2006","no","prostate adenocarcinoma acinar type","r1","1","9","0.1","2704",NA,NA
+"TCGA-VP-A879","value","70","1","728",NA,"prostate",NA,"t2b","n0",NA,"male","2006","no","prostate adenocarcinoma acinar type","r0","0","9","0.01","688",NA,NA
+"TCGA-VP-A87B","value","63","0",NA,"2722","prostate",NA,"t2b","n0",NA,"male","2007","yes","prostate adenocarcinoma acinar type","r0","0","8","3.37","2309",NA,NA
+"TCGA-VP-A87C","value","67","0",NA,"1690","prostate",NA,"t2c","n0",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","0","7","0.5","1690",NA,NA
+"TCGA-VP-A87D","value","54","0",NA,"1853","prostate",NA,"t3a","n1",NA,"male","2007","no","prostate adenocarcinoma acinar type","r0","3","9","0.2","1853",NA,NA
+"TCGA-VP-A87E","value","59","0",NA,"2037","prostate",NA,"t2c","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r0","0","6","0.11","2037",NA,NA
+"TCGA-VP-A87H","value","76","0",NA,"663","prostate",NA,"t3b","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r2","0","9","0.01","663",NA,NA
+"TCGA-VP-A87J","value","56","0",NA,"1774","prostate",NA,"t3a","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","r2","1","7","0.13","1296",NA,NA
+"TCGA-VP-A87K","value","63","0",NA,"1306","prostate",NA,"t3b","n0",NA,"male","2010","no","prostate adenocarcinoma, other subtype","r1","0","8","0.3","655",NA,NA
+"TCGA-VP-AA1N","value","70","0",NA,"1365","prostate",NA,"t3a","n0",NA,"male","2008","yes","prostate adenocarcinoma acinar type","r1","0","9","0.01","542",NA,NA
+"TCGA-WW-A8ZI","value","70","0",NA,"449","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","8","0","176",NA,NA
+"TCGA-X4-A8KQ","value","65","0",NA,"1383","prostate",NA,"t3b","n0",NA,"male","2010","yes","prostate adenocarcinoma acinar type","rx","0","9","0.25","963",NA,NA
+"TCGA-X4-A8KS","value","61","0",NA,"979","prostate",NA,"t2c",NA,NA,"male","2011","no","prostate adenocarcinoma acinar type","rx",NA,"7","0.01","797",NA,NA
+"TCGA-XA-A8JR","value","68","0",NA,"376","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r2","0","7","0","69",NA,NA
+"TCGA-XJ-A83F","value",NA,"0",NA,"1127","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","rx","0","7","0.01","762",NA,NA
+"TCGA-XJ-A83G","value",NA,"0",NA,"1461","prostate",NA,"t3b","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type",NA,"0","7","0.01","1126",NA,NA
+"TCGA-XJ-A83H","value",NA,"0",NA,"1280","prostate",NA,"t2c",NA,NA,"male","2007","no","prostate adenocarcinoma acinar type","r0",NA,"7","0.03","1280",NA,NA
+"TCGA-XJ-A9DI","value",NA,"0",NA,"1461","prostate",NA,"t3b","n0",NA,"male","2009","yes","prostate adenocarcinoma acinar type","r0","0","9","0.1","1461",NA,NA
+"TCGA-XJ-A9DK","value",NA,"0",NA,"275","prostate",NA,"t2c",NA,NA,"male","2007","no","prostate adenocarcinoma acinar type","r0",NA,"8","0.1","275",NA,NA
+"TCGA-XJ-A9DQ","value",NA,"0",NA,"91","prostate",NA,"t2a",NA,NA,"male","2007","no","prostate adenocarcinoma acinar type","r0",NA,"6",NA,NA,NA,NA
+"TCGA-XJ-A9DX","value",NA,"0",NA,"973","prostate",NA,"t3b","n1",NA,"male","2012",NA,"prostate adenocarcinoma acinar type","r1","2","9","0.05","790",NA,NA
+"TCGA-XK-AAIR","value","75","0",NA,"972","prostate",NA,"t2c","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","8","0.09","953",NA,NA
+"TCGA-XK-AAIV","value","63","0",NA,"1133","prostate",NA,"t3b","n1",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r1","2","10","0.32","85",NA,NA
+"TCGA-XK-AAIW","value","78","0",NA,"1218","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","9","0.09","769",NA,NA
+"TCGA-XK-AAJA","value","62","0",NA,"930","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.09","712",NA,NA
+"TCGA-XK-AAJP","value","66","0",NA,"1259","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.09","889",NA,NA
+"TCGA-XK-AAJR","value","61","0",NA,"1124","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","0","7","0.09","753",NA,NA
+"TCGA-XK-AAJT","value","75","0",NA,"1434","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r1","0","7","0.09","566",NA,NA
+"TCGA-XK-AAJU","value","65","0",NA,"1576","prostate",NA,"t2c","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","7","0.09","1206",NA,NA
+"TCGA-XQ-A8TA","value","59","1","146",NA,"prostate",NA,NA,NA,NA,"male","2012","no","prostate adenocarcinoma acinar type",NA,NA,"10","323","62",NA,NA
+"TCGA-XQ-A8TB","value","67","0",NA,"770","prostate",NA,"t3b","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","0","9","0","674",NA,NA
+"TCGA-Y6-A8TL","value","65","0",NA,"992","prostate",NA,"t3a","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r0","0","6","0","775",NA,NA
+"TCGA-Y6-A9XI","value","72","0",NA,"526","prostate",NA,NA,"n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","8","0.06","519",NA,NA
+"TCGA-YJ-A8SW","value",NA,"0",NA,"148","prostate",NA,"t3b","n0",NA,"male","2008",NA,"prostate adenocarcinoma, other subtype","r1","0","9","0.38","148",NA,NA
+"TCGA-YL-A8HJ","value","58","0",NA,"1611","prostate",NA,"t3b",NA,NA,"male","2009","yes","prostate adenocarcinoma, other subtype","r0",NA,"9","0.03","1589",NA,NA
+"TCGA-YL-A8HK","value","59","0",NA,"1491","prostate",NA,"t3b","n0",NA,"male","2009","yes","prostate adenocarcinoma acinar type","r1","0","9","1","1491",NA,NA
+"TCGA-YL-A8HL","value","58","0",NA,"1565","prostate",NA,"t3b","n1",NA,"male","2010","yes","prostate adenocarcinoma acinar type","r1","2","9","0.03","1173",NA,NA
+"TCGA-YL-A8HM","value","66","0",NA,"1482","prostate",NA,"t3b","n0",NA,"male","2010","yes","prostate adenocarcinoma acinar type","r0","0","9","0.03","1124",NA,NA
+"TCGA-YL-A8HO","value","67","0",NA,"2304","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","7","0.01","2168",NA,NA
+"TCGA-YL-A8S8","value","68","0",NA,"1890","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","9","1.36","1890",NA,NA
+"TCGA-YL-A8S9","value","63","0",NA,"1842","prostate",NA,"t3a","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","9","0.03","1839",NA,NA
+"TCGA-YL-A8SA","value","69","0",NA,"512","prostate",NA,"t3b","n0",NA,"male","2009","yes","prostate adenocarcinoma acinar type","r1","0","8","0.06","467",NA,NA
+"TCGA-YL-A8SB","value","62","0",NA,"1719","prostate",NA,"t3a","n0",NA,"male","2010","yes","prostate adenocarcinoma acinar type","r1","0","9","0.23","1384",NA,NA
+"TCGA-YL-A8SC","value","66","0",NA,"1261","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r1","0","9","0.65","1261",NA,NA
+"TCGA-YL-A8SF","value","62","0",NA,"1373","prostate",NA,"t3b","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r1","0","8","0.01","1247",NA,NA
+"TCGA-YL-A8SH","value","69","1","875",NA,"prostate",NA,"t3a","n0",NA,"male","2009","no","prostate adenocarcinoma acinar type","r0","0","7","0.06","617",NA,NA
+"TCGA-YL-A8SI","value","69","0",NA,"1614","prostate",NA,"t3a","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","9","0.48","1441",NA,NA
+"TCGA-YL-A8SJ","value","60","0",NA,"1395","prostate",NA,"t3b","n0",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","0","9","0.24","1426",NA,NA
+"TCGA-YL-A8SK","value","67","0",NA,"1408","prostate",NA,"t3b","n1",NA,"male","2010","yes","prostate adenocarcinoma acinar type","r1","4","9","0.03","924",NA,NA
+"TCGA-YL-A8SL","value","74","0",NA,"987","prostate",NA,"t3b","n1",NA,"male","2011","no","prostate adenocarcinoma acinar type","r0","3","8","0","623",NA,NA
+"TCGA-YL-A8SO","value","64","0",NA,"3479","prostate",NA,"t3a",NA,NA,"male","2004","no","prostate adenocarcinoma acinar type","r1",NA,"9","0","3247",NA,NA
+"TCGA-YL-A8SP","value","58","0",NA,"2366","prostate",NA,"t3b",NA,NA,"male","2008","no","prostate adenocarcinoma acinar type","r1",NA,"9","0.38","2155",NA,NA
+"TCGA-YL-A8SQ","value","61","0",NA,"2083","prostate",NA,"t3b","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","9","1.1","1943",NA,NA
+"TCGA-YL-A8SR","value","64","0",NA,"273","prostate",NA,"t3a","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","9","0.06","222",NA,NA
+"TCGA-YL-A9WH","value","67","0",NA,"427","prostate",NA,"t3b","n1",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r1","1","9","0.03","349",NA,NA
+"TCGA-YL-A9WI","value","63","0",NA,"1623","prostate",NA,"t3a","n1",NA,"male","2010","no","prostate adenocarcinoma acinar type","r0","1","9","0.03","1259",NA,NA
+"TCGA-YL-A9WJ","value","47","1","1855",NA,"prostate",NA,"t3b","n1",NA,"male","2008","yes","prostate adenocarcinoma acinar type","r1","1","8","3.1","838",NA,NA
+"TCGA-YL-A9WK","value","63","0",NA,"2136","prostate",NA,"t3b","n0",NA,"male","2008","no","prostate adenocarcinoma acinar type","r1","0","9","15.6","1871",NA,NA
+"TCGA-YL-A9WL","value","59","0",NA,"740","prostate",NA,"t3a","n0",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r0","0","9","6.4","740",NA,NA
+"TCGA-YL-A9WX","value","68","0",NA,"1518","prostate",NA,"t3b","n1",NA,"male","2009","no","prostate adenocarcinoma acinar type","r1","1","9","0.76","1610",NA,NA
+"TCGA-YL-A9WY","value","57","0",NA,"1098","prostate",NA,"t3b","n1",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","11","9","1.8","765",NA,NA
+"TCGA-ZG-A8QW","value","72","0",NA,"94","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","1","9",NA,NA,NA,NA
+"TCGA-ZG-A8QX","value","56","0",NA,"442","prostate",NA,"t2c","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","6",NA,NA,NA,NA
+"TCGA-ZG-A8QY","value","67","0",NA,"404","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","rx","1","9",NA,NA,NA,NA
+"TCGA-ZG-A8QZ","value","65","0",NA,"308","prostate",NA,"t3b","n1",NA,"male","2013","yes","prostate adenocarcinoma acinar type","r1","1","9","0.01","239",NA,NA
+"TCGA-ZG-A9KY","value","73","0",NA,"130","prostate",NA,"t4","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","2","9",NA,NA,NA,NA
+"TCGA-ZG-A9L0","value","71","0",NA,"355","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","7","9",NA,NA,NA,NA
+"TCGA-ZG-A9L1","value","66","0",NA,"1302","prostate",NA,"t3b","n1",NA,"male","2010","yes","prostate adenocarcinoma acinar type","r1","1","9","0.07","1147",NA,NA
+"TCGA-ZG-A9L2","value","70","0",NA,"1154","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","9","0.01","1137",NA,NA
+"TCGA-ZG-A9L4","value","61","0",NA,"1108","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","9","0.03","1108",NA,NA
+"TCGA-ZG-A9L5","value","58","0",NA,"908","prostate",NA,"t4","n1",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","1","9",NA,NA,NA,NA
+"TCGA-ZG-A9L6","value","64","0",NA,"687","prostate",NA,"t3b","n0",NA,"male","2011","no","prostate adenocarcinoma acinar type","r1","0","9","0.36","664",NA,NA
+"TCGA-ZG-A9L9","value","60","0",NA,"617","prostate",NA,"t3b","n1",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","3","9",NA,NA,NA,NA
+"TCGA-ZG-A9LB","value","72","0",NA,"583","prostate",NA,"t3b","n0",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","0","9","0.02","485",NA,NA
+"TCGA-ZG-A9LM","value","72","0",NA,"378","prostate",NA,"t3a","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","2","9","0","121",NA,NA
+"TCGA-ZG-A9LN","value","57","0",NA,"115","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","6","9","7.42","90",NA,NA
+"TCGA-ZG-A9LS","value","64","0",NA,"516","prostate",NA,"t3b","n1",NA,"male","2013","yes","prostate adenocarcinoma acinar type","r1","3","9","0.03","147",NA,NA
+"TCGA-ZG-A9LU","value","67","0",NA,"579","prostate",NA,"t3a","n0",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","0","9","0.7","549",NA,NA
+"TCGA-ZG-A9LY","value","60","0",NA,"370","prostate",NA,"t3b","n1",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","1","9","0.01","288",NA,NA
+"TCGA-ZG-A9LZ","value","66","0",NA,"692","prostate",NA,"t3b","n0",NA,"male","2011","yes","prostate adenocarcinoma acinar type","r1","0","9","2.19","692",NA,NA
+"TCGA-ZG-A9M4","value","65","0",NA,"547","prostate",NA,"t3b","n1",NA,"male","2012","no","prostate adenocarcinoma acinar type","r1","1","9","0.95","218",NA,NA
+"TCGA-ZG-A9MC","value","69","0",NA,"455","prostate",NA,"t3b","n1",NA,"male","2012","yes","prostate adenocarcinoma acinar type","r1","2","9","31.85","427",NA,NA
+"TCGA-ZG-A9N3","value","73","0",NA,"349","prostate",NA,"t3b","n1",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","1","9","0.1","244",NA,NA
+"TCGA-ZG-A9ND","value","55","0",NA,"410","prostate",NA,"t3a","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r0","0","9","0.08","184",NA,NA
+"TCGA-ZG-A9NI","value","73","0",NA,"132","prostate",NA,"t3b","n0",NA,"male","2013","no","prostate adenocarcinoma acinar type","r1","0","9","0.03","99",NA,NA
