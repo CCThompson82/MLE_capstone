@@ -1,5 +1,5 @@
 \documentclass[final]{article}
-\title{Prognosis of prostate adenocarcinoma metastasis using gene activation profiling}
+\title{Prognosis of prostate adenocarcinoma metastasis using gene activation profiles as an unexplored source of information}
 \author{Christopher C Thompson}
 %packages
 \usepackage[margin=0.75in]{geometry}
@@ -29,16 +29,17 @@ of small needle sized biopsies are taken from the patient's prostate gland.
 Each biopsy is processed and scored by a pathologist for signs of abnormal cell
 type and structure.  Gleason grades ranging from 2 to 5 are considered not
 malignant, whereas scores ranging from 6-10 are considered malignant and provide
-an estimation of severity \cite{Humphrey04}.
+an estimation of cancer severity \cite{Humphrey04}.
 
 Contrary to some types of cancer, malignancies that remain local within the
 prostate are rarely lethal (survival rate of ~99\%).  However, if a malignancy
 born of the prostate undergoes distant metastasis (the process of cancer cell
-migration to other sites in the body), the 5-year survival rate drops to ~28\% \cite{CancerOrg}.
-Because of this discrepancy, many men opt for radical prostatectomy (surgical
-removal of the entire prostate).  While limiting the chance of metastasis,
-removal of the prostate results in high morbidity (e.g. inability to control
-urination, loss of sexual function, etc).
+migration to other sites in the body), the 5-year survival rate drops to ~28\%
+\cite{CancerOrg}. Because of this discrepancy, many men opt for radical
+prostatectomy (surgical removal of the entire prostate) despite not knowing
+whether a metastasis will occur or not.  While ressection does eliminate the
+chance of a future  metastasis, it results in high morbidity (\textit{e.g.}
+inability to control urination, loss of sexual function, etc).
 
 Unfortunately, there are currently no prognostic tests for prostate cancer metastasis.  The
 patient data  that is typically available at the time of diagnosis is not rich
@@ -46,37 +47,39 @@ enough to accurately predict the likelihood of prostate cancer metastasis \cite{
 model that would be able to predict whether an untreated malignancy is likely to
 remain within the prostate or will metastasize to distant sites would be an invaluable tool
 in the decision between prostatectomy or surveillance.  To
-generate such a model, it is clear that a more distinguishing dataset is required.
+generate such a model, it is clear that a more distinguishing data set is required.
 
 One potential solution to this problem is an RNA-seq profile.  In brief, RNA-seq
 is a technique that reads and counts RNA sequences in a biological specimen.
 What is RNA?  When a gene is activated in a cell, the DNA sequence is read (or
-'transcribed') into an RNA molecule.  RNA molecules are then read  into protein
-molecules that function in all manner of operations within the cell.  By reading
-and quantifying the  RNA molecules that exist in a sample, one may determine
-which genes have been activated, and to what degree.  A gene count profile (or 'RNA-seq' profile) is
-the estimation of activation for each of the full set of known genes in a biological specimen.
+'transcribed' or 'expressed') into an RNA molecule.  RNA molecules are then read
+into protein molecules that function in all manner of operations within the
+cell.  By reading and quantifying the  RNA molecules that exist in a sample, one
+may determine which genes have been activated, and to what degree.  A gene count
+profile (or 'RNA-seq' profile) is the estimation of activation for each of the
+full set of known genes in a biological specimen.
 
 In lay terms, the full set of RNA molecules in a cell can be  thought of as its
 blueprint.  And if two set of blueprints were incredibly similar, one would
 expect resultant buildings to be similar as well.  In contrast, while a
-skyscraper and a lakehouse are both considered buildings, they would likely originate from very
-different sets of blueprints.  In the same way, as metastatic cancer cells
-behave in drastically  different ways than non-metastatic cells (both metaphorical buildings), one would
-assume that their RNA-seq profiles (metaphorical blueprints) would be inherently different.
+skyscraper and a lakehouse are both considered buildings, they would likely
+originate from very different sets of blueprints.  In the same way, as
+metastatic cancer cells behave in drastically  different ways than
+non-metastatic cells, one would assume that their RNA-seq profiles would be
+inherently different.
 
-This difference should be detectable by RNA-seq, though it is unlikely that any
-single gene could distinguish metastasis from a local malignancy. The ultimate
-goal of this project is to determine the probability of prostate cancer metastasis
-from an RNA-seq profile, generated from a prostate biopsy taken during the
-Gleason grading procedure.
+This difference should be detectable by RNA-seq analysis, though it is unlikely
+that any single gene could distinguish metastasis from a local malignancy. The
+ultimate goal of this project is to determine the probability of prostate cancer
+metastasis from an RNA-seq profile, generated from a prostate biopsy taken
+during the Gleason grading procedure.
 
 \subsection{Problem Statement}
 
 The primary questions that this project aims to answer are :
 \begin{itemize}
 \item Can the risk of prostate cancer metastasis state be predicted from a gene activation (RNA-seq) profile?
-\item If so, what genes (individually or in concert) are important for this assessment?
+\item If so, what genes (individually or in concert) are important for this distinction?
 \end{itemize}
 
 The goal of this project is to design a model that predicts the risk of prostate
@@ -96,12 +99,12 @@ An appropriate metric for the assessment of the probability of a binary class pr
 Logarithmic Loss (Log Loss) score.
 
 The equation for log loss is : $$ logloss = -\frac{1}{N} \sum_{i=1}^{N} (y_i
-*log(p_i) + (1- y_i) * log(1-p_i)) $$ where \textit{p} represents an observations
-predicted probability ($0 < \textit{p} < 1$) and \textit{y} represents the actual binomial class
+*log(p_i) + (1- y_i) * log(1-p_i)) $$ where \textit{p} represents an observation's
+predicted probability ($0 < \textit{p} < 1$) and \textit{y} represents the dummy variable of the actual binomial class
 \{0,1\}.
 
 The log loss function provides a penalty score for each predicted observation in
-relation to the difference between the actual class {0,1} and predicted
+relation to the difference between the actual class \{0,1\} and predicted
 probability (0:1).  Predictions that are both incorrect and confident are
 punished harshly.  For instance, if a model were to return a certain outcome for
 binary classification (0 or 1), and that prediction was false (1 or 0), then
@@ -120,8 +123,8 @@ log loss score of approximately 0.693147.
 research consortium set up to curate clinical data from thousands of patient
 participants, covering an array of cancer types.   The data provided includes basic
 clinical information as well as DNA and RNA sequencing of cancer biopsies. These
-data sets are updated frequently as new information becomes available.  Thus
-each longitudinal download represents a snapshot in an evolving data set.
+data sets are updated as new information becomes available.  Thus
+each download represents a snapshot in an evolving, longitudinal study.
 
 While detailed genomic and RNA sequence data is control-accessed, pre-processed
 gene count data is publicly available.  Data can be downloaded via the
@@ -140,8 +143,8 @@ race/ethnicity should not be used in cases of genetic / gene activation analysis
 
 The outcome variable for this project is contained in the clinical data set,
 which is 'pathologyNstage'.  This label is composed of 'n0' or 'n1',
-representing local versus metastatic cancer, respectively.  The current
-percentage of metastatic cases is approximately 16\%, though this percentage is
+representing \textbf{local} versus \textbf{metastatic} cancer, respectively.  The current
+percentage of metastatic cases is approximately 16\% (Figure \ref{fig:LabelCount}), though this percentage is
 likely to increase as the age of the study increases (see Reflection section for
 discussion).
 
@@ -149,8 +152,8 @@ discussion).
 	\centering
 	\includegraphics[scale=0.5]{LabelCount}
   \caption{Frequency of metastasis state ('pathologyNstage') in the TCGA Prostate adenocarcinoma cohort.\label{MetFreq}
-  Most cases in the TCGA cohort are labeled as 'non-metastatic', however this study is currently ongoing and
-  some may be updated as metastases are diagnosed in the cohort.  The frequency counts are accurate from the
+    Most cases in the TCGA cohort are labeled as 'non-metastatic', however this study is currently ongoing and
+  some may be updated as metastases are diagnosed.  The frequency counts are accurate from the
   date of this report.}
 \end{SCfigure}
 
@@ -165,7 +168,7 @@ the metastasis class.
   \centering
   \includegraphics[scale=0.5]{GleasonHist}
   \caption{Frequency of metastasis state grouped by Gleason grade.\label{fig:preGSHist}
-  The ratio of metastasis cases increases with cancer severity, as measured by Gleason grade.}
+    The ratio of metastasis cases increases with cancer severity, as measured by Gleason grade.}
 \end{SCfigure}
 
 \subsection{Exploratory Visualization}
@@ -179,7 +182,7 @@ While Gleason grade seems to correlate weakly to metastasis state, neither age o
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.33]{ClinScatterMatrix}
+  \includegraphics[scale=0.6]{ClinScatterMatrix}
   \caption{Relationship between age, PSA value, and Gleason grade in prostate cancer
   metastasis class ('n0'- blue, 'n1' - red).\label{fig:ClinSM}  Only age appears to
   be distributed normally.  Cases of metastasis appear to correlate weakly with
@@ -221,7 +224,7 @@ The basic outline for project completion is as follows:
 \end{enumerate}
 
 The feature reduction exercise will utilize Random Forest Classifier, not as a
-classification algorithm, but as a method to measure the ability sampled genes
+classification algorithm, but as a method to measure the ability of sampled genes
 to separate the data set by metastasis class.  By increasing the number of
 trees, the  chance of sampling all features at least once is increased.  Given
 noisy data, decision trees (and thus Random Forest) classifiers are prone to
@@ -232,13 +235,13 @@ phase.
 
 The reduced feature data set will be compressed further using Principle Component
 Analysis (PCA).  PCA is an unsupervised learning technique that transforms a
-dataset into its principle components - \textit{i.e.} the orthogonal vectors within the
+data set into its principle components - \textit{i.e.} the orthogonal vectors within the
 data that explain the greatest amount of its variance.  By selecting the
 the most important components, several features may be combined into a lower
 number without significant loss of information.  How many principle components
 will be carried into the algorithm training will depend on the amount of variance
 each component can explain.  For example, if the first principle component that
-explains 95\% of the dataset variance, it would not be necessary to bring any other
+explains 95\% of the data set variance, it would not be necessary to bring any other
 principle components forward for further analysis.
 
 The probabilistic-classification algorithm chosen for this task is the logistic
@@ -248,23 +251,25 @@ malignancy) based on continuous input variables that cannot cleanly differentiat
 class labels individually.  Logistic regression classification is well suited
 for noisey data, in that it does not assume that there is any margin or hyperplane that
 is capable of separating class labels.  Instead, it returns a likelihood of class assignment
-based on the linear combination of input variables as a single term into the logistic
-regression equation:
-
+based on the linear combination of input variables as a single term into the logistic (or 'sigmoid')
+function:
+\\
 $$ P(class = 1 | X) = \frac{1}{1+e^{-X}}$$
 
+\\
 where $X$ is equated to :
 
 $$ X = \sum{ \beta_{n}*x_{n}} $$
-
+\\
 and $x_{n}$ represents each feature, $\beta_{n}$ represents each feature's coefficient, $e$ is
 euler's number.
-
+\\
 For algorithm training, a 'solver' is necessary to determine the optimal $\beta$
 coefficients to minimize penalties accumulated from a 'cost function'.  There are
 several options for both the 'solver' and 'cost function', which also requires
 a regularization term, 'C'.
 
+Initial Parameter Choices:
 \begin{itemize}
   \item Solver - The 'liblinear' solver is based on a coordinate descent algorithm and
   is ideal for small data sets.
@@ -296,7 +301,7 @@ normally be known at the time of diagnosis was generated.  These features were
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{benchmark}
-  \caption{Visualization of a benchmark logistic regression predictive model performance.\label{fig:benchScat}
+  \caption{Visualization of a benchmark logistic regression predictive model performance.\label{fig:benchmark}
   Training and test sets were stratified by Gleason grade, which appears to correlate to the benchmark model
   prediction of metastasis risk.}
 \end{figure}
@@ -317,12 +322,10 @@ normally be known at the time of diagnosis was generated.  These features were
 The coefficients for the three features in the model (representative values shown in Table \ref{tab:benchcoefs}) exhibited that
 Gleason score was by far the most predictive (approximately 0.85), and that age and, surprisingly,
 PSA score (which is the current default test that doctors rely on
-for prostate cancer risk)  provided very little use in classification.  Figure 5
-(left) shows the relationship between Gleason score and the benchmark model's
-prediction of metastasis.  Figure 5 (right) shows the distribution of metastasis
-probabilities, color-filled by actual metastasis state.
-
-The log loss score from this benchmark analysis ranged from approximately 0.59 - 0.62 across 5 different runs (See Table \ref{tab:performance}), and
+for prostate cancer risk)  provided very little use in classification.  Figure \ref{fig:benchmark}
+shows the relationship between Gleason grade and benchmark model probability of
+metastasis for each observation in the training (left) and test (right) sets.  Data points
+are color-filled by actual metastasis state.  The test set log loss score from this benchmark analysis ranged from approximately 0.59 - 0.62 across 5 different runs (See Table \ref{tab:performance}), and
 thus could be considered marginally more useful than a '50\% model'.
 
 
@@ -330,7 +333,7 @@ thus could be considered marginally more useful than a '50\% model'.
 
 \subsection{Source Files}
 
-The datasets were retrieved from the TCGA portal using an R package,
+The data sets were retrieved from the TCGA portal using an R package,
 \href{https://cran.r-project.org/web/packages/TCGA2STAT/index.html}{TCGA2STAT},
 and written to the local drive in \href{https://github.com/wesm/feather}{feather} format,
 which is python-readable.  The R script used and feather files are
@@ -349,7 +352,7 @@ was that those with low grade malignancy are usually not screened for
 metastasis and thus the lack of data label probably reflected the
 dispensibility of the metastasis test in cases of mild malignancy. From a
 machine learning perspective, this step allowed more efficient use of a rather
-small dataset.  Given a much bigger data set, then this assumption would not be
+small data set.  Given a much bigger data set, then this assumption would not be
 necessary, and  all cases with missing label could be excluded.  Indeed, for
 cases scored 7-10 on the Gleason scale where no labels were included in the
 clinical data were excluded from further analysis.
@@ -364,7 +367,7 @@ clinical data were excluded from further analysis.
 The gene count data retrieved from the TCGA portal was in an intermediary
 format.  While the raw RNA-sequence reads had been processed into gene
 expression estimations, each profile required normalization for
-cross-sample comparison.   Therefore, the initial gene count dataset was transformed to
+cross-sample comparison.   Therefore, the initial gene count data set was transformed to
 transcripts per million (TPM) format.  This dataframe ('X') was the base upon
 which further feature reduction and test train splitting would be performed.
 
@@ -414,7 +417,7 @@ from each gene of the the \textit{k-}gene subset can be determined and is shown 
   the Udacity Machine Learning Nanodegree Project \#3 - Creating Customer Segments.}
 \end{figure}
 
-This 3-feature dataset was then partitioned using the same indices from the
+This 3-feature data set was then partitioned using the same indices from the
 first
 \href{http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html}{Train
 Test Split} performed prior to the benchmark model generation.  In detail, this
@@ -529,7 +532,7 @@ Seed & Final Model LogLoss & Benchmark LogLoss & Improvement over Benchmark (\%)
 \end{tabular}
 \end{table}
 
-This project's strategy was to leave out 30\% of the original dataset to use as a
+This project's strategy was to leave out 30\% of the original data set to use as a
 true validation of the models' generalization capability.  The final model validation
 set log loss score ranged from 0.467 to 0.56 across five different random state
 seeds.  Each value in this range was lower than the minimum benchmark score in the
@@ -606,7 +609,7 @@ more useful than simple use of the 'Gleason Score'.  To accomplish this, RNA-seq
 therapy for newly diagnosed prostate cancer patients.  There were several issues
 that made this task difficult:
 
-\begin{enumerate} \item Small, wide sample data - the effective dataset
+\begin{enumerate} \item Small, wide sample data - the effective data set
 (containing Gene Activation profile and a metastasis label) was 446 samples by
 20501 gene features.
 \item 'Inaccurate' / 'Pre-mature' data labelling - The TCGA
@@ -768,7 +771,7 @@ high risk can not be identified for extra care in monitoring metastasis.
 \subsection{Improvement}
 
 While certainly prosaic, this project could use an increased number of participants.
-With the short and wide input dataset, the options for algorithm choice were severely
+With the short and wide input data set, the options for algorithm choice were severely
 limited.  Convergence between the Training and test set error rates in log loss
 score indicate variance is not an issue, though the low number of final input features
 could very well be introducing bias.
@@ -784,7 +787,7 @@ benchmark rate should be  considered a success, especially considering that many
 be warranted to  determine if use of this model could benefit those diagnosed
 with prostate cancer in the very difficult decision of resection versus
 monitoring.  Finally, it may be possible to utilize this same pipeline for
-metastasis predictions in other types of cancer simply by modifying the input dataset.
+metastasis predictions in other types of cancer simply by modifying the input data set.
 
 \section{References}
 
