@@ -1,6 +1,8 @@
 # MLE_capstone - Prediction of Prostate Cancer Metastasis
 
-This repository contains all the necessary files, scripts, and documentation to predict the probability of prostate cancer metastasis from a malignant biopsy RNA-seq profile (in Transcripts per million gene count format).  This is an exercise for completion of my Machine Learning Engineer Nanodegree from Udacity and should not be treated as a medical or diagnositic tool.  
+This repository contains all the necessary files, scripts, and documentation to predict the probability of prostate cancer metastasis from a malignant biopsy RNA-seq profile (in Transcripts per million gene count format).  This is an exercise for completion of my Machine Learning Engineer Nanodegree from Udacity and should not be treated as a medical or diagnositic tool. 
+
+The project report is titled [Capstone_report.pdf](https://github.com/CCThompson82/MLE_capstone/blob/master/Capstone_report.pdf)
 
 # Dependencies
 Execution of the ipython notebook analysis code depends on standard modules:
